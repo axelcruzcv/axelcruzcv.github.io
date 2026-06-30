@@ -3,18 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="CV de Axel Cruz Machado — Project Manager Digital especializado en eLearning, plataformas web, producción audiovisual, branding y QA." />
-  <title>Axel Cruz Machado | Project Manager Digital</title>
+  <meta name="description" content="CV de Axel Cruz Machado — Digital Product & Operations Lead especializado en productos digitales, program management, learning technology, IA aplicada, soluciones digitales enterprise y coordinación de equipos multidisciplinarios." />
+  <title>Axel Cruz Machado | Digital Product & Operations Lead</title>
   <style>
     :root {
-      --bg: #f5f5f2;
+      --bg: #f3f4f8;
       --paper: #ffffff;
-      --ink: #1f1f1f;
-      --muted: #5f5f5f;
-      --line: #d7d7d2;
-      --accent: #232323;
-      --accent-soft: #eeeeea;
-      --max-width: 980px;
+      --ink: #111827;
+      --muted: #64748b;
+      --line: #dbe1ea;
+      --accent: #4f46e5;
+      --accent-2: #06b6d4;
+      --accent-3: #7c3aed;
+      --accent-soft: #eef2ff;
+      --soft-blue: #f0f9ff;
+      --soft-purple: #f5f3ff;
+      --max-width: 1080px;
+      --radius: 22px;
+      --shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
     }
 
     * {
@@ -28,9 +34,12 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top left, rgba(79, 70, 229, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.13), transparent 28%),
+        linear-gradient(180deg, #f8fafc 0%, var(--bg) 100%);
       color: var(--ink);
-      line-height: 1.5;
+      line-height: 1.55;
       font-size: 16px;
     }
 
@@ -41,74 +50,167 @@
     }
 
     a:hover {
-      color: #000;
+      color: var(--accent);
     }
 
     .page {
-      width: min(100%, var(--max-width));
+      width: min(calc(100% - 32px), var(--max-width));
       margin: 32px auto;
       background: var(--paper);
-      padding: 56px 64px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(0, 0, 0, 0.04);
+      padding: 0;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      padding: 54px 64px 44px;
+      color: white;
+      background:
+        radial-gradient(circle at 78% 10%, rgba(124, 58, 237, 0.55), transparent 25%),
+        radial-gradient(circle at 18% 82%, rgba(6, 182, 212, 0.28), transparent 26%),
+        linear-gradient(135deg, #020617 0%, #0f172a 45%, #1e1b4b 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(110deg, transparent 0%, transparent 42%, rgba(59, 130, 246, 0.08) 42%, rgba(59, 130, 246, 0.08) 43%, transparent 43%),
+        radial-gradient(circle at 72% 62%, rgba(6, 182, 212, 0.16), transparent 22%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -160px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow:
+        0 0 0 34px rgba(255, 255, 255, 0.03),
+        0 0 0 74px rgba(124, 58, 237, 0.06),
+        0 0 0 116px rgba(6, 182, 212, 0.05);
+      pointer-events: none;
     }
 
     .topbar {
+      position: relative;
+      z-index: 2;
       display: flex;
       justify-content: space-between;
       gap: 32px;
       align-items: flex-start;
-      border-bottom: 2px solid var(--ink);
-      padding-bottom: 24px;
-      margin-bottom: 36px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin: 0 0 18px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #dbeafe;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
     .name-block h1 {
       margin: 0;
-      font-size: clamp(2.1rem, 5vw, 4rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      line-height: 0.92;
+      letter-spacing: -0.065em;
       text-transform: uppercase;
     }
 
     .name-block h2 {
-      margin: 14px 0 0;
-      font-size: 1.05rem;
+      margin: 18px 0 0;
+      max-width: 720px;
+      font-size: clamp(1rem, 2vw, 1.22rem);
       font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
+      letter-spacing: 0.04em;
+      color: #dbeafe;
+    }
+
+    .mission {
+      margin: 16px 0 0;
+      max-width: 760px;
+      color: #c4b5fd;
+      font-size: 1rem;
     }
 
     .contact {
-      min-width: 280px;
+      min-width: 300px;
       text-align: right;
-      color: var(--muted);
-      font-size: 0.95rem;
+      color: #e2e8f0;
+      font-size: 0.94rem;
+      font-style: normal;
     }
 
     .contact p {
-      margin: 0 0 6px;
+      margin: 0 0 8px;
+    }
+
+    .contact a {
+      border-bottom-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .content {
+      padding: 46px 64px 56px;
     }
 
     section {
-      margin: 0 0 34px;
+      margin: 0 0 38px;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
     }
 
     .section-title {
-      margin: 0 0 16px;
-      font-size: 0.9rem;
-      letter-spacing: 0.18em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 18px;
+      font-size: 0.86rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--ink);
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 8px;
+    }
+
+    .section-title::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: var(--line);
     }
 
     .profile {
-      font-size: 1.04rem;
-      color: #2f2f2f;
-      max-width: 880px;
+      font-size: 1.06rem;
+      color: #334155;
+      max-width: 900px;
+      margin: 0 0 14px;
+    }
+
+    .quote {
+      margin: 18px 0 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: linear-gradient(90deg, var(--accent-soft), #ffffff);
+      color: #1e293b;
+      font-weight: 700;
+      border-radius: 0 16px 16px 0;
     }
 
     .skills {
@@ -122,51 +224,62 @@
 
     .skills li {
       background: var(--accent-soft);
-      border: 1px solid var(--line);
-      padding: 7px 10px;
+      border: 1px solid #c7d2fe;
+      padding: 7px 11px;
       border-radius: 999px;
-      font-size: 0.92rem;
-      color: #333;
+      font-size: 0.91rem;
+      color: #312e81;
+      font-weight: 700;
+    }
+
+    .skills li:nth-child(3n) {
+      background: var(--soft-blue);
+      border-color: #bae6fd;
+      color: #075985;
     }
 
     .job {
-      margin-bottom: 32px;
+      margin-bottom: 34px;
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 28px;
+      grid-template-columns: 225px 1fr;
+      gap: 30px;
     }
 
     .job:last-child {
       margin-bottom: 0;
     }
 
-    .job-meta h3,
-    .job-main h3 {
-      margin: 0;
-    }
-
     .company {
+      margin: 0;
       font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       line-height: 1.25;
+      color: #0f172a;
     }
 
     .date {
-      margin-top: 8px;
+      margin: 8px 0 0;
       font-weight: 700;
       color: var(--muted);
       font-size: 0.92rem;
     }
 
+    .location {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
     .role {
-      font-size: 1.08rem;
       margin: 0 0 10px;
+      font-size: 1.1rem;
+      color: #111827;
     }
 
     .summary {
       margin: 0 0 12px;
-      color: #333;
+      color: #334155;
     }
 
     ul.bullets {
@@ -176,59 +289,66 @@
 
     ul.bullets li {
       margin: 7px 0;
+      color: #273449;
     }
 
     .highlights {
       margin-top: 18px;
-      background: #fafafa;
-      border-left: 4px solid var(--accent);
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent-2);
       padding: 14px 18px;
+      border-radius: 0 16px 16px 0;
     }
 
     .highlights h4 {
       margin: 0 0 8px;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
+      color: #0f172a;
     }
 
+    .project-grid,
     .tool-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px 22px;
+      gap: 16px;
     }
 
-    .tool-card {
+    .card {
       border: 1px solid var(--line);
-      padding: 14px 16px;
-      background: #fcfcfb;
+      padding: 16px 18px;
+      background: #fcfcff;
+      border-radius: 18px;
     }
 
-    .tool-card h3 {
-      margin: 0 0 6px;
-      font-size: 0.98rem;
+    .card h3 {
+      margin: 0 0 7px;
+      font-size: 1rem;
+      color: #111827;
     }
 
-    .tool-card p {
+    .card p {
       margin: 0;
-      color: #3d3d3d;
+      color: #3d4b63;
       font-size: 0.95rem;
     }
 
     .education-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.1fr 0.9fr;
       gap: 24px;
     }
 
     .education-grid h3 {
-      margin: 0 0 4px;
+      margin: 0 0 5px;
       font-size: 1rem;
     }
 
     .education-grid p,
     .education-grid li {
-      color: #3d3d3d;
+      color: #3d4b63;
     }
 
     .education-grid ul {
@@ -237,7 +357,7 @@
     }
 
     .footer-note {
-      margin-top: 38px;
+      margin-top: 40px;
       padding-top: 18px;
       border-top: 1px solid var(--line);
       color: var(--muted);
@@ -251,32 +371,31 @@
       bottom: 22px;
       border: 0;
       border-radius: 999px;
-      background: var(--ink);
+      background: #111827;
       color: white;
       padding: 12px 18px;
       font-weight: 700;
       cursor: pointer;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.24);
+      z-index: 10;
     }
 
     .print-action:hover {
       background: #000;
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 820px) {
       .page {
+        width: 100%;
         margin: 0;
-        padding: 34px 22px;
+        border-radius: 0;
         box-shadow: none;
         border: 0;
       }
 
-      .topbar,
-      .job,
-      .education-grid,
-      .tool-grid {
-        grid-template-columns: 1fr;
-        display: block;
+      .hero,
+      .content {
+        padding: 34px 22px;
       }
 
       .topbar {
@@ -286,14 +405,22 @@
       .contact {
         min-width: 0;
         text-align: left;
-        margin-top: 20px;
+        margin-top: 22px;
+      }
+
+      .job,
+      .education-grid,
+      .tool-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+        display: block;
       }
 
       .job-meta {
         margin-bottom: 10px;
       }
 
-      .tool-card {
+      .card {
         margin-bottom: 12px;
       }
 
@@ -305,7 +432,7 @@
     @media print {
       body {
         background: #fff;
-        font-size: 11pt;
+        font-size: 10.5pt;
       }
 
       .page {
@@ -314,6 +441,29 @@
         padding: 0;
         box-shadow: none;
         border: 0;
+        border-radius: 0;
+      }
+
+      .hero {
+        color: #111827;
+        background: #fff;
+        padding: 0 0 22px;
+        border-bottom: 2px solid #111827;
+      }
+
+      .hero::before,
+      .hero::after {
+        display: none;
+      }
+
+      .name-block h2,
+      .mission,
+      .contact {
+        color: #334155;
+      }
+
+      .content {
+        padding: 24px 0 0;
       }
 
       .print-action {
@@ -326,7 +476,7 @@
 
       section,
       .job,
-      .tool-card {
+      .card {
         break-inside: avoid;
       }
     }
@@ -334,150 +484,193 @@
 </head>
 <body>
   <main class="page">
-    <header class="topbar">
-      <div class="name-block">
-        <h1>Ing. Axel<br />Cruz Machado</h1>
-        <h2>Project Manager Digital</h2>
+    <header class="hero">
+      <div class="topbar">
+        <div class="name-block">
+          <p class="eyebrow">Creatividad · Ingeniería · Tecnología</p>
+          <h1>Ing. Axel<br />Cruz Machado</h1>
+          <h2>Digital Product &amp; Operations Lead | Program Manager | Learning Technology, AI Adoption &amp; Enterprise Digital Solutions</h2>
+          <p class="mission">Construyo y coordino soluciones digitales que conectan negocio, tecnología, comunicación y aprendizaje para ampliar las posibilidades de personas y organizaciones.</p>
+        </div>
+        <address class="contact">
+          <p>Ciudad de México, México</p>
+          <p><a href="mailto:axelcruzmachado@gmail.com">axelcruzmachado@gmail.com</a></p>
+          <p><a href="tel:+525530392163">+52 55 3039 2163</a></p>
+          <p><a href="https://www.linkedin.com/in/axeldanielcruzmachado/" target="_blank" rel="noreferrer">linkedin.com/in/axeldanielcruzmachado</a></p>
+          <p><a href="https://axelixir.github.io/AxelCruzCV/index.html" target="_blank" rel="noreferrer">axelixir.github.io/AxelCruzCV</a></p>
+        </address>
       </div>
-      <address class="contact">
-        <p>Ciudad de México</p>
-        <p><a href="mailto:axelcruzmachado@gmail.com">axelcruzmachado@gmail.com</a></p>
-        <p><a href="tel:+525530392163">+52 55 3039 2163</a></p>
-        <p><a href="https://www.linkedin.com/in/axeldanielcruzmachado/" target="_blank" rel="noreferrer">linkedin.com/in/axeldanielcruzmachado</a></p>
-      </address>
     </header>
 
-    <section aria-labelledby="perfil">
-      <h2 id="perfil" class="section-title">Perfil profesional</h2>
-      <p class="profile">Project Manager Digital con experiencia liderando proyectos eLearning, plataformas web, producción audiovisual, branding y contenidos digitales para clientes corporativos. Especializado en transformar necesidades de negocio en planes ejecutables, coordinar equipos multidisciplinarios, controlar alcance, cronogramas, riesgos, QA y comunicación cliente-equipo. Perfil técnico-operativo con visión estratégica, criterio de producción y enfoque en cumplimiento, orden y mejora continua.</p>
-    </section>
+    <div class="content">
+      <section aria-labelledby="perfil">
+        <h2 id="perfil" class="section-title">Perfil profesional</h2>
+        <p class="profile">Digital Product &amp; Operations Lead con más de 9 años de experiencia liderando equipos multidisciplinarios, clientes enterprise, plataformas digitales, operaciones LMS, comunicación corporativa y proyectos habilitados por tecnología.</p>
+        <p class="profile">Me especializo en traducir necesidades de negocio en soluciones digitales ejecutables: alinear stakeholders, coordinar equipos creativos y técnicos, mejorar la calidad de entrega, gestionar ejecución y facilitar adopción en entornos corporativos.</p>
+        <p class="profile">Mi perfil conecta digital learning, comunicación interna, product operations, customer success, implementation management y creative technology. Actualmente fortalezco mi especialización en AI adoption, product strategy y workflow transformation.</p>
+        <p class="quote">Misión profesional: usar la creatividad, la ingeniería y la tecnología para ampliar las posibilidades de las personas.</p>
+      </section>
 
-    <section aria-labelledby="competencias">
-      <h2 id="competencias" class="section-title">Competencias clave</h2>
-      <ul class="skills">
-        <li>Project Management digital</li>
-        <li>Coordinación multidisciplinaria</li>
-        <li>Gestión de cuentas B2B</li>
-        <li>eLearning / LMS / WBT</li>
-        <li>Producción audiovisual</li>
-        <li>Branding</li>
-        <li>Plataformas web</li>
-        <li>QA operativo, visual y funcional</li>
-        <li>Documentación de procesos</li>
-        <li>Mejora continua</li>
-      </ul>
-    </section>
+      <section aria-labelledby="competencias">
+        <h2 id="competencias" class="section-title">Competencias clave</h2>
+        <ul class="skills">
+          <li>Product Operations</li>
+          <li>Program Management</li>
+          <li>Stakeholder Management</li>
+          <li>Digital Transformation</li>
+          <li>Customer Success</li>
+          <li>Learning Technology</li>
+          <li>AI Adoption</li>
+          <li>Digital Strategy</li>
+          <li>Implementation Management</li>
+          <li>Enterprise Content Operations</li>
+          <li>Creative Operations</li>
+          <li>Cross-functional Leadership</li>
+          <li>QA &amp; Process Improvement</li>
+          <li>Client Communication</li>
+          <li>LMS / Digital Platforms</li>
+        </ul>
+      </section>
 
-    <section aria-labelledby="experiencia">
-      <h2 id="experiencia" class="section-title">Experiencia profesional</h2>
+      <section aria-labelledby="experiencia">
+        <h2 id="experiencia" class="section-title">Experiencia profesional</h2>
 
-      <article class="job">
-        <div class="job-meta">
-          <h3 class="company">Top of Mind Communication</h3>
-          <p class="date">2024 – Actualidad</p>
-        </div>
-        <div class="job-main">
-          <h3 class="role">Project Manager Digital / Jefe de Coordinación y Calidad</h3>
-          <p class="summary">Coordino proyectos digitales y contenidos corporativos para clientes B2B, liderando equipos multidisciplinarios de eLearning, audiovisual, branding, software, diseño instruccional y QA.</p>
-          <ul class="bullets">
-            <li>Lidero la planeación, seguimiento y entrega de proyectos eLearning, audiovisuales, branding, plataformas web y producción digital para clientes corporativos.</li>
-            <li>Coordino equipos multidisciplinarios de hasta <strong>25 personas</strong>, integrando talento interno y externo en áreas creativas, técnicas, operativas y de QA.</li>
-            <li>Gestiono entre <strong>8 y 10 proyectos activos</strong> de forma habitual, con picos de hasta <strong>15 proyectos simultáneos</strong> en periodos de alta demanda.</li>
-            <li>Atiendo cuentas corporativas como <strong>KIA, KPMG, Edenred, Hino, Costco y Mazda</strong>, asegurando acuerdos, validaciones, calidad y comunicación cliente-equipo.</li>
-            <li>Controlo cronogramas, prioridades, riesgos, entregables, QA y comunicación entre producción, diseño, desarrollo, dirección y cliente.</li>
-          </ul>
-          <div class="highlights">
-            <h4>Logros destacados</h4>
+        <article class="job">
+          <div class="job-meta">
+            <h3 class="company">Top of Mind Communication</h3>
+            <p class="date">Feb. 2024 – Actualidad</p>
+            <p class="location">Ciudad de México</p>
+          </div>
+          <div class="job-main">
+            <h3 class="role">Head of Coordination &amp; Quality / Digital Project Manager</h3>
+            <p class="summary">Lidero proyectos digitales, plataformas LMS, contenidos corporativos, branding, producción audiovisual, QA y coordinación técnica para clientes enterprise.</p>
             <ul class="bullets">
-              <li>Coordinación de más de <strong>150 contenidos</strong> para KIA Capacitación en un año.</li>
-              <li>Coordinación de desarrollo, seguimiento operativo de LMS y más de <strong>25 cursos WBT</strong> para Hino México.</li>
-              <li>Coordinación anual de más de <strong>15 producciones audiovisuales</strong> para KPMG México, con entregables validados por altos directivos.</li>
-              <li>Gestión de más de <strong>10 proyectos</strong> para Costco México, área Legal / Real Estate, para procesos de validación con corporativo en EE. UU.</li>
-              <li>Coordinación de propuesta ganadora para cursos técnicos de Mazda México.</li>
+              <li>Lidero equipos multidisciplinarios de creatividad, diseño instruccional, QA, producción audiovisual, software y stakeholders de cliente para entregar proyectos digitales y corporativos.</li>
+              <li>Coordino cuentas y proyectos para clientes como <strong>KPMG, KIA, Mazda, Hino, Edenred, Costco y Teojama</strong>, asegurando alcance, tiempos, calidad, prioridades y comunicación cliente-equipo.</li>
+              <li>Gestiono programas recurrentes de comunicación interna para KPMG México, incluyendo noticieros, podcasts, minivideos, coberturas, branding audiovisual y materiales ejecutivos.</li>
+              <li>Coordino operaciones mensuales de contenidos, videos y comunicación corporativa para KIA, cuidando consistencia de marca, ciclos de revisión, entregables y QA.</li>
+              <li>Doy seguimiento a iniciativas LMS y plataformas digitales para Hino, Edenred y Teojama, coordinando requerimientos, soporte, despliegues, pruebas, incidencias y continuidad operativa con equipos técnicos.</li>
+              <li>Traduzco necesidades de negocio y cliente en planes accionables, cronogramas, entregables, requerimientos, prioridades y reportes de avance para dirección y equipos de ejecución.</li>
+            </ul>
+            <div class="highlights">
+              <h4>Logros y escala</h4>
+              <ul class="bullets">
+                <li>Coordinación de operación multi-cliente con proyectos simultáneos de comunicación interna, aprendizaje digital, LMS, branding, video y plataformas web.</li>
+                <li>Coordinación de más de <strong>25 cursos WBT</strong> y seguimiento operativo de LMS para Hino México.</li>
+                <li>Coordinación de más de <strong>150 contenidos</strong> para KIA Capacitación durante un año operativo.</li>
+                <li>Gestión de entregables audiovisuales y de branding para KPMG México con validación de stakeholders ejecutivos.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-meta">
+            <h3 class="company">TOCA Contact Center</h3>
+            <p class="date">Ene. 2023 – Feb. 2024</p>
+            <p class="location">Área metropolitana de CDMX</p>
+          </div>
+          <div class="job-main">
+            <h3 class="role">HR &amp; Operational Improvement Manager</h3>
+            <p class="summary">Lideré procesos de recursos humanos, onboarding, documentación, capacitación y mejora operativa para fortalecer la estructura interna de una operación comercial.</p>
+            <ul class="bullets">
+              <li>Desarrollé iniciativas de documentación, perfiles de puesto, materiales de referencia, capacitación y onboarding para equipos operativos y comerciales.</li>
+              <li>Mejoré procesos de comunicación interna, seguimiento de pendientes, reportes y materiales de apoyo para dirección.</li>
+              <li>Participé en la optimización operativa de campañas comerciales, alineando capacitación, seguimiento, documentación y control de desempeño.</li>
+              <li>Fortalecí estructura interna y consistencia operativa en un entorno de servicio de alto volumen.</li>
             </ul>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <article class="job">
-        <div class="job-meta">
-          <h3 class="company">TOCA Contact Center</h3>
-          <p class="date">2022 – 2024</p>
-        </div>
-        <div class="job-main">
-          <h3 class="role">Gerente de Recursos Humanos y Mejora Operativa</h3>
-          <p class="summary">Desarrollé iniciativas de documentación, capacitación, mejora de procesos y acompañamiento operativo para fortalecer la estructura interna de una operación comercial en crecimiento.</p>
-          <ul class="bullets">
-            <li>Documenté procesos internos, reglamentos, perfiles de puesto y materiales de referencia para fortalecer la operación diaria.</li>
-            <li>Coordiné capacitación y onboarding para equipos comerciales, producto, procesos y cultura operativa.</li>
-            <li>Implementé mejoras en comunicación interna, seguimiento de pendientes, reportes y materiales de apoyo para dirección.</li>
-            <li>Participé en la optimización operativa de una campaña comercial para productos financieros HSBC, alineando capacitación, seguimiento y control de desempeño.</li>
-          </ul>
-        </div>
-      </article>
+        <article class="job">
+          <div class="job-meta">
+            <h3 class="company">Fenrir Creative Studios</h3>
+            <p class="date">2015 – 2022</p>
+            <p class="location">Ciudad de México</p>
+          </div>
+          <div class="job-main">
+            <h3 class="role">Founder / Digital Solutions Project Manager</h3>
+            <p class="summary">Fundé y coordiné un estudio de soluciones digitales enfocado en LMS, plataformas web, tecnología interactiva, comunicación corporativa y soporte operativo para clientes.</p>
+            <ul class="bullets">
+              <li>Dirigí la creación y evolución del <strong>Hino LMS</strong>, coordinando requerimientos de producto, comunicación con cliente, roadmap operativo, seguimiento técnico y soporte de largo plazo.</li>
+              <li>Gestioné proyectos de diseño, desarrollo, implementación, pruebas, documentación funcional, soporte, incidencias y seguimiento post-lanzamiento.</li>
+              <li>Actué como puente entre cliente, usuarios finales y equipo técnico, traduciendo necesidades de negocio y aprendizaje en requerimientos claros y entregables digitales.</li>
+              <li>Coordiné productos desarrollados con tecnologías como AWS, Django, React, PostgreSQL y cloud infrastructure, participando como product/operations lead y no como desarrollador principal.</li>
+            </ul>
+          </div>
+        </article>
+      </section>
 
-      <article class="job">
-        <div class="job-meta">
-          <h3 class="company">Fenrir Creative Studios</h3>
-          <p class="date">2015 – 2024</p>
+      <section aria-labelledby="proyectos">
+        <h2 id="proyectos" class="section-title">Proyectos seleccionados</h2>
+        <div class="project-grid">
+          <div class="card">
+            <h3>Hino LMS</h3>
+            <p>Plataforma LMS corporativa para capacitación automotriz. Coordiné evolución de producto, requerimientos, soporte, roadmap operativo y continuidad de plataforma.</p>
+          </div>
+          <div class="card">
+            <h3>KPMG México — Comunicación Interna</h3>
+            <p>Operación recurrente de noticiero, podcast, minivideos, coberturas, branding audiovisual y materiales corporativos para stakeholders internos.</p>
+          </div>
+          <div class="card">
+            <h3>KIA México — Content &amp; Video Operations</h3>
+            <p>Coordinación mensual de contenidos, videos, lineamientos de marca, ciclos de revisión, QA y entregables de comunicación corporativa.</p>
+          </div>
+          <div class="card">
+            <h3>Edenred / Teojama — Digital Platforms</h3>
+            <p>Coordinación de plataformas digitales y LMS: seguimiento técnico, soporte, requerimientos, pruebas, despliegue y preparación operativa.</p>
+          </div>
         </div>
-        <div class="job-main">
-          <h3 class="role">Fundador / Project Manager de Soluciones Digitales</h3>
-          <p class="summary"><em>Emprendimiento propio; ocupación principal en primera etapa y operación parcial posteriormente.</em></p>
-          <p class="summary">Fundé y coordiné soluciones digitales para clientes corporativos, con enfoque en plataformas LMS, sitios web, soporte operativo, levantamiento de requerimientos, documentación, pruebas funcionales y comunicación entre cliente y equipo técnico.</p>
-          <ul class="bullets">
-            <li>Coordiné proyectos de desarrollo e implementación de plataformas LMS y soluciones web para clientes corporativos.</li>
-            <li>Gestioné requerimientos, avances, documentación funcional, pruebas, incidencias y seguimiento post-lanzamiento.</li>
-            <li>Actué como puente entre cliente, usuarios finales y equipo técnico, traduciendo necesidades operativas en requerimientos claros.</li>
-            <li>Desarrollé criterio técnico-operativo en tecnologías web, hosting, dominios, servidores, LMS, bases de datos y soporte de plataformas.</li>
-          </ul>
-        </div>
-      </article>
-    </section>
+      </section>
 
-    <section aria-labelledby="herramientas">
-      <h2 id="herramientas" class="section-title">Herramientas y tecnologías</h2>
-      <div class="tool-grid">
-        <div class="tool-card">
-          <h3>Gestión y operación</h3>
-          <p>Google Workspace, Microsoft Office, cronogramas, tableros Kanban, documentación de procesos, seguimiento de entregables, QA operativo y comunicación cliente-equipo.</p>
+      <section aria-labelledby="herramientas">
+        <h2 id="herramientas" class="section-title">Herramientas y tecnologías</h2>
+        <div class="tool-grid">
+          <div class="card">
+            <h3>Gestión, operación y productividad</h3>
+            <p>Notion, Google Workspace, Microsoft Office, Excel/Sheets, PowerPoint/Slides, cronogramas, Kanban, documentación, reportes, QA operativo y seguimiento de entregables.</p>
+          </div>
+          <div class="card">
+            <h3>Learning Technology</h3>
+            <p>LMS, WBT, SCORM, xAPI, Articulate Storyline, pruebas funcionales, control de incidencias, contenido digital y operación de capacitación corporativa.</p>
+          </div>
+          <div class="card">
+            <h3>Creative &amp; Content Operations</h3>
+            <p>Photoshop, Illustrator, Premiere, After Effects, branding, producción audiovisual, revisión de contenidos, QA visual y lineamientos gráficos.</p>
+          </div>
+          <div class="card">
+            <h3>Plataformas y stack coordinado</h3>
+            <p>Experiencia coordinando productos y equipos técnicos con AWS, Django, React, Heroku, PostgreSQL, Docker, WordPress, HTML, CSS, JavaScript y cloud-based digital products.</p>
+          </div>
         </div>
-        <div class="tool-card">
-          <h3>eLearning</h3>
-          <p>Articulate Storyline, LMS, SCORM, xAPI, cursos WBT, pruebas funcionales, control de incidencias y aseguramiento de calidad.</p>
-        </div>
-        <div class="tool-card">
-          <h3>Producción digital</h3>
-          <p>Adobe Photoshop, Illustrator, Premiere, After Effects, lineamientos gráficos, revisión audiovisual y QA visual.</p>
-        </div>
-        <div class="tool-card">
-          <h3>Web y plataformas</h3>
-          <p>WordPress, HTML, CSS, JavaScript, React, Django, AWS a nivel operativo, hosting, dominios, bases de datos y soporte de plataformas web.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section aria-labelledby="formacion">
-      <h2 id="formacion" class="section-title">Formación e idiomas</h2>
-      <div class="education-grid">
-        <div>
-          <h3>Ingeniería en Tecnologías Interactivas en Animación Digital</h3>
-          <p>Universidad del Valle de México · 2012 – 2017</p>
-          <h3>Formación complementaria en curso</h3>
-          <ul>
-            <li>The Project Management Course: Beginner to Project Manager — Udemy</li>
-            <li>The Complete Full-Stack Web Development Bootcamp — Udemy</li>
-            <li>Introduction to Computer Networks for Non-Techies — Udemy</li>
-          </ul>
+      <section aria-labelledby="formacion">
+        <h2 id="formacion" class="section-title">Formación e idiomas</h2>
+        <div class="education-grid">
+          <div>
+            <h3>Ingeniería en Tecnologías Interactivas y Animación Digital</h3>
+            <p>Universidad del Valle de México · 2012 – 2017</p>
+            <h3>Formación complementaria activa</h3>
+            <ul>
+              <li>AI Leadership, Generative AI &amp; Agentic AI</li>
+              <li>Prompt Engineering &amp; Context Engineering</li>
+              <li>AI Agents / AI Product Management</li>
+              <li>The Complete Full-Stack Web Development Bootcamp — Udemy</li>
+              <li>The Project Management Course — Udemy</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Inglés — Profesional</h3>
+            <p>Capacidad para participar en juntas, revisar documentación, trabajar con equipos internacionales y comunicarse con clientes o stakeholders en contextos laborales.</p>
+            <h3>Foco actual de carrera</h3>
+            <p>Product Operations, Program Management, Customer Success Enterprise, Solutions Consulting, AI Adoption y Digital Transformation.</p>
+          </div>
         </div>
-        <div>
-          <h3>Inglés — Intermedio alto / conversacional profesional</h3>
-          <p>Capacidad para participar en juntas, sostener conversaciones laborales, revisar documentación y comunicarse con clientes o equipos internacionales.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <p class="footer-note">CV web de Axel Cruz Machado · Project Manager Digital</p>
+      <p class="footer-note">CV web de Axel Cruz Machado · Digital Product &amp; Operations Lead · Actualizado para búsqueda profesional 2026</p>
+    </div>
   </main>
 
   <button class="print-action" onclick="window.print()">Imprimir / Guardar PDF</button>
