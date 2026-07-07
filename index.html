@@ -1,29 +1,644 @@
-Listo. Lo convertí en un **index.html actualizado** para GitHub Pages, manteniendo el estilo simple del CV anterior y usando la paleta solo en microdetalles: acentos, líneas, chips y tarjetas de impacto. Tomé como base tu HTML anterior, que ya tenía una estructura limpia de CV web con header, perfil, competencias, experiencia, herramientas y formación. 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Digital CV of Axel Cruz Machado — Digital Solutions & Product Operations Lead specializing in Learning Technology, AI-enabled operations, enterprise digital platforms and cross-functional delivery." />
+  <meta property="og:title" content="Axel Cruz Machado | Digital Solutions & Product Operations Lead" />
+  <meta property="og:description" content="Professional profile, selected projects and experience in Product Operations, Learning Technology, AI-enabled Digital Operations and Enterprise Digital Solutions." />
+  <title>Axel Cruz Machado | Digital Solutions & Product Operations Lead</title>
+  <style>
+    :root {
+      --bg: #e4ebe8;
+      --paper: #ffffff;
+      --ink: #2d2e2d;
+      --ink-soft: #3c3d3d;
+      --muted: #828c88;
+      --line: #d8dedb;
+      --line-strong: #2d2e2d;
+      --chip: #f1f4f2;
+      --blue: #658499;
+      --terra: #c46b54;
+      --green: #5f7868;
+      --gold: #c4be73;
+      --max-width: 980px;
+    }
 
-Archivo listo para reemplazar en Git:
+    * {
+      box-sizing: border-box;
+    }
 
-[Descargar index.html actualizado](sandbox:/mnt/data/index.html)
+    html {
+      scroll-behavior: smooth;
+    }
 
-Cambios clave:
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      font-size: 16px;
+    }
 
-* Nuevo posicionamiento: **Digital Solutions & Product Operations Lead**.
-* Slogan integrado: **Converting complex digital problems into executable solutions.**
-* Experiencia reacomodada en 3 bloques:
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+    }
 
-  * Top of Mind Communication
-  * TOCA Contact Center
-  * Fenrir Creative Studios / Fentec Apps & Web
-* Títulos ajustados para LinkedIn/Git:
+    a:hover {
+      color: #000;
+    }
 
-  * **Head of Coordination & Quality — Digital Operations & Product Delivery**
-  * **Operations & Training Improvement Manager**
-  * **Founder & Digital Solutions Lead — LMS & Web Platforms**
-* Agregué impactos fuertes:
+    .page {
+      width: min(100%, var(--max-width));
+      margin: 32px auto;
+      background: var(--paper);
+      padding: 56px 64px;
+      box-shadow: 0 18px 45px rgba(45, 46, 45, 0.08);
+      border: 1px solid rgba(45, 46, 45, 0.06);
+    }
 
-  * **40M+ views**
-  * **45M+ MXN**
-  * **25+ personas**
-  * **9+ años**
-* Diseño sobrio: fondo claro, papel blanco, negro/gris dominante y acentos azul, terracota, verde y dorado.
+    .topbar {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 32px;
+      align-items: start;
+      border-bottom: 2px solid var(--line-strong);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
 
-Siguiente paso: reemplaza el `index.html` actual del repo por este archivo, haz commit y espera a que GitHub Pages actualice.
+    .eyebrow {
+      margin: 0 0 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    .name-block h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+    }
+
+    .name-block h2 {
+      margin: 16px 0 0;
+      max-width: 620px;
+      font-size: 1.04rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .tagline {
+      margin: 14px 0 0;
+      max-width: 670px;
+      color: var(--green);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .contact {
+      min-width: 260px;
+      text-align: right;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-style: normal;
+    }
+
+    .contact p {
+      margin: 0 0 6px;
+    }
+
+    section {
+      margin: 0 0 34px;
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      font-size: 0.88rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 3px;
+      margin-top: 8px;
+      background: var(--terra);
+    }
+
+    .profile {
+      margin: 0;
+      font-size: 1.04rem;
+      color: var(--ink-soft);
+      max-width: 880px;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .impact-card {
+      border: 1px solid var(--line);
+      background: #fbfcfb;
+      padding: 14px 14px 13px;
+    }
+
+    .impact-card strong {
+      display: block;
+      font-size: 1.45rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      margin-bottom: 7px;
+    }
+
+    .impact-card span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.35;
+    }
+
+    .impact-card:nth-child(1) {
+      border-top: 4px solid var(--blue);
+    }
+
+    .impact-card:nth-child(2) {
+      border-top: 4px solid var(--terra);
+    }
+
+    .impact-card:nth-child(3) {
+      border-top: 4px solid var(--green);
+    }
+
+    .impact-card:nth-child(4) {
+      border-top: 4px solid var(--gold);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills li {
+      background: var(--chip);
+      border: 1px solid var(--line);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .skills li.priority {
+      background: #fff;
+      border-color: rgba(101, 132, 153, 0.55);
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .job {
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 28px;
+    }
+
+    .job:last-child {
+      margin-bottom: 0;
+    }
+
+    .job-meta h3,
+    .job-main h3 {
+      margin: 0;
+    }
+
+    .company {
+      font-size: 0.98rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 1.25;
+    }
+
+    .date {
+      margin: 8px 0 0;
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .location {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .role {
+      font-size: 1.08rem;
+      margin: 0 0 10px;
+      line-height: 1.25;
+    }
+
+    .role-note {
+      display: block;
+      margin-top: 4px;
+      color: var(--green);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .summary {
+      margin: 0 0 12px;
+      color: var(--ink-soft);
+    }
+
+    ul.bullets {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    ul.bullets li {
+      margin: 7px 0;
+    }
+
+    .subrole {
+      margin: 18px 0 0;
+      padding: 14px 16px;
+      background: #fbfcfb;
+      border-left: 4px solid var(--blue);
+    }
+
+    .subrole h4 {
+      margin: 0 0 6px;
+      font-size: 0.98rem;
+    }
+
+    .subrole p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 18px;
+    }
+
+    .tool-card {
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+      background: #fcfcfb;
+    }
+
+    .tool-card h3 {
+      margin: 0 0 6px;
+      font-size: 0.98rem;
+    }
+
+    .tool-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.94rem;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .education-grid h3 {
+      margin: 0 0 4px;
+      font-size: 1rem;
+    }
+
+    .education-grid p,
+    .education-grid li {
+      color: var(--ink-soft);
+    }
+
+    .education-grid ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .footer-note {
+      margin-top: 38px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.86rem;
+      text-align: center;
+    }
+
+    .print-action {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+      padding: 12px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(45, 46, 45, 0.18);
+    }
+
+    .print-action:hover {
+      background: #000;
+    }
+
+    @media (max-width: 760px) {
+      body {
+        background: var(--paper);
+      }
+
+      .page {
+        margin: 0;
+        padding: 34px 22px;
+        box-shadow: none;
+        border: 0;
+      }
+
+      .topbar,
+      .job,
+      .education-grid,
+      .tool-grid,
+      .impact-grid {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .contact {
+        min-width: 0;
+        text-align: left;
+        margin-top: 4px;
+      }
+
+      .job {
+        gap: 8px;
+      }
+
+      .job-meta {
+        margin-bottom: 2px;
+      }
+
+      .print-action {
+        display: none;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        font-size: 10.7pt;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border: 0;
+      }
+
+      .print-action {
+        display: none;
+      }
+
+      a {
+        border: 0;
+      }
+
+      section,
+      .job,
+      .tool-card,
+      .impact-card {
+        break-inside: avoid;
+      }
+
+      .section-title::after {
+        background: #000;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="name-block">
+        <p class="eyebrow">Digital CV</p>
+        <h1>Axel<br />Cruz Machado</h1>
+        <h2>Digital Solutions & Product Operations Lead</h2>
+        <p class="tagline">Converting complex digital problems into executable solutions.</p>
+      </div>
+      <address class="contact">
+        <p>Mexico City, Mexico</p>
+        <p><a href="mailto:axelcruzmachado@gmail.com">axelcruzmachado@gmail.com</a></p>
+        <p><a href="tel:+525530392163">+52 55 3039 2163</a></p>
+        <p><a href="https://www.linkedin.com/in/axeldanielcruzmachado/" target="_blank" rel="noreferrer">LinkedIn</a></p>
+        <p><a href="https://axelixir.github.io/AxelCruzCV/index.html" target="_blank" rel="noreferrer">Digital CV</a></p>
+      </address>
+    </header>
+
+    <section aria-labelledby="profile">
+      <h2 id="profile" class="section-title">Professional profile</h2>
+      <p class="profile">Digital Solutions & Product Operations Lead with 9+ years of experience turning complex business needs into executable digital solutions. I connect business, technology, creativity and multidisciplinary teams across digital platforms, LMS operations, enterprise content systems, audiovisual communication, QA, client delivery and technology-enabled projects. My strongest value appears where there is ambiguity: translating needs into requirements, aligning stakeholders, structuring execution and moving digital initiatives from idea to adoption.</p>
+
+      <div class="impact-grid" aria-label="Selected impact">
+        <div class="impact-card">
+          <strong>40M+</strong>
+          <span>views generated through high-impact digital and social content initiatives.</span>
+        </div>
+        <div class="impact-card">
+          <strong>45M+</strong>
+          <span>MXN in potential business exposure addressed through Hino IT/platform issue resolution.</span>
+        </div>
+        <div class="impact-card">
+          <strong>25+</strong>
+          <span>people coordinated across creative, technical, instructional, QA and client-facing teams.</span>
+        </div>
+        <div class="impact-card">
+          <strong>9+</strong>
+          <span>years building, coordinating and operating digital solutions for business environments.</span>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="skills">
+      <h2 id="skills" class="section-title">Core skills</h2>
+      <ul class="skills">
+        <li class="priority">Digital Product Operations</li>
+        <li class="priority">Digital Solutions</li>
+        <li class="priority">Learning Technology</li>
+        <li class="priority">AI-Enabled Operations</li>
+        <li>Program Management</li>
+        <li>Product Delivery</li>
+        <li>Stakeholder Management</li>
+        <li>Cross-functional Leadership</li>
+        <li>LMS / Digital Platforms</li>
+        <li>Enterprise Content Operations</li>
+        <li>Creative Operations</li>
+        <li>Requirements Gathering</li>
+        <li>QA / UAT</li>
+        <li>Process Improvement</li>
+        <li>Client Communication</li>
+        <li>Product Adoption</li>
+        <li>Workflow Transformation</li>
+        <li>Executive Reporting</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="experience">
+      <h2 id="experience" class="section-title">Professional experience</h2>
+
+      <article class="job">
+        <div class="job-meta">
+          <h3 class="company">Top of Mind Communication</h3>
+          <p class="date">Feb 2024 – Present</p>
+          <p class="location">Mexico City · On-site</p>
+        </div>
+        <div class="job-main">
+          <h3 class="role">Head of Coordination & Quality — Digital Operations & Product Delivery <span class="role-note">Jun 2025 – Present</span></h3>
+          <p class="summary">Lead digital delivery operations for enterprise clients, coordinating multidisciplinary teams across corporate communications, LMS-related initiatives, audiovisual production, branding, instructional content, QA and technology-enabled projects.</p>
+          <ul class="bullets">
+            <li>Lead coordination and quality operations for clients including <strong>KPMG, KIA, Mazda, Hino, Edenred, Costco and Teojama</strong>.</li>
+            <li>Coordinate cross-functional teams across creative, technical, instructional, QA and client-facing roles, with teams of <strong>10 to 25+ people</strong>.</li>
+            <li>Manage internal communications programs, audiovisual packages, podcasts, newscasts, minivideos, event coverage and branding materials for enterprise clients.</li>
+            <li>Oversee LMS-related and digital platform initiatives, coordinating requirements, technical follow-up, QA cycles and operational support.</li>
+            <li>Convert ambiguous business and communication needs into structured workflows, deliverables and digital solutions.</li>
+          </ul>
+
+          <div class="subrole">
+            <h4>Previous role: Digital Project Coordinator — Enterprise Content & Learning Operations</h4>
+            <p>Coordinated technology-enabled, eLearning, audiovisual and internal communication projects, focusing on operational follow-up, deliverable control, process documentation, client communication and quality assurance.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="job-meta">
+          <h3 class="company">TOCA Contact Center</h3>
+          <p class="date">Jan 2023 – Feb 2024</p>
+          <p class="location">Mexico City · On-site</p>
+        </div>
+        <div class="job-main">
+          <h3 class="role">Operations & Training Improvement Manager</h3>
+          <p class="summary">Led operational improvement, onboarding, training coordination, documentation and internal process initiatives for a growing contact center environment.</p>
+          <ul class="bullets">
+            <li>Strengthened execution consistency through workflow documentation, internal communication and team enablement.</li>
+            <li>Led onboarding, training coordination, HR operations and internal documentation processes.</li>
+            <li>Improved operational workflows, reporting habits and process visibility for commercial and service teams.</li>
+            <li>Supported campaign coordination and operational follow-up in a high-volume service environment.</li>
+            <li>Acted as a bridge between people operations, commercial needs and day-to-day operational performance.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job">
+        <div class="job-meta">
+          <h3 class="company">Fenrir Creative Studios / Fentec Apps & Web</h3>
+          <p class="date">Mar 2015 – Feb 2024</p>
+          <p class="location">Mexico City · Hybrid / Independent</p>
+        </div>
+        <div class="job-main">
+          <h3 class="role">Founder & Digital Solutions Lead — LMS & Web Platforms</h3>
+          <p class="summary">Founded and led a digital solutions studio focused on LMS platforms, web products, interactive technology, digital learning and corporate communication solutions for business clients.</p>
+          <ul class="bullets">
+            <li>Founded and managed a digital solutions operation, coordinating design, development, implementation, support and client delivery.</li>
+            <li>Directed the creation and evolution of the <strong>Hino LMS</strong>, coordinating product requirements, client communication, roadmap priorities, technical execution and operational continuity.</li>
+            <li>Managed digital product delivery across LMS platforms, websites, interactive content, corporate training tools and communication solutions.</li>
+            <li>Coordinated technical teams working with cloud infrastructure and web technologies, acting as product/operations lead rather than primary developer.</li>
+            <li>Translated business, learning and technology needs into working digital platforms used in real corporate environments.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section aria-labelledby="projects">
+      <h2 id="projects" class="section-title">Selected project scope</h2>
+      <div class="tool-grid">
+        <div class="tool-card">
+          <h3>Hino LMS</h3>
+          <p>Corporate LMS platform for automotive training operations. Coordinated product evolution, client requirements, technical support, delivery roadmap and platform continuity.</p>
+        </div>
+        <div class="tool-card">
+          <h3>Edenred Training / Edenred Knowledge</h3>
+          <p>Digital training and knowledge platform initiatives. Coordinated platform operations, content organization, technical follow-up and stakeholder alignment.</p>
+        </div>
+        <div class="tool-card">
+          <h3>KPMG Mexico — Internal Communications</h3>
+          <p>Recurring audiovisual and branding package including newscast, podcast, minivideos, event coverage and corporate communication assets.</p>
+        </div>
+        <div class="tool-card">
+          <h3>KIA Mexico — Monthly Content & Video Operations</h3>
+          <p>Recurring content and video production package. Coordinated creative teams, review cycles, quality control and brand alignment.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="tools">
+      <h2 id="tools" class="section-title">Tools & technology</h2>
+      <div class="tool-grid">
+        <div class="tool-card">
+          <h3>Direct use</h3>
+          <p>Notion, ChatGPT, Google Workspace, Microsoft Office, Excel / Sheets, PowerPoint / Slides, Photoshop, Illustrator, Premiere, After Effects, Asana.</p>
+        </div>
+        <div class="tool-card">
+          <h3>Managed through technical teams</h3>
+          <p>AWS, Django, React, Heroku, PostgreSQL, Docker, LMS platforms and cloud-based digital products.</p>
+        </div>
+        <div class="tool-card">
+          <h3>Learning roadmap</h3>
+          <p>AI Leadership, Prompt Engineering, Context Engineering, AI Agents, AI Product Management and Web Development.</p>
+        </div>
+        <div class="tool-card">
+          <h3>Working languages</h3>
+          <p>Spanish native. English professional working proficiency for meetings, documentation, client communication and international collaboration.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="education">
+      <h2 id="education" class="section-title">Education</h2>
+      <div class="education-grid">
+        <div>
+          <h3>Bachelor of Engineering in Interactive Technologies and Digital Animation</h3>
+          <p>Universidad del Valle de México · Mexico City</p>
+        </div>
+        <div>
+          <h3>Professional focus</h3>
+          <p>Digital Product Operations · Learning Technology · AI-Enabled Digital Operations · Cross-functional Delivery.</p>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer-note">Axel Cruz Machado · Digital Solutions & Product Operations Lead · What digital problem do we need to solve?</p>
+  </main>
+
+  <button class="print-action" onclick="window.print()">Print / Save PDF</button>
+</body>
+</html>
