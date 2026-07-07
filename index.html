@@ -45,10 +45,12 @@
       color: inherit;
       text-decoration: none;
       border-bottom: 1px solid currentColor;
+      transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
     }
 
     a:hover {
-      color: #000;
+      color: var(--terra);
+      border-bottom-color: var(--terra);
     }
 
     .page {
@@ -58,6 +60,7 @@
       padding: 56px 64px;
       box-shadow: 0 18px 45px rgba(45, 46, 45, 0.08);
       border: 1px solid rgba(45, 46, 45, 0.06);
+      transition: box-shadow 240ms ease, border-color 240ms ease;
     }
 
     .topbar {
@@ -138,6 +141,7 @@
       height: 3px;
       margin-top: 8px;
       background: var(--terra);
+      transition: width 220ms ease, background-color 220ms ease;
     }
 
     .profile {
@@ -158,6 +162,7 @@
       border: 1px solid var(--line);
       background: #fbfcfb;
       padding: 14px 14px 13px;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
     }
 
     .impact-card strong {
@@ -208,6 +213,7 @@
       border-radius: 999px;
       font-size: 0.9rem;
       color: #333;
+      transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
     }
 
     .skills li.priority {
@@ -238,6 +244,7 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       line-height: 1.25;
+      transition: color 200ms ease;
     }
 
     .date {
@@ -257,6 +264,7 @@
       font-size: 1.08rem;
       margin: 0 0 10px;
       line-height: 1.25;
+      transition: color 200ms ease;
     }
 
     .role-note {
@@ -288,6 +296,7 @@
       padding: 14px 16px;
       background: #fbfcfb;
       border-left: 4px solid var(--blue);
+      transition: background-color 220ms ease, border-color 220ms ease, transform 220ms ease;
     }
 
     .subrole h4 {
@@ -310,6 +319,7 @@
       border: 1px solid var(--line);
       padding: 14px 16px;
       background: #fcfcfb;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
     }
 
     .tool-card h3 {
@@ -365,10 +375,75 @@
       font-weight: 700;
       cursor: pointer;
       box-shadow: 0 12px 30px rgba(45, 46, 45, 0.18);
+      transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
     }
 
     .print-action:hover {
       background: #000;
+      transform: translateY(-1px);
+      box-shadow: 0 16px 34px rgba(45, 46, 45, 0.22);
+    }
+
+
+    @media (hover: hover) and (pointer: fine) {
+      .page:hover {
+        box-shadow: 0 22px 58px rgba(45, 46, 45, 0.1);
+        border-color: rgba(45, 46, 45, 0.09);
+      }
+
+      section:hover .section-title::after {
+        width: 58px;
+        background: var(--blue);
+      }
+
+      .impact-card:hover,
+      .tool-card:hover {
+        transform: translateY(-2px);
+        background: #ffffff;
+        border-color: rgba(101, 132, 153, 0.45);
+        box-shadow: 0 12px 28px rgba(45, 46, 45, 0.08);
+      }
+
+      .impact-card:hover strong {
+        color: var(--blue);
+      }
+
+      .skills li:hover {
+        transform: translateY(-1px);
+        background: #ffffff;
+        border-color: rgba(196, 107, 84, 0.45);
+        box-shadow: 0 6px 16px rgba(45, 46, 45, 0.06);
+      }
+
+      .skills li.priority:hover {
+        border-color: rgba(95, 120, 104, 0.55);
+        box-shadow: 0 6px 16px rgba(95, 120, 104, 0.08);
+      }
+
+      .job:hover .company {
+        color: var(--green);
+      }
+
+      .job:hover .role {
+        color: var(--terra);
+      }
+
+      .subrole:hover {
+        transform: translateX(2px);
+        background: #ffffff;
+        border-left-color: var(--terra);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
     }
 
     @media (max-width: 760px) {
@@ -443,6 +518,15 @@
       .section-title::after {
         background: #000;
       }
+
+      .impact-card,
+      .tool-card,
+      .skills li,
+      .subrole,
+      .page {
+        transform: none !important;
+        box-shadow: none !important;
+      }
     }
   </style>
 </head>
@@ -474,7 +558,7 @@
           <span>views generated through high-impact digital and social content initiatives.</span>
         </div>
         <div class="impact-card">
-          <strong>$45M+</strong>
+          <strong>45M+</strong>
           <span>MXN in potential business exposure addressed through Hino IT/platform issue resolution.</span>
         </div>
         <div class="impact-card">
