@@ -34,7 +34,7 @@
       --shadow: 0 26px 70px rgba(45, 46, 45, 0.12);
       --shadow-soft: 0 14px 36px rgba(45, 46, 45, 0.08);
       --max-width: 1260px;
-      --rail: clamp(148px, 15vw, 205px);
+      --rail: clamp(188px, 16.5vw, 238px);
     }
 
     * { box-sizing: border-box; }
@@ -113,6 +113,7 @@
       transform: translate3d(0,0,0);
       will-change: transform;
       backface-visibility: hidden;
+      image-rendering: auto;
     }
     .rail-caption {
       position: absolute;
@@ -618,7 +619,7 @@
     <aside class="visual-rail" aria-label="Digital systems visual narrative">
       <picture>
         <source srcset="assets/sidebar-flow.webp" type="image/webp" />
-        <img class="rail-image" src="assets/sidebar-flow.jpg" width="300" height="4000" alt="Vertical visual system: idea, target, digital platforms, AI, learning, media, operations and security connected by luminous flows." decoding="async" fetchpriority="high" />
+        <img class="rail-image" src="assets/sidebar-flow.jpg" width="600" height="4000" alt="Vertical visual system: idea, target, digital platforms, AI, learning, media, operations and security connected by luminous flows." decoding="async" fetchpriority="high" />
       </picture>
       <div class="rail-caption">Digital flow</div>
     </aside>
