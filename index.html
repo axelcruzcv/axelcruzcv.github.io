@@ -3,726 +3,832 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Digital CV of Axel Cruz Machado — Digital Solutions & Product Operations Lead specializing in Learning Technology, AI-enabled operations, enterprise digital platforms and cross-functional delivery." />
-  <meta property="og:title" content="Axel Cruz Machado | Digital Solutions & Product Operations Lead" />
-  <meta property="og:description" content="Professional profile, selected projects and experience in Product Operations, Learning Technology, AI-enabled Digital Operations and Enterprise Digital Solutions." />
+  <meta name="description" content="Digital CV of Axel Cruz Machado — Digital Solutions & Product Operations Lead focused on product operations, learning technology, AI-enabled digital operations and cross-functional delivery." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Axel Cruz Machado | Digital CV" />
+  <meta property="og:description" content="I turn complex digital problems into executable solutions by integrating business, technology, creativity and multidisciplinary teams." />
+  <meta property="og:image" content="https://axelixir.github.io/AxelCruzCV/assets/digital-cv-cover.webp" />
+  <meta name="theme-color" content="#e4ebe8" />
+  <link rel="preload" href="assets/sidebar-flow.webp" as="image" type="image/webp" />
   <title>Axel Cruz Machado | Digital Solutions & Product Operations Lead</title>
   <style>
     :root {
       --bg: #e4ebe8;
       --paper: #ffffff;
+      --paper-soft: #f7f9f7;
       --ink: #2d2e2d;
       --ink-soft: #3c3d3d;
-      --muted: #828c88;
+      --muted: #77827e;
       --line: #d8dedb;
       --line-strong: #2d2e2d;
-      --chip: #f1f4f2;
+      --dark: #050b12;
+      --dark-soft: #09111b;
       --blue: #658499;
+      --blue-neon: #22b7f0;
       --terra: #c46b54;
       --green: #5f7868;
+      --green-neon: #b7ef6b;
       --gold: #c4be73;
-      --max-width: 980px;
+      --gold-neon: #ffca39;
+      --radius: 24px;
+      --shadow: 0 26px 70px rgba(45, 46, 45, 0.12);
+      --shadow-soft: 0 14px 36px rgba(45, 46, 45, 0.08);
+      --max-width: 1260px;
+      --rail: clamp(148px, 15vw, 205px);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(255,255,255,0.72), transparent 28rem),
+        linear-gradient(135deg, #eef2ef 0%, var(--bg) 45%, #dfe8e4 100%);
       color: var(--ink);
-      line-height: 1.5;
+      line-height: 1.55;
       font-size: 16px;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
       color: inherit;
       text-decoration: none;
       border-bottom: 1px solid currentColor;
-      transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
+      transition: color 180ms ease, border-color 180ms ease, opacity 180ms ease;
+    }
+    a:hover { color: var(--terra); border-bottom-color: var(--terra); }
+    a:focus-visible, button:focus-visible { outline: 3px solid rgba(101,132,153,0.55); outline-offset: 4px; }
+
+    .skip-link {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      transform: translateY(-160%);
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: var(--dark);
+      color: white;
+      z-index: 20;
+      border: 0;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .site {
+      width: min(calc(100% - 34px), var(--max-width));
+      margin: 26px auto 44px;
+      display: grid;
+      grid-template-columns: var(--rail) minmax(0, 1fr);
+      gap: clamp(18px, 2.8vw, 38px);
+      align-items: start;
     }
 
-    a:hover {
-      color: var(--terra);
-      border-bottom-color: var(--terra);
+    .visual-rail {
+      position: sticky;
+      top: 22px;
+      height: calc(100vh - 44px);
+      min-height: 650px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--dark);
+      box-shadow: 0 24px 60px rgba(9, 17, 27, 0.22);
+      border: 1px solid rgba(255,255,255,0.08);
+      isolation: isolate;
+    }
+    .visual-rail::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.30), transparent 14%, transparent 83%, rgba(0,0,0,0.42)),
+        radial-gradient(circle at 50% 2%, rgba(255,255,255,0.18), transparent 12rem);
+      z-index: 2;
+    }
+    .rail-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: translate3d(0,0,0);
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+    .rail-caption {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.84);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.86;
+    }
+    .rail-caption::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green-neon), var(--blue-neon));
+      border-radius: 999px;
+      box-shadow: 0 0 12px rgba(183,239,107,0.9);
     }
 
     .page {
-      width: min(100%, var(--max-width));
-      margin: 32px auto;
-      background: var(--paper);
-      padding: 56px 64px;
-      box-shadow: 0 18px 45px rgba(45, 46, 45, 0.08);
-      border: 1px solid rgba(45, 46, 45, 0.06);
-      transition: box-shadow 240ms ease, border-color 240ms ease;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(45,46,45,0.08);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(14px);
     }
 
-    .topbar {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 32px;
-      align-items: start;
-      border-bottom: 2px solid var(--line-strong);
-      padding-bottom: 24px;
-      margin-bottom: 32px;
+    .hero {
+      position: relative;
+      padding: clamp(34px, 5vw, 70px) clamp(26px, 5vw, 74px) 34px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,249,247,0.94)),
+        radial-gradient(circle at 80% 10%, rgba(101,132,153,0.18), transparent 28rem);
+      border-bottom: 1px solid var(--line);
     }
-
-    .eyebrow {
-      margin: 0 0 10px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--blue);
-    }
-
-    .name-block h1 {
-      margin: 0;
-      font-size: clamp(2.1rem, 5vw, 4rem);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-      text-transform: uppercase;
-    }
-
-    .name-block h2 {
-      margin: 16px 0 0;
-      max-width: 620px;
-      font-size: 1.04rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-    }
-
-    .tagline {
-      margin: 14px 0 0;
-      max-width: 670px;
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
       color: var(--green);
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .kicker::before {
+      content: "";
+      width: 34px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+    }
+    h1 {
+      margin: 0;
+      max-width: 830px;
+      font-size: clamp(2.65rem, 7vw, 6.2rem);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .role {
+      margin: 18px 0 0;
+      max-width: 820px;
+      color: var(--ink-soft);
+      font-size: clamp(1.16rem, 2.1vw, 1.72rem);
+      line-height: 1.24;
       font-weight: 700;
-      font-size: 1rem;
     }
-
-    .contact {
-      min-width: 260px;
-      text-align: right;
+    .tagline {
+      margin: 22px 0 0;
+      max-width: 820px;
+      color: var(--ink-soft);
+      font-size: clamp(1.03rem, 1.65vw, 1.25rem);
+    }
+    .tagline strong { color: var(--green); font-weight: 900; }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
       color: var(--muted);
-      font-size: 0.94rem;
-      font-style: normal;
+      font-size: 0.96rem;
     }
+    .contact-row li:not(:last-child)::after {
+      content: "·";
+      margin-left: 14px;
+      color: #a7b0ac;
+    }
+    .action-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 42px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: white;
+      font-weight: 800;
+      font-size: 0.93rem;
+      box-shadow: 0 10px 24px rgba(45,46,45,0.15);
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+      cursor: pointer;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 16px 32px rgba(45,46,45,0.20); color: white; border-color: var(--ink); }
+    .button.secondary { background: white; color: var(--ink); border-color: var(--line-strong); box-shadow: none; }
+    .button.secondary:hover { color: var(--terra); border-color: var(--terra); }
 
-    .contact p {
-      margin: 0 0 6px;
+    .mobile-media {
+      display: none;
+      margin-top: 28px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--dark);
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 22px 44px rgba(9,17,27,0.18);
     }
+    .mobile-media img { display: block; width: 100%; height: auto; }
+
+    main { padding: clamp(22px, 3vw, 36px) clamp(18px, 4vw, 52px) 52px; }
 
     section {
-      margin: 0 0 34px;
+      position: relative;
+      margin: 0 0 46px;
+      scroll-margin-top: 24px;
     }
+    .section-card {
+      position: relative;
+      padding: clamp(22px, 3vw, 34px);
+      border: 1px solid rgba(45,46,45,0.08);
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+    .section-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green), var(--blue), var(--terra), var(--gold));
+      transform: scaleX(0.14);
+      transform-origin: left;
+      opacity: 0.9;
+      transition: transform 420ms cubic-bezier(.2,.8,.2,1);
+    }
+    .section-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(95,120,104,0.22);
+      box-shadow: 0 22px 56px rgba(45,46,45,0.12);
+    }
+    .section-card:hover::before { transform: scaleX(1); }
+
+    .dark-card {
+      color: white;
+      background:
+        radial-gradient(circle at 22% 0%, rgba(183,239,107,0.18), transparent 23rem),
+        radial-gradient(circle at 86% 0%, rgba(34,183,240,0.14), transparent 25rem),
+        linear-gradient(135deg, var(--dark) 0%, var(--dark-soft) 100%);
+      border-color: rgba(255,255,255,0.08);
+    }
+    .dark-card .section-title,
+    .dark-card p,
+    .dark-card li { color: rgba(255,255,255,0.82); }
+    .dark-card strong { color: var(--green-neon); }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 10px;
+      color: var(--green);
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+    }
+    .section-eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 5px rgba(95,120,104,0.12);
+    }
+    .dark-card .section-eyebrow { color: var(--gold-neon); }
+    .dark-card .section-eyebrow::before { background: var(--gold-neon); box-shadow: 0 0 18px rgba(255,202,57,0.42); }
 
     .section-title {
       margin: 0 0 16px;
-      font-size: 0.88rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ink);
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 8px;
+      font-size: clamp(1.4rem, 2.2vw, 2.05rem);
+      line-height: 1.08;
+      letter-spacing: -0.045em;
     }
-
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 42px;
-      height: 3px;
-      margin-top: 8px;
-      background: var(--terra);
-      transition: width 220ms ease, background-color 220ms ease;
-    }
-
-    .profile {
+    .lead {
+      max-width: 860px;
       margin: 0;
-      font-size: 1.04rem;
+      font-size: 1.06rem;
       color: var(--ink-soft);
-      max-width: 880px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(240px, 0.85fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .signal-panel {
+      position: relative;
+      min-height: 250px;
+      border-radius: 22px;
+      overflow: hidden;
+      background-image: url('assets/digital-cv-cover.webp');
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03), 0 18px 40px rgba(9,17,27,0.24);
+      transform: translateZ(0);
+    }
+    .signal-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.34));
+      pointer-events: none;
+    }
+    .signal-panel:hover {
+      filter: saturate(1.06) contrast(1.04);
     }
 
     .impact-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 18px;
+      gap: 14px;
+      margin-top: 22px;
     }
-
     .impact-card {
-      border: 1px solid var(--line);
-      background: #fbfcfb;
-      padding: 14px 14px 13px;
-      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
+      position: relative;
+      padding: 18px 16px;
+      min-height: 124px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      overflow: hidden;
+      transition: transform 220ms ease, background 220ms ease, border-color 220ms ease;
     }
-
-    .impact-card strong {
+    .impact-card::after {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      right: -24px;
+      top: -24px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(183,239,107,0.38), transparent 70%);
+      opacity: 0.6;
+      transition: transform 260ms ease, opacity 260ms ease;
+    }
+    .impact-card:nth-child(2)::after { background: radial-gradient(circle, rgba(34,183,240,0.38), transparent 70%); }
+    .impact-card:nth-child(3)::after { background: radial-gradient(circle, rgba(196,107,84,0.42), transparent 70%); }
+    .impact-card:nth-child(4)::after { background: radial-gradient(circle, rgba(255,202,57,0.38), transparent 70%); }
+    .impact-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.075); border-color: rgba(255,255,255,0.20); }
+    .impact-card:hover::after { transform: scale(1.25); opacity: 0.95; }
+    .impact-number {
       display: block;
-      font-size: 1.45rem;
-      line-height: 1;
-      letter-spacing: -0.04em;
-      color: var(--ink);
-      margin-bottom: 7px;
+      color: white;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      font-weight: 900;
     }
-
-    .impact-card span {
+    .impact-label {
       display: block;
-      color: var(--muted);
-      font-size: 0.84rem;
-      line-height: 1.35;
+      margin-top: 12px;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.88rem;
     }
 
-    .impact-card:nth-child(1) {
-      border-top: 4px solid var(--blue);
-    }
-
-    .impact-card:nth-child(2) {
-      border-top: 4px solid var(--terra);
-    }
-
-    .impact-card:nth-child(3) {
-      border-top: 4px solid var(--green);
-    }
-
-    .impact-card:nth-child(4) {
-      border-top: 4px solid var(--gold);
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .skills li {
-      background: var(--chip);
-      border: 1px solid var(--line);
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      color: #333;
-      transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
-    }
-
-    .skills li.priority {
-      background: #fff;
-      border-color: rgba(101, 132, 153, 0.55);
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    .job {
-      margin-bottom: 32px;
+    .value-grid, .skills-grid, .project-grid {
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 28px;
+      gap: 14px;
     }
-
-    .job:last-child {
-      margin-bottom: 0;
+    .value-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 24px; }
+    .skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 22px; }
+    .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 22px; }
+    .mini-card, .skill-card, .project-card {
+      position: relative;
+      border-radius: 20px;
+      border: 1px solid rgba(45,46,45,0.08);
+      background: var(--paper-soft);
+      padding: 18px;
+      overflow: hidden;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background 220ms ease;
     }
-
-    .job-meta h3,
-    .job-main h3 {
-      margin: 0;
+    .mini-card:hover, .skill-card:hover, .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 38px rgba(45,46,45,0.10);
+      border-color: rgba(101,132,153,0.28);
+      background: white;
     }
-
-    .company {
-      font-size: 0.98rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      line-height: 1.25;
-      transition: color 200ms ease;
+    .mini-card .icon, .skill-card .icon, .project-card .icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: white;
+      margin-bottom: 14px;
+      background: var(--green);
+      transition: transform 220ms ease, filter 220ms ease;
     }
+    .mini-card:hover .icon, .skill-card:hover .icon, .project-card:hover .icon { transform: translateY(-2px) scale(1.06); filter: saturate(1.25); }
+    .mini-card:nth-child(2) .icon, .skill-card:nth-child(2) .icon { background: var(--blue); }
+    .mini-card:nth-child(3) .icon, .skill-card:nth-child(3) .icon { background: var(--terra); }
+    .mini-card:nth-child(4) .icon, .skill-card:nth-child(4) .icon { background: var(--gold); color: #2d2e2d; }
+    .mini-card h3, .skill-card h3, .project-card h3 { margin: 0 0 8px; font-size: 1rem; letter-spacing: -0.02em; }
+    .mini-card p, .skill-card p, .project-card p { margin: 0; color: var(--muted); font-size: 0.93rem; }
 
-    .date {
-      margin: 8px 0 0;
-      font-weight: 700;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .location {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .role {
-      font-size: 1.08rem;
-      margin: 0 0 10px;
-      line-height: 1.25;
-      transition: color 200ms ease;
-    }
-
-    .role-note {
-      display: block;
-      margin-top: 4px;
-      color: var(--green);
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    .summary {
-      margin: 0 0 12px;
+    .chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: #eef3f0;
+      border: 1px solid var(--line);
       color: var(--ink-soft);
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
     }
+    .chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+    .chip:nth-child(3n+2)::before { background: var(--blue); }
+    .chip:nth-child(3n)::before { background: var(--terra); }
+    .chip:hover { transform: translateY(-2px); background: white; border-color: rgba(95,120,104,0.30); }
 
-    ul.bullets {
-      margin: 12px 0 0;
-      padding-left: 20px;
+    .timeline { display: grid; gap: 18px; margin-top: 22px; }
+    .job {
+      position: relative;
+      padding: 22px 22px 22px 28px;
+      border: 1px solid rgba(45,46,45,0.08);
+      border-radius: 22px;
+      background: linear-gradient(180deg, white, #fbfcfb);
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      overflow: hidden;
     }
-
-    ul.bullets li {
-      margin: 7px 0;
+    .job::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--green), var(--blue), var(--terra), var(--gold));
+      opacity: 0.85;
+      transform: scaleY(0.35);
+      transform-origin: top;
+      transition: transform 320ms ease;
     }
+    .job:hover { transform: translateX(4px); border-color: rgba(95,120,104,0.25); box-shadow: 0 18px 38px rgba(45,46,45,0.09); }
+    .job:hover::before { transform: scaleY(1); }
+    .job-top { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; margin-bottom: 10px; }
+    .job h3 { margin: 0; font-size: 1.08rem; letter-spacing: -0.02em; }
+    .date { color: var(--muted); font-weight: 800; font-size: 0.86rem; white-space: nowrap; }
+    .company { margin: 2px 0 0; color: var(--green); font-weight: 900; }
+    .job ul { margin: 14px 0 0; padding-left: 18px; color: var(--ink-soft); }
+    .job li { margin: 7px 0; }
 
-    .subrole {
-      margin: 18px 0 0;
-      padding: 14px 16px;
-      background: #fbfcfb;
-      border-left: 4px solid var(--blue);
-      transition: background-color 220ms ease, border-color 220ms ease, transform 220ms ease;
+    .project-card { background: #fcfdfc; }
+    .project-card::after {
+      content: "";
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(183,239,107,0.18), rgba(34,183,240,0.10)),
+        radial-gradient(circle at 35% 35%, rgba(95,120,104,0.18), transparent 60%);
+      border: 1px solid rgba(95,120,104,0.12);
+      opacity: 0.8;
     }
+    .project-card p { padding-right: 54px; }
 
-    .subrole h4 {
-      margin: 0 0 6px;
-      font-size: 0.98rem;
-    }
-
-    .subrole p {
-      margin: 0;
-      color: var(--ink-soft);
-    }
-
-    .tool-grid {
+    .tool-list {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px 18px;
+      gap: 18px;
+      margin-top: 22px;
     }
-
-    .tool-card {
-      border: 1px solid var(--line);
-      padding: 14px 16px;
-      background: #fcfcfb;
-      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
+    .tool-block {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
     }
+    .tool-block h3 { margin: 0 0 8px; color: white; font-size: 1rem; }
+    .tool-block p { margin: 0; font-size: 0.93rem; color: rgba(255,255,255,0.72); }
 
-    .tool-card h3 {
-      margin: 0 0 6px;
-      font-size: 0.98rem;
-    }
-
-    .tool-card p {
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: 0.94rem;
-    }
-
-    .education-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 24px;
-    }
-
-    .education-grid h3 {
-      margin: 0 0 4px;
-      font-size: 1rem;
-    }
-
-    .education-grid p,
-    .education-grid li {
-      color: var(--ink-soft);
-    }
-
-    .education-grid ul {
-      margin: 8px 0 0;
-      padding-left: 18px;
-    }
-
-    .footer-note {
-      margin-top: 38px;
-      padding-top: 18px;
+    .footer {
+      padding: 24px clamp(24px, 4vw, 52px) 34px;
       border-top: 1px solid var(--line);
+      background: #fafbfa;
       color: var(--muted);
-      font-size: 0.86rem;
-      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      font-size: 0.9rem;
     }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 560ms ease, transform 560ms ease;
+    }
+    [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
 
     .print-action {
       position: fixed;
-      right: 22px;
-      bottom: 22px;
+      right: 20px;
+      bottom: 20px;
+      z-index: 8;
       border: 0;
       border-radius: 999px;
       background: var(--ink);
       color: white;
-      padding: 12px 18px;
-      font-weight: 700;
+      padding: 12px 16px;
+      font-weight: 900;
       cursor: pointer;
-      box-shadow: 0 12px 30px rgba(45, 46, 45, 0.18);
-      transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+      box-shadow: 0 16px 34px rgba(45,46,45,0.20);
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+    .print-action:hover { transform: translateY(-2px); box-shadow: 0 22px 48px rgba(45,46,45,0.24); background: #111; }
+
+    @media (max-width: 980px) {
+      .site { display: block; width: min(calc(100% - 20px), 900px); }
+      .visual-rail { display: none; }
+      .page { border-radius: 26px; }
+      .mobile-media { display: block; }
+      .split, .impact-grid, .value-grid, .skills-grid, .project-grid, .tool-list { grid-template-columns: 1fr 1fr; }
     }
 
-    .print-action:hover {
-      background: #000;
-      transform: translateY(-1px);
-      box-shadow: 0 16px 34px rgba(45, 46, 45, 0.22);
-    }
-
-
-    @media (hover: hover) and (pointer: fine) {
-      .page:hover {
-        box-shadow: 0 22px 58px rgba(45, 46, 45, 0.1);
-        border-color: rgba(45, 46, 45, 0.09);
-      }
-
-      section:hover .section-title::after {
-        width: 58px;
-        background: var(--blue);
-      }
-
-      .impact-card:hover,
-      .tool-card:hover {
-        transform: translateY(-2px);
-        background: #ffffff;
-        border-color: rgba(101, 132, 153, 0.45);
-        box-shadow: 0 12px 28px rgba(45, 46, 45, 0.08);
-      }
-
-      .impact-card:hover strong {
-        color: var(--blue);
-      }
-
-      .skills li:hover {
-        transform: translateY(-1px);
-        background: #ffffff;
-        border-color: rgba(196, 107, 84, 0.45);
-        box-shadow: 0 6px 16px rgba(45, 46, 45, 0.06);
-      }
-
-      .skills li.priority:hover {
-        border-color: rgba(95, 120, 104, 0.55);
-        box-shadow: 0 6px 16px rgba(95, 120, 104, 0.08);
-      }
-
-      .job:hover .company {
-        color: var(--green);
-      }
-
-      .job:hover .role {
-        color: var(--terra);
-      }
-
-      .subrole:hover {
-        transform: translateX(2px);
-        background: #ffffff;
-        border-left-color: var(--terra);
-      }
+    @media (max-width: 680px) {
+      body { font-size: 15px; }
+      .site { margin: 10px auto 24px; width: min(calc(100% - 16px), 680px); }
+      .hero { padding: 30px 22px; }
+      h1 { font-size: clamp(2.3rem, 14vw, 4.2rem); }
+      main { padding: 20px 12px 32px; }
+      .section-card { padding: 22px; border-radius: 22px; }
+      .split, .impact-grid, .value-grid, .skills-grid, .project-grid, .tool-list { grid-template-columns: 1fr; }
+      .job-top { display: block; }
+      .date { display: block; margin-top: 5px; }
+      .contact-row li::after { display: none; }
+      .print-action { display: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-      }
-    }
-
-    @media (max-width: 760px) {
-      body {
-        background: var(--paper);
-      }
-
-      .page {
-        margin: 0;
-        padding: 34px 22px;
-        box-shadow: none;
-        border: 0;
-      }
-
-      .topbar,
-      .job,
-      .education-grid,
-      .tool-grid,
-      .impact-grid {
-        grid-template-columns: 1fr;
-        display: grid;
-      }
-
-      .contact {
-        min-width: 0;
-        text-align: left;
-        margin-top: 4px;
-      }
-
-      .job {
-        gap: 8px;
-      }
-
-      .job-meta {
-        margin-bottom: 2px;
-      }
-
-      .print-action {
-        display: none;
-      }
+      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.001ms !important; }
+      .rail-image { transform: none !important; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
     }
 
     @media print {
-      body {
-        background: #fff;
-        font-size: 10.7pt;
-      }
-
-      .page {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        box-shadow: none;
-        border: 0;
-      }
-
-      .print-action {
-        display: none;
-      }
-
-      a {
-        border: 0;
-      }
-
-      section,
-      .job,
-      .tool-card,
-      .impact-card {
-        break-inside: avoid;
-      }
-
-      .section-title::after {
-        background: #000;
-      }
-
-      .impact-card,
-      .tool-card,
-      .skills li,
-      .subrole,
-      .page {
-        transform: none !important;
-        box-shadow: none !important;
-      }
+      body { background: white; font-size: 10pt; }
+      .site { display: block; width: 100%; margin: 0; }
+      .visual-rail, .mobile-media, .print-action, .signal-panel { display: none; }
+      .page { box-shadow: none; border: 0; border-radius: 0; background: white; }
+      .hero, main, .footer { padding: 0; background: white; }
+      section, .job, .section-card, .project-card { break-inside: avoid; }
+      .section-card, .job, .mini-card, .skill-card, .project-card { box-shadow: none; }
+      a { border-bottom: 0; }
+      .dark-card { color: var(--ink); background: white; border-color: var(--line); }
+      .dark-card .section-title, .dark-card p, .dark-card li, .tool-block h3, .tool-block p { color: var(--ink); }
+      .impact-grid, .value-grid, .skills-grid, .project-grid, .tool-list { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <header class="topbar">
-      <div class="name-block">
-        <p class="eyebrow">Digital CV</p>
-        <h1>Axel<br />Cruz Machado</h1>
-        <h2>Digital Solutions & Product Operations Lead</h2>
-        <p class="tagline">Converting complex digital problems into executable solutions.</p>
-      </div>
-      <address class="contact">
-        <p>Mexico City, Mexico</p>
-        <p><a href="mailto:axelcruzmachado@gmail.com">axelcruzmachado@gmail.com</a></p>
-        <p><a href="tel:+525530392163">+52 55 3039 2163</a></p>
-        <p><a href="https://www.linkedin.com/in/axeldanielcruzmachado/" target="_blank" rel="noreferrer">LinkedIn</a></p>
-        <p><a href="https://axelixir.github.io/AxelCruzCV/index.html" target="_blank" rel="noreferrer">Digital CV</a></p>
-      </address>
-    </header>
+  <a class="skip-link" href="#content">Skip to content</a>
 
-    <section aria-labelledby="profile">
-      <h2 id="profile" class="section-title">Professional profile</h2>
-      <p class="profile">Digital Solutions & Product Operations Lead with 9+ years of experience turning complex business needs into executable digital solutions. I connect business, technology, creativity and multidisciplinary teams across digital platforms, LMS operations, enterprise content systems, audiovisual communication, QA, client delivery and technology-enabled projects. My strongest value appears where there is ambiguity: translating needs into requirements, aligning stakeholders, structuring execution and moving digital initiatives from idea to adoption.</p>
+  <div class="site">
+    <aside class="visual-rail" aria-label="Digital systems visual narrative">
+      <picture>
+        <source srcset="assets/sidebar-flow.webp" type="image/webp" />
+        <img class="rail-image" src="assets/sidebar-flow.jpg" width="300" height="4000" alt="Vertical visual system: idea, target, digital platforms, AI, learning, media, operations and security connected by luminous flows." decoding="async" fetchpriority="high" />
+      </picture>
+      <div class="rail-caption">Digital flow</div>
+    </aside>
 
-      <div class="impact-grid" aria-label="Selected impact">
-        <div class="impact-card">
-          <strong>40M+</strong>
-          <span>views generated through high-impact digital and social content initiatives.</span>
+    <div class="page">
+      <header class="hero">
+        <p class="kicker">Digital CV</p>
+        <h1>Axel Cruz Machado</h1>
+        <p class="role">Digital Solutions &amp; Product Operations Lead</p>
+        <p class="tagline">I turn complex digital problems into <strong>executable solutions</strong> by integrating business, technology, creativity and multidisciplinary teams.</p>
+        <ul class="contact-row" aria-label="Contact information">
+          <li>Mexico City, Mexico</li>
+          <li><a href="mailto:axelcruzmachado@gmail.com">axelcruzmachado@gmail.com</a></li>
+          <li><a href="tel:+525530392163">+52 55 3039 2163</a></li>
+          <li><a href="https://www.linkedin.com/in/axeldanielcruzmachado/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+        </ul>
+        <div class="action-row">
+          <a class="button" href="mailto:axelcruzmachado@gmail.com">Contact me</a>
+          <a class="button secondary" href="#projects">See selected projects</a>
         </div>
-        <div class="impact-card">
-          <strong>45M+</strong>
-          <span>MXN in potential business exposure addressed through Hino IT/platform issue resolution.</span>
-        </div>
-        <div class="impact-card">
-          <strong>25+</strong>
-          <span>people coordinated across creative, technical, instructional, QA and client-facing teams.</span>
-        </div>
-        <div class="impact-card">
-          <strong>9+</strong>
-          <span>years building, coordinating and operating digital solutions for business environments.</span>
-        </div>
-      </div>
-    </section>
+        <figure class="mobile-media" aria-label="Digital CV visual identity">
+          <picture>
+            <source srcset="assets/digital-cv-cover.webp" type="image/webp" />
+            <img src="assets/digital-cv-cover.jpg" width="1200" height="630" alt="Digital CV cover with target, idea and digital solution visual system." decoding="async" />
+          </picture>
+        </figure>
+      </header>
 
-    <section aria-labelledby="skills">
-      <h2 id="skills" class="section-title">Core skills</h2>
-      <ul class="skills">
-        <li class="priority">Digital Product Operations</li>
-        <li class="priority">Digital Solutions</li>
-        <li class="priority">Learning Technology</li>
-        <li class="priority">AI-Enabled Operations</li>
-        <li>Program Management</li>
-        <li>Product Delivery</li>
-        <li>Stakeholder Management</li>
-        <li>Cross-functional Leadership</li>
-        <li>LMS / Digital Platforms</li>
-        <li>Enterprise Content Operations</li>
-        <li>Creative Operations</li>
-        <li>Requirements Gathering</li>
-        <li>QA / UAT</li>
-        <li>Process Improvement</li>
-        <li>Client Communication</li>
-        <li>Product Adoption</li>
-        <li>Workflow Transformation</li>
-        <li>Executive Reporting</li>
-      </ul>
-    </section>
-
-    <section aria-labelledby="experience">
-      <h2 id="experience" class="section-title">Professional experience</h2>
-
-      <article class="job">
-        <div class="job-meta">
-          <h3 class="company">Top of Mind Communication</h3>
-          <p class="date">Feb 2024 – Present</p>
-          <p class="location">Mexico City · On-site</p>
-        </div>
-        <div class="job-main">
-          <h3 class="role">Head of Coordination & Quality — Digital Operations & Product Delivery <span class="role-note">Jun 2025 – Present</span></h3>
-          <p class="summary">Lead digital delivery operations for enterprise clients, coordinating multidisciplinary teams across corporate communications, LMS-related initiatives, audiovisual production, branding, instructional content, QA and technology-enabled projects.</p>
-          <ul class="bullets">
-            <li>Lead coordination and quality operations for clients including <strong>KPMG, KIA, Mazda, Hino, Edenred, Costco and Teojama</strong>.</li>
-            <li>Coordinate cross-functional teams across creative, technical, instructional, QA and client-facing roles, with teams of <strong>10 to 25+ people</strong>.</li>
-            <li>Manage internal communications programs, audiovisual packages, podcasts, newscasts, minivideos, event coverage and branding materials for enterprise clients.</li>
-            <li>Oversee LMS-related and digital platform initiatives, coordinating requirements, technical follow-up, QA cycles and operational support.</li>
-            <li>Convert ambiguous business and communication needs into structured workflows, deliverables and digital solutions.</li>
-          </ul>
-
-          <div class="subrole">
-            <h4>Previous role: Digital Project Coordinator — Enterprise Content & Learning Operations</h4>
-            <p>Coordinated technology-enabled, eLearning, audiovisual and internal communication projects, focusing on operational follow-up, deliverable control, process documentation, client communication and quality assurance.</p>
+      <main id="content">
+        <section id="profile" data-reveal>
+          <div class="section-card split">
+            <div>
+              <p class="section-eyebrow">Profile</p>
+              <h2 class="section-title">Built for ambiguity, delivery and digital execution.</h2>
+              <p class="lead">Digital Solutions &amp; Product Operations Lead with 9+ years of experience leading multidisciplinary teams, enterprise clients, digital platforms, LMS operations, audiovisual communication systems and technology-enabled projects. Experienced in translating business needs into executable digital solutions, coordinating technical and creative teams, managing stakeholders, improving delivery quality and supporting product adoption across corporate environments.</p>
+            </div>
+            <div class="signal-panel" role="img" aria-label="Digital CV visual cover: ideas, target and digital solution flows."></div>
           </div>
-        </div>
-      </article>
+        </section>
 
-      <article class="job">
-        <div class="job-meta">
-          <h3 class="company">TOCA Contact Center</h3>
-          <p class="date">Jan 2023 – Feb 2024</p>
-          <p class="location">Mexico City · On-site</p>
-        </div>
-        <div class="job-main">
-          <h3 class="role">Operations & Training Improvement Manager</h3>
-          <p class="summary">Led operational improvement, onboarding, training coordination, documentation and internal process initiatives for a growing contact center environment.</p>
-          <ul class="bullets">
-            <li>Strengthened execution consistency through workflow documentation, internal communication and team enablement.</li>
-            <li>Led onboarding, training coordination, HR operations and internal documentation processes.</li>
-            <li>Improved operational workflows, reporting habits and process visibility for commercial and service teams.</li>
-            <li>Supported campaign coordination and operational follow-up in a high-volume service environment.</li>
-            <li>Acted as a bridge between people operations, commercial needs and day-to-day operational performance.</li>
-          </ul>
-        </div>
-      </article>
+        <section id="impact" data-reveal>
+          <div class="section-card dark-card">
+            <p class="section-eyebrow">Impact</p>
+            <h2 class="section-title">Signals that prove the profile.</h2>
+            <p class="lead">The through-line is not a single tool or discipline. It is the capacity to structure complex digital work and move it toward results.</p>
+            <div class="impact-grid">
+              <div class="impact-card"><span class="impact-number">40M+</span><span class="impact-label">views from digital content and trending topic participation</span></div>
+              <div class="impact-card"><span class="impact-number">45M+</span><span class="impact-label">MXN exposure managed through critical IT issue resolution</span></div>
+              <div class="impact-card"><span class="impact-number">25+</span><span class="impact-label">people coordinated across creative, technical, QA and client-facing teams</span></div>
+              <div class="impact-card"><span class="impact-number">9+</span><span class="impact-label">years building, coordinating and operating digital solutions</span></div>
+            </div>
+          </div>
+        </section>
 
-      <article class="job">
-        <div class="job-meta">
-          <h3 class="company">Fenrir Creative Studios / Fentec Apps & Web</h3>
-          <p class="date">Mar 2015 – Feb 2024</p>
-          <p class="location">Mexico City · Hybrid / Independent</p>
-        </div>
-        <div class="job-main">
-          <h3 class="role">Founder & Digital Solutions Lead — LMS & Web Platforms</h3>
-          <p class="summary">Founded and led a digital solutions studio focused on LMS platforms, web products, interactive technology, digital learning and corporate communication solutions for business clients.</p>
-          <ul class="bullets">
-            <li>Founded and managed a digital solutions operation, coordinating design, development, implementation, support and client delivery.</li>
-            <li>Directed the creation and evolution of the <strong>Hino LMS</strong>, coordinating product requirements, client communication, roadmap priorities, technical execution and operational continuity.</li>
-            <li>Managed digital product delivery across LMS platforms, websites, interactive content, corporate training tools and communication solutions.</li>
-            <li>Coordinated technical teams working with cloud infrastructure and web technologies, acting as product/operations lead rather than primary developer.</li>
-            <li>Translated business, learning and technology needs into working digital platforms used in real corporate environments.</li>
-          </ul>
-        </div>
-      </article>
-    </section>
+        <section id="value" data-reveal>
+          <div class="section-card">
+            <p class="section-eyebrow">How I work</p>
+            <h2 class="section-title">Business + technology + creativity + teams.</h2>
+            <p class="lead">My value is strongest where there is ambiguity: when teams, clients, platforms, content, technology and operations need to align. I translate needs into action, structure execution, coordinate stakeholders, improve quality and help digital solutions move from idea to adoption.</p>
+            <div class="value-grid">
+              <article class="mini-card"><span class="icon">↗</span><h3>Business</h3><p>Translate needs, scope, risk and value into executable priorities.</p></article>
+              <article class="mini-card"><span class="icon">⚙</span><h3>Technology</h3><p>Coordinate platforms, LMS, cloud-enabled products and technical teams.</p></article>
+              <article class="mini-card"><span class="icon">✦</span><h3>Creativity</h3><p>Connect storytelling, audiovisual language, content systems and brand quality.</p></article>
+              <article class="mini-card"><span class="icon">◎</span><h3>Teams</h3><p>Lead cross-functional delivery with clients, creatives, QA and developers.</p></article>
+            </div>
+          </div>
+        </section>
 
-    <section aria-labelledby="projects">
-      <h2 id="projects" class="section-title">Selected project scope</h2>
-      <div class="tool-grid">
-        <div class="tool-card">
-          <h3>Hino LMS</h3>
-          <p>Corporate LMS platform for automotive training operations. Coordinated product evolution, client requirements, technical support, delivery roadmap and platform continuity.</p>
-        </div>
-        <div class="tool-card">
-          <h3>Edenred Training / Edenred Knowledge</h3>
-          <p>Digital training and knowledge platform initiatives. Coordinated platform operations, content organization, technical follow-up and stakeholder alignment.</p>
-        </div>
-        <div class="tool-card">
-          <h3>KPMG Mexico — Internal Communications</h3>
-          <p>Recurring audiovisual and branding package including newscast, podcast, minivideos, event coverage and corporate communication assets.</p>
-        </div>
-        <div class="tool-card">
-          <h3>KIA Mexico — Monthly Content & Video Operations</h3>
-          <p>Recurring content and video production package. Coordinated creative teams, review cycles, quality control and brand alignment.</p>
-        </div>
-      </div>
-    </section>
+        <section id="experience" data-reveal>
+          <div class="section-card">
+            <p class="section-eyebrow">Experience</p>
+            <h2 class="section-title">A trajectory built around solving digital problems.</h2>
+            <div class="timeline">
+              <article class="job">
+                <div class="job-top"><div><h3>Head of Coordination &amp; Quality — Digital Operations &amp; Product Delivery</h3><p class="company">Top of Mind Communication</p></div><span class="date">Jun 2025 – Present</span></div>
+                <p>Lead digital delivery operations for enterprise clients, coordinating multidisciplinary teams across corporate communications, LMS-related initiatives, audiovisual production, branding, instructional content, QA and technology-enabled projects.</p>
+                <ul>
+                  <li>Lead coordination and quality operations for clients including KPMG, KIA, Mazda, Hino, Edenred, Costco and Teojama.</li>
+                  <li>Translate client needs into executable plans, requirements, QA cycles, production timelines and issue-resolution workflows.</li>
+                  <li>Coordinate cross-functional teams across creative, technical, instructional, QA and client-facing roles.</li>
+                </ul>
+              </article>
 
-    <section aria-labelledby="tools">
-      <h2 id="tools" class="section-title">Tools & technology</h2>
-      <div class="tool-grid">
-        <div class="tool-card">
-          <h3>Direct use</h3>
-          <p>Notion, ChatGPT, Google Workspace, Microsoft Office, Excel / Sheets, PowerPoint / Slides, Photoshop, Illustrator, Premiere, After Effects, Asana.</p>
-        </div>
-        <div class="tool-card">
-          <h3>Managed through technical teams</h3>
-          <p>AWS, Django, React, Heroku, PostgreSQL, Docker, LMS platforms and cloud-based digital products.</p>
-        </div>
-        <div class="tool-card">
-          <h3>Learning roadmap</h3>
-          <p>AI Leadership, Prompt Engineering, Context Engineering, AI Agents, AI Product Management and Web Development.</p>
-        </div>
-        <div class="tool-card">
-          <h3>Working languages</h3>
-          <p>Spanish native. English professional working proficiency for meetings, documentation, client communication and international collaboration.</p>
-        </div>
-      </div>
-    </section>
+              <article class="job">
+                <div class="job-top"><div><h3>Digital Project Coordinator — Enterprise Content &amp; Learning Operations</h3><p class="company">Top of Mind Communication</p></div><span class="date">Feb 2024 – Jul 2025</span></div>
+                <p>Coordinated technology-enabled, eLearning, audiovisual and corporate communication projects with a focus on delivery tracking, client communication, process documentation and quality control.</p>
+                <ul>
+                  <li>Managed internal communications programs for KPMG Mexico, including newscasts, podcasts, minivideos, event coverage and executive communication assets.</li>
+                  <li>Supported recurring content and video operations for KIA, managing review cycles, brand consistency and delivery quality.</li>
+                  <li>Oversaw LMS-related initiatives for Hino, Edenred and Teojama, coordinating platform support, technical follow-up and operational continuity.</li>
+                </ul>
+              </article>
 
-    <section aria-labelledby="education">
-      <h2 id="education" class="section-title">Education</h2>
-      <div class="education-grid">
-        <div>
-          <h3>Bachelor of Engineering in Interactive Technologies and Digital Animation</h3>
-          <p>Universidad del Valle de México · Mexico City</p>
-        </div>
-        <div>
-          <h3>Professional focus</h3>
-          <p>Digital Product Operations · Learning Technology · AI-Enabled Digital Operations · Cross-functional Delivery.</p>
-        </div>
-      </div>
-    </section>
+              <article class="job">
+                <div class="job-top"><div><h3>Operations &amp; Training Improvement Manager</h3><p class="company">TOCA Contact Center</p></div><span class="date">Jan 2023 – Feb 2024</span></div>
+                <p>Led operational improvement, onboarding, training coordination, documentation and internal process initiatives for a growing contact center environment.</p>
+                <ul>
+                  <li>Strengthened execution consistency through onboarding, training coordination, HR operations and documentation.</li>
+                  <li>Improved operational workflows, reporting habits and process visibility for commercial and service teams.</li>
+                  <li>Acted as a bridge between people operations, commercial needs and day-to-day operational performance.</li>
+                </ul>
+              </article>
 
-    <p class="footer-note">Axel Cruz Machado · Digital Solutions & Product Operations Lead · What digital problem do we need to solve?</p>
-  </main>
+              <article class="job">
+                <div class="job-top"><div><h3>Founder &amp; Digital Solutions Lead — LMS &amp; Web Platforms</h3><p class="company">Fenrir Creative Studios / Fentec Apps &amp; Web</p></div><span class="date">Mar 2015 – Feb 2024</span></div>
+                <p>Founded and led a digital solutions studio focused on LMS platforms, web products, interactive technology, digital learning and corporate communication solutions for business clients.</p>
+                <ul>
+                  <li>Directed the creation and evolution of the Hino LMS, coordinating product requirements, client communication, roadmap priorities, technical execution and long-term operational continuity.</li>
+                  <li>Managed digital product delivery across LMS platforms, websites, interactive content, corporate training tools and communication solutions.</li>
+                  <li>Coordinated technical teams working with cloud infrastructure and web technologies, acting as product/operations lead rather than primary developer.</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
 
-  <button class="print-action" onclick="window.print()">Print / Save PDF</button>
+        <section id="projects" data-reveal>
+          <div class="section-card">
+            <p class="section-eyebrow">Selected projects</p>
+            <h2 class="section-title">Enterprise work, translated into digital systems.</h2>
+            <div class="project-grid">
+              <article class="project-card"><span class="icon">◎</span><h3>Hino LMS</h3><p>Corporate LMS platform for automotive training operations. Coordinated product evolution, client requirements, technical support, delivery roadmap and platform continuity.</p></article>
+              <article class="project-card"><span class="icon">▣</span><h3>Edenred Training / Knowledge</h3><p>Digital training and knowledge platform initiatives. Coordinated platform operations, content organization, technical follow-up and stakeholder alignment.</p></article>
+              <article class="project-card"><span class="icon">◉</span><h3>KPMG Mexico</h3><p>Monthly internal communications package including newscast, podcast, minivideos, event coverage and corporate communication assets.</p></article>
+              <article class="project-card"><span class="icon">▶</span><h3>KIA Mexico</h3><p>Recurring content and video production package. Coordinated creative teams, review cycles, quality control and brand alignment.</p></article>
+              <article class="project-card"><span class="icon">✎</span><h3>Mazda Mexico</h3><p>Supported coordination of training-related digital content, instructional planning and internal delivery processes.</p></article>
+              <article class="project-card"><span class="icon">⚑</span><h3>Teojama LMS</h3><p>Coordinated LMS deployment, platform follow-up, technical support tracking and operational readiness.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="capabilities" data-reveal>
+          <div class="section-card">
+            <p class="section-eyebrow">Core capabilities</p>
+            <h2 class="section-title">The operating range.</h2>
+            <div class="skills-grid">
+              <article class="skill-card"><span class="icon">☷</span><h3>Digital Product Operations</h3><p>Requirements, roadmaps, QA, delivery management, product adoption and process improvement.</p></article>
+              <article class="skill-card"><span class="icon">▤</span><h3>Learning Technology</h3><p>LMS, WBT, digital learning platforms, content operations and training enablement.</p></article>
+              <article class="skill-card"><span class="icon">✦</span><h3>AI-Enabled Operations</h3><p>AI adoption, workflow transformation, prompt systems and operational efficiency.</p></article>
+            </div>
+            <div class="chips" aria-label="Skills">
+              <span class="chip">Program Management</span><span class="chip">Stakeholder Management</span><span class="chip">Cross-functional Leadership</span><span class="chip">Delivery Management</span><span class="chip">Customer Success</span><span class="chip">Creative Operations</span><span class="chip">Internal Communications</span><span class="chip">Enterprise Content Operations</span><span class="chip">QA / UAT</span><span class="chip">Requirements Gathering</span><span class="chip">Product Adoption</span><span class="chip">Executive Reporting</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="tools" data-reveal>
+          <div class="section-card dark-card">
+            <p class="section-eyebrow">Tools &amp; technology</p>
+            <h2 class="section-title">Hands-on where it matters. Technical enough to lead the room.</h2>
+            <div class="tool-list">
+              <div class="tool-block"><h3>Direct use</h3><p>Notion, ChatGPT, Google Workspace, Microsoft Office, Excel/Sheets, PowerPoint/Slides, Photoshop, Illustrator, Premiere, After Effects and Asana.</p></div>
+              <div class="tool-block"><h3>Managed through technical teams</h3><p>AWS, Django, React, Heroku, PostgreSQL, Docker, LMS platforms and cloud-based digital products.</p></div>
+              <div class="tool-block"><h3>Learning roadmap</h3><p>AI Leadership, Prompt Engineering, Context Engineering, AI Agents, AI Product Management and Web Development.</p></div>
+              <div class="tool-block"><h3>Education</h3><p>Bachelor of Engineering in Interactive Technologies and Digital Animation — Universidad del Valle de México.</p></div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>Axel Cruz Machado · Digital Solutions &amp; Product Operations Lead</span>
+        <span>What digital problem do we need to solve?</span>
+      </footer>
+    </div>
+  </div>
+
+  <button class="print-action" type="button" onclick="window.print()">Print / PDF</button>
+
+  <script>
+    (() => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealEls = document.querySelectorAll('[data-reveal]');
+      if (!reduceMotion && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        revealEls.forEach((el) => observer.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+      }
+
+      const frame = document.querySelector('.visual-rail');
+      const img = document.querySelector('.rail-image');
+      if (!reduceMotion && frame && img) {
+        let ticking = false;
+        const updateRail = () => {
+          const maxPage = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+          const progress = Math.min(1, Math.max(0, window.scrollY / maxPage));
+          const available = Math.max(0, img.offsetHeight - frame.offsetHeight);
+          img.style.transform = `translate3d(0, ${-available * progress}px, 0)`;
+          ticking = false;
+        };
+        const requestUpdate = () => {
+          if (!ticking) {
+            window.requestAnimationFrame(updateRail);
+            ticking = true;
+          }
+        };
+        img.addEventListener('load', updateRail, { once: true });
+        window.addEventListener('scroll', requestUpdate, { passive: true });
+        window.addEventListener('resize', requestUpdate, { passive: true });
+        updateRail();
+      }
+    })();
+  </script>
 </body>
 </html>
