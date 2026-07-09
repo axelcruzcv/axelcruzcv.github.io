@@ -198,6 +198,56 @@
       font-size: clamp(1.03rem, 1.65vw, 1.25rem);
     }
     .tagline strong { color: var(--green); font-weight: 900; }
+    .hero-slogans {
+      position: relative;
+      margin-top: 30px;
+      max-width: 900px;
+      padding: clamp(18px, 2.7vw, 26px);
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 92% 12%, rgba(183,239,107,0.17), transparent 14rem),
+        linear-gradient(135deg, rgba(255,255,255,0.92), rgba(247,249,247,0.78));
+      border: 1px solid rgba(95,120,104,0.18);
+      box-shadow: 0 18px 42px rgba(45,46,45,0.07);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero-slogans::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--green), var(--blue), var(--terra), var(--gold));
+      opacity: 0.88;
+    }
+    .hero-question {
+      margin: 0;
+      font-size: clamp(1.55rem, 3.8vw, 3.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      font-weight: 950;
+      color: var(--ink);
+    }
+    .hero-answer {
+      margin: 13px 0 0;
+      color: var(--ink-soft);
+      font-size: clamp(1.05rem, 2vw, 1.42rem);
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .hero-answer strong {
+      color: var(--green);
+      text-shadow: 0 0 18px rgba(183,239,107,0.22);
+    }
+    .hero-slogans .tagline {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(45,46,45,0.08);
+      max-width: 760px;
+    }
     .contact-row {
       display: flex;
       flex-wrap: wrap;
@@ -296,6 +346,34 @@
     .dark-card li { color: rgba(255,255,255,0.82); }
     .dark-card strong { color: var(--green-neon); }
 
+    .slogan-card {
+      padding: clamp(28px, 4.2vw, 52px);
+      color: white;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(183,239,107,0.20), transparent 20rem),
+        radial-gradient(circle at 88% 18%, rgba(34,183,240,0.16), transparent 23rem),
+        linear-gradient(135deg, #07100d 0%, #07121c 100%);
+      border-color: rgba(255,255,255,0.10);
+      box-shadow: 0 24px 62px rgba(9,17,27,0.18);
+    }
+    .slogan-main {
+      margin: 0;
+      max-width: 920px;
+      font-size: clamp(2rem, 5vw, 4.9rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+      font-weight: 950;
+    }
+    .slogan-sub {
+      margin: 18px 0 0;
+      color: rgba(255,255,255,0.74);
+      font-size: clamp(1.2rem, 2.4vw, 2rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      font-weight: 850;
+    }
+    .slogan-sub strong { color: var(--green-neon); text-shadow: 0 0 18px rgba(183,239,107,0.42); }
+
     .section-eyebrow {
       display: inline-flex;
       align-items: center;
@@ -338,26 +416,36 @@
       align-items: stretch;
     }
 
-    .signal-panel {
+    .profile-art {
       position: relative;
+      margin: 0;
       min-height: 250px;
+      aspect-ratio: 4 / 3;
       border-radius: 22px;
       overflow: hidden;
-      background-image: url('assets/digital-cv-cover.webp');
-      background-size: cover;
-      background-position: center;
+      background: var(--dark);
       border: 1px solid rgba(255,255,255,0.12);
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03), 0 18px 40px rgba(9,17,27,0.24);
       transform: translateZ(0);
     }
-    .signal-panel::after {
+    .profile-art img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 520ms cubic-bezier(.2,.8,.2,1), filter 520ms ease;
+      image-rendering: auto;
+    }
+    .profile-art::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.34));
+      background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.18));
       pointer-events: none;
     }
-    .signal-panel:hover {
+    .section-card:hover .profile-art img {
+      transform: scale(1.035);
       filter: saturate(1.06) contrast(1.04);
     }
 
@@ -600,7 +688,7 @@
     @media print {
       body { background: white; font-size: 10pt; }
       .site { display: block; width: 100%; margin: 0; }
-      .visual-rail, .mobile-media, .print-action, .signal-panel { display: none; }
+      .visual-rail, .mobile-media, .print-action, .profile-art { display: none; }
       .page { box-shadow: none; border: 0; border-radius: 0; background: white; }
       .hero, main, .footer { padding: 0; background: white; }
       section, .job, .section-card, .project-card { break-inside: avoid; }
@@ -610,8 +698,38 @@
       .dark-card .section-title, .dark-card p, .dark-card li, .tool-block h3, .tool-block p { color: var(--ink); }
       .impact-grid, .value-grid, .skills-grid, .project-grid, .tool-list { grid-template-columns: repeat(2, 1fr); }
     }
+
+
+    /* V5 editorial pass: shorter, tighter, less repetitive */
+    .hero { padding-bottom: clamp(28px, 4vw, 46px); }
+    .hero-slogans { margin-top: 20px; }
+    .hero-question { max-width: 900px; }
+    .hero-answer { margin-top: 8px; }
+    .tagline { max-width: 760px; }
+    main { padding-bottom: 38px; }
+    section { margin-bottom: 34px; }
+    .section-card { padding: clamp(20px, 2.5vw, 30px); }
+    .lead { max-width: 980px; }
+    .impact-grid { gap: 12px; }
+    .impact-card { min-height: 112px; padding: 18px; }
+    .value-grid { margin-top: 18px; }
+    .project-grid { margin-top: 18px; }
+    .chips { margin-top: 16px; }
+    .footer { padding-top: 18px; padding-bottom: 22px; }
+
+    @media (max-width: 680px) {
+      section { margin-bottom: 24px; }
+      .hero { padding: 28px 20px 24px; }
+      .hero-question { font-size: clamp(1.5rem, 8vw, 2.5rem); }
+      .hero-answer { font-size: clamp(1.15rem, 5vw, 1.55rem); }
+      .tagline { font-size: 1.05rem; }
+      .section-card { padding: 20px; }
+      .lead { font-size: 1.04rem; }
+      .mobile-media { margin-top: 20px; }
+    }
   </style>
 </head>
+
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
 
@@ -629,7 +747,11 @@
         <p class="kicker">Digital CV</p>
         <h1>Axel Cruz Machado</h1>
         <p class="role">Digital Solutions &amp; Product Operations Lead</p>
-        <p class="tagline">I turn complex digital problems into <strong>executable solutions</strong> by integrating business, technology, creativity and multidisciplinary teams.</p>
+        <div class="hero-slogans" aria-label="Professional positioning">
+          <p class="hero-question">What digital problem do we need to solve?</p>
+          <p class="hero-answer">Making complex digital work... <strong>work.</strong></p>
+          <p class="tagline">I turn complex digital problems into <strong>executable solutions</strong> by integrating business, technology, creativity and multidisciplinary teams.</p>
+        </div>
         <ul class="contact-row" aria-label="Contact information">
           <li>Mexico City, Mexico</li>
           <li><a href="mailto:axelcruzmachado@gmail.com">axelcruzmachado@gmail.com</a></li>
@@ -654,9 +776,14 @@
             <div>
               <p class="section-eyebrow">Profile</p>
               <h2 class="section-title">Built for ambiguity, delivery and digital execution.</h2>
-              <p class="lead">Digital Solutions &amp; Product Operations Lead with 9+ years of experience leading multidisciplinary teams, enterprise clients, digital platforms, LMS operations, audiovisual communication systems and technology-enabled projects. Experienced in translating business needs into executable digital solutions, coordinating technical and creative teams, managing stakeholders, improving delivery quality and supporting product adoption across corporate environments.</p>
+              <p class="lead">I lead digital work where business, technology, creativity and teams need to align. My work spans product operations, LMS platforms, enterprise content, audiovisual communication, QA, stakeholders and technical delivery.</p>
             </div>
-            <div class="signal-panel" role="img" aria-label="Digital CV visual cover: ideas, target and digital solution flows."></div>
+            <figure class="profile-art" aria-label="Original artwork by Axel Cruz Machado">
+              <picture>
+                <source srcset="assets/profile-art-bird.webp" type="image/webp" />
+                <img src="assets/profile-art-bird.jpg" width="1200" height="900" alt="Original bird artwork by Axel Cruz Machado, used as an artistic counterpoint to the digital profile." loading="lazy" decoding="async" />
+              </picture>
+            </figure>
           </div>
         </section>
 
@@ -664,12 +791,12 @@
           <div class="section-card dark-card">
             <p class="section-eyebrow">Impact</p>
             <h2 class="section-title">Signals that prove the profile.</h2>
-            <p class="lead">The through-line is not a single tool or discipline. It is the capacity to structure complex digital work and move it toward results.</p>
+            <p class="lead">The pattern is not one isolated win: it is the ability to structure ambiguity, coordinate people and move complex digital work toward results.</p>
             <div class="impact-grid">
+              <div class="impact-card"><span class="impact-number">9+</span><span class="impact-label">years building and operating digital solutions</span></div>
+              <div class="impact-card"><span class="impact-number">25+</span><span class="impact-label">people coordinated across creative, technical, QA and client-facing teams</span></div>
               <div class="impact-card"><span class="impact-number">40M+</span><span class="impact-label">views from digital content and trending topic participation</span></div>
               <div class="impact-card"><span class="impact-number">45M+</span><span class="impact-label">MXN exposure managed through critical IT issue resolution</span></div>
-              <div class="impact-card"><span class="impact-number">25+</span><span class="impact-label">people coordinated across creative, technical, QA and client-facing teams</span></div>
-              <div class="impact-card"><span class="impact-number">9+</span><span class="impact-label">years building, coordinating and operating digital solutions</span></div>
             </div>
           </div>
         </section>
@@ -678,11 +805,10 @@
           <div class="section-card">
             <p class="section-eyebrow">How I work</p>
             <h2 class="section-title">Business + technology + creativity + teams.</h2>
-            <p class="lead">My value is strongest where there is ambiguity: when teams, clients, platforms, content, technology and operations need to align. I translate needs into action, structure execution, coordinate stakeholders, improve quality and help digital solutions move from idea to adoption.</p>
             <div class="value-grid">
-              <article class="mini-card"><span class="icon">↗</span><h3>Business</h3><p>Translate needs, scope, risk and value into executable priorities.</p></article>
+              <article class="mini-card"><span class="icon">↗</span><h3>Business</h3><p>Translate needs, scope and risk into executable priorities.</p></article>
               <article class="mini-card"><span class="icon">⚙</span><h3>Technology</h3><p>Coordinate platforms, LMS, cloud-enabled products and technical teams.</p></article>
-              <article class="mini-card"><span class="icon">✦</span><h3>Creativity</h3><p>Connect storytelling, audiovisual language, content systems and brand quality.</p></article>
+              <article class="mini-card"><span class="icon">✦</span><h3>Creativity</h3><p>Connect storytelling, content systems, audiovisual language and brand quality.</p></article>
               <article class="mini-card"><span class="icon">◎</span><h3>Teams</h3><p>Lead cross-functional delivery with clients, creatives, QA and developers.</p></article>
             </div>
           </div>
@@ -694,22 +820,11 @@
             <h2 class="section-title">A trajectory built around solving digital problems.</h2>
             <div class="timeline">
               <article class="job">
-                <div class="job-top"><div><h3>Head of Coordination &amp; Quality — Digital Operations &amp; Product Delivery</h3><p class="company">Top of Mind Communication</p></div><span class="date">Jun 2025 – Present</span></div>
-                <p>Lead digital delivery operations for enterprise clients, coordinating multidisciplinary teams across corporate communications, LMS-related initiatives, audiovisual production, branding, instructional content, QA and technology-enabled projects.</p>
+                <div class="job-top"><div><h3>Digital Operations &amp; Product Delivery Lead</h3><p class="company">Top of Mind Communication</p></div><span class="date">Feb 2024 – Present</span></div>
+                <p>Lead and coordinate enterprise digital delivery across corporate communications, LMS-related initiatives, audiovisual production, branding, QA and technology-enabled projects.</p>
                 <ul>
-                  <li>Lead coordination and quality operations for clients including KPMG, KIA, Mazda, Hino, Edenred, Costco and Teojama.</li>
-                  <li>Translate client needs into executable plans, requirements, QA cycles, production timelines and issue-resolution workflows.</li>
-                  <li>Coordinate cross-functional teams across creative, technical, instructional, QA and client-facing roles.</li>
-                </ul>
-              </article>
-
-              <article class="job">
-                <div class="job-top"><div><h3>Digital Project Coordinator — Enterprise Content &amp; Learning Operations</h3><p class="company">Top of Mind Communication</p></div><span class="date">Feb 2024 – Jul 2025</span></div>
-                <p>Coordinated technology-enabled, eLearning, audiovisual and corporate communication projects with a focus on delivery tracking, client communication, process documentation and quality control.</p>
-                <ul>
-                  <li>Managed internal communications programs for KPMG Mexico, including newscasts, podcasts, minivideos, event coverage and executive communication assets.</li>
-                  <li>Supported recurring content and video operations for KIA, managing review cycles, brand consistency and delivery quality.</li>
-                  <li>Oversaw LMS-related initiatives for Hino, Edenred and Teojama, coordinating platform support, technical follow-up and operational continuity.</li>
+                  <li>Clients include KPMG, KIA, Mazda, Hino, Edenred, Costco and Teojama.</li>
+                  <li>Translate client needs into plans, requirements, production timelines, QA cycles and issue-resolution workflows.</li>
                 </ul>
               </article>
 
@@ -717,19 +832,17 @@
                 <div class="job-top"><div><h3>Operations &amp; Training Improvement Manager</h3><p class="company">TOCA Contact Center</p></div><span class="date">Jan 2023 – Feb 2024</span></div>
                 <p>Led operational improvement, onboarding, training coordination, documentation and internal process initiatives for a growing contact center environment.</p>
                 <ul>
-                  <li>Strengthened execution consistency through onboarding, training coordination, HR operations and documentation.</li>
-                  <li>Improved operational workflows, reporting habits and process visibility for commercial and service teams.</li>
+                  <li>Strengthened execution consistency through process visibility, internal communication and documentation.</li>
                   <li>Acted as a bridge between people operations, commercial needs and day-to-day operational performance.</li>
                 </ul>
               </article>
 
               <article class="job">
                 <div class="job-top"><div><h3>Founder &amp; Digital Solutions Lead — LMS &amp; Web Platforms</h3><p class="company">Fenrir Creative Studios / Fentec Apps &amp; Web</p></div><span class="date">Mar 2015 – Feb 2024</span></div>
-                <p>Founded and led a digital solutions studio focused on LMS platforms, web products, interactive technology, digital learning and corporate communication solutions for business clients.</p>
+                <p>Founded and led a digital solutions studio focused on LMS platforms, web products, interactive technology, digital learning and corporate communication solutions.</p>
                 <ul>
-                  <li>Directed the creation and evolution of the Hino LMS, coordinating product requirements, client communication, roadmap priorities, technical execution and long-term operational continuity.</li>
-                  <li>Managed digital product delivery across LMS platforms, websites, interactive content, corporate training tools and communication solutions.</li>
-                  <li>Coordinated technical teams working with cloud infrastructure and web technologies, acting as product/operations lead rather than primary developer.</li>
+                  <li>Directed the creation and evolution of the Hino LMS through requirements, client communication, roadmap priorities and operational continuity.</li>
+                  <li>Coordinated design, development, implementation, support and client delivery as product/operations lead rather than primary developer.</li>
                 </ul>
               </article>
             </div>
@@ -741,40 +854,37 @@
             <p class="section-eyebrow">Selected projects</p>
             <h2 class="section-title">Enterprise work, translated into digital systems.</h2>
             <div class="project-grid">
-              <article class="project-card"><span class="icon">◎</span><h3>Hino LMS</h3><p>Corporate LMS platform for automotive training operations. Coordinated product evolution, client requirements, technical support, delivery roadmap and platform continuity.</p></article>
-              <article class="project-card"><span class="icon">▣</span><h3>Edenred Training / Knowledge</h3><p>Digital training and knowledge platform initiatives. Coordinated platform operations, content organization, technical follow-up and stakeholder alignment.</p></article>
-              <article class="project-card"><span class="icon">◉</span><h3>KPMG Mexico</h3><p>Monthly internal communications package including newscast, podcast, minivideos, event coverage and corporate communication assets.</p></article>
-              <article class="project-card"><span class="icon">▶</span><h3>KIA Mexico</h3><p>Recurring content and video production package. Coordinated creative teams, review cycles, quality control and brand alignment.</p></article>
-              <article class="project-card"><span class="icon">✎</span><h3>Mazda Mexico</h3><p>Supported coordination of training-related digital content, instructional planning and internal delivery processes.</p></article>
-              <article class="project-card"><span class="icon">⚑</span><h3>Teojama LMS</h3><p>Coordinated LMS deployment, platform follow-up, technical support tracking and operational readiness.</p></article>
+              <article class="project-card"><span class="icon">◎</span><h3>Hino LMS</h3><p>Corporate LMS platform for automotive training operations. Coordinated requirements, roadmap priorities, technical support and long-term platform continuity.</p></article>
+              <article class="project-card"><span class="icon">▣</span><h3>Edenred / Teojama</h3><p>Digital training and platform initiatives involving content organization, platform follow-up, technical tracking and stakeholder alignment.</p></article>
+              <article class="project-card"><span class="icon">◉</span><h3>KPMG / KIA</h3><p>Enterprise content operations: newscasts, podcasts, minivideos, event coverage, recurring video production and brand-aligned delivery cycles.</p></article>
+              <article class="project-card"><span class="icon">✎</span><h3>Mazda Training</h3><p>Training-related digital content coordination, instructional planning support and internal delivery processes.</p></article>
             </div>
           </div>
         </section>
 
         <section id="capabilities" data-reveal>
           <div class="section-card">
-            <p class="section-eyebrow">Core capabilities</p>
-            <h2 class="section-title">The operating range.</h2>
+            <p class="section-eyebrow">Operating range</p>
+            <h2 class="section-title">Product operations, learning technology and AI-enabled delivery.</h2>
             <div class="skills-grid">
-              <article class="skill-card"><span class="icon">☷</span><h3>Digital Product Operations</h3><p>Requirements, roadmaps, QA, delivery management, product adoption and process improvement.</p></article>
-              <article class="skill-card"><span class="icon">▤</span><h3>Learning Technology</h3><p>LMS, WBT, digital learning platforms, content operations and training enablement.</p></article>
+              <article class="skill-card"><span class="icon">☷</span><h3>Digital Product Operations</h3><p>Requirements, QA, delivery management, product adoption and process improvement.</p></article>
+              <article class="skill-card"><span class="icon">▤</span><h3>Learning Technology</h3><p>LMS, WBT, digital learning platforms, content operations and enablement.</p></article>
               <article class="skill-card"><span class="icon">✦</span><h3>AI-Enabled Operations</h3><p>AI adoption, workflow transformation, prompt systems and operational efficiency.</p></article>
             </div>
             <div class="chips" aria-label="Skills">
-              <span class="chip">Program Management</span><span class="chip">Stakeholder Management</span><span class="chip">Cross-functional Leadership</span><span class="chip">Delivery Management</span><span class="chip">Customer Success</span><span class="chip">Creative Operations</span><span class="chip">Internal Communications</span><span class="chip">Enterprise Content Operations</span><span class="chip">QA / UAT</span><span class="chip">Requirements Gathering</span><span class="chip">Product Adoption</span><span class="chip">Executive Reporting</span>
+              <span class="chip">Program Management</span><span class="chip">Stakeholder Management</span><span class="chip">Cross-functional Leadership</span><span class="chip">Delivery Management</span><span class="chip">Creative Operations</span><span class="chip">QA / UAT</span><span class="chip">Requirements Gathering</span><span class="chip">Product Adoption</span>
             </div>
           </div>
         </section>
 
         <section id="tools" data-reveal>
           <div class="section-card dark-card">
-            <p class="section-eyebrow">Tools &amp; technology</p>
+            <p class="section-eyebrow">Tools &amp; education</p>
             <h2 class="section-title">Hands-on where it matters. Technical enough to lead the room.</h2>
             <div class="tool-list">
-              <div class="tool-block"><h3>Direct use</h3><p>Notion, ChatGPT, Google Workspace, Microsoft Office, Excel/Sheets, PowerPoint/Slides, Photoshop, Illustrator, Premiere, After Effects and Asana.</p></div>
-              <div class="tool-block"><h3>Managed through technical teams</h3><p>AWS, Django, React, Heroku, PostgreSQL, Docker, LMS platforms and cloud-based digital products.</p></div>
-              <div class="tool-block"><h3>Learning roadmap</h3><p>AI Leadership, Prompt Engineering, Context Engineering, AI Agents, AI Product Management and Web Development.</p></div>
-              <div class="tool-block"><h3>Education</h3><p>Bachelor of Engineering in Interactive Technologies and Digital Animation — Universidad del Valle de México.</p></div>
+              <div class="tool-block"><h3>Direct use</h3><p>Notion, ChatGPT, Google Workspace, Office, Excel/Sheets, PowerPoint/Slides, Photoshop, Illustrator, Premiere, After Effects and Asana.</p></div>
+              <div class="tool-block"><h3>Managed through teams</h3><p>AWS, Django, React, Heroku, PostgreSQL, Docker, LMS platforms and cloud-based digital products.</p></div>
+              <div class="tool-block"><h3>Education</h3><p>Engineering in Interactive Technologies and Digital Animation — Universidad del Valle de México.</p></div>
             </div>
           </div>
         </section>
@@ -782,7 +892,7 @@
 
       <footer class="footer">
         <span>Axel Cruz Machado · Digital Solutions &amp; Product Operations Lead</span>
-        <span>What digital problem do we need to solve?</span>
+        <span>Mexico City · <a href="mailto:axelcruzmachado@gmail.com">axelcruzmachado@gmail.com</a></span>
       </footer>
     </div>
   </div>
@@ -831,5 +941,6 @@
       }
     })();
   </script>
+
 </body>
 </html>
