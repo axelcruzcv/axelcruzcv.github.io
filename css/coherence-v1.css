@@ -1,0 +1,97 @@
+:root{
+  --coherence-gold:#C79A2B;
+  --coherence-teal:#267F83;
+  --coherence-navy:#112437;
+}
+
+/* V05 coherence enhancements — isolated from the original layout. */
+.intro-philosophy{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:.5rem;
+  max-width:min(1120px,88vw);
+  margin:clamp(18px,2.3vh,30px) auto 0;
+  font-family:var(--serif);
+  font-size:clamp(.82rem,1.05vw,1.12rem);
+  font-weight:600;
+  line-height:1.2;
+  letter-spacing:.005em;
+  text-align:center;
+  will-change:opacity,transform;
+}
+.intro-philosophy .art{color:var(--coherence-gold)}
+.intro-philosophy .tech{color:var(--coherence-teal)}
+.intro-philosophy .strategy{color:var(--coherence-navy)}
+.intro-philosophy .dot{color:rgba(17,36,55,.38);font-family:var(--sans);font-size:.72em}
+
+@supports (animation-timeline: scroll()){
+  .intro-philosophy{
+    animation:introPhilosophyExit linear both;
+    animation-timeline:scroll(root block);
+    animation-range:0 72vh;
+  }
+}
+@keyframes introPhilosophyExit{
+  0%,28%{opacity:1;transform:translateY(0);filter:blur(0)}
+  100%{opacity:0;transform:translateY(-10px);filter:blur(2px)}
+}
+
+.continuation-cta{
+  display:grid;
+  gap:6px;
+  width:min(520px,92%);
+  margin:clamp(20px,3vh,38px) auto 0;
+  padding:18px 22px;
+  border:1px solid rgba(246,241,232,.32);
+  border-radius:22px;
+  color:#F6F1E8;
+  text-decoration:none;
+  background:rgba(255,255,255,.025);
+  transition:transform .3s var(--ease),background .3s var(--ease),border-color .3s var(--ease);
+}
+.continuation-cta span:first-child{
+  font-family:var(--sans);
+  font-size:.7rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  opacity:.6;
+}
+.continuation-cta strong{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  font-family:var(--serif);
+  font-size:clamp(1.55rem,2.4vw,2.4rem);
+  font-weight:600;
+  line-height:1;
+}
+.continuation-cta:hover{
+  transform:translateY(-3px);
+  background:rgba(255,255,255,.06);
+  border-color:rgba(246,241,232,.58);
+}
+.outcome-inner>.continuation-cta{grid-column:1/-1}
+
+.cv-loop-cta{
+  color:var(--ink);
+  border-color:rgba(17,36,55,.18);
+  background:linear-gradient(135deg,rgba(236,229,216,.72),rgba(246,241,232,.95));
+  box-shadow:0 12px 32px rgba(13,27,42,.07);
+  margin-top:26px;
+}
+.cv-loop-cta:hover{
+  background:linear-gradient(135deg,rgba(199,154,43,.12),rgba(246,241,232,1));
+  border-color:rgba(17,36,55,.28);
+}
+
+@media(max-width:900px){
+  .intro-philosophy{max-width:90vw;gap:.3rem .42rem;font-size:clamp(.72rem,2.7vw,.92rem)}
+  .continuation-cta{width:100%;padding:16px 18px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .intro-philosophy{animation:none!important}
+}
