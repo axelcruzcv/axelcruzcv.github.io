@@ -1,0 +1,143 @@
+/* Axel Professional 2026 — Final ART collage
+   21 optimized assets. This file only overrides the ART chapter so the
+   approved V05 experience remains unchanged elsewhere. */
+
+.art-section{isolation:isolate}
+.art-stage{overflow:hidden}
+.art-stage .art-asset{
+  filter:none;
+  transform-origin:center;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  contain:layout paint;
+  user-select:none;
+}
+.art-stage .art-shadow{filter:drop-shadow(0 16px 18px rgba(13,27,42,.10))}
+.art-stage .art-foreground{filter:drop-shadow(0 20px 24px rgba(13,27,42,.13))}
+
+/* Keep the editorial copy as a protected island inside the maximalist collage. */
+.art-copy-safe{
+  width:min(640px,35vw);
+  max-width:640px;
+  padding:clamp(22px,2.3vw,34px);
+  background:radial-gradient(circle at center,rgba(246,241,232,.96) 0 39%,rgba(246,241,232,.86) 57%,rgba(246,241,232,.42) 72%,transparent 86%);
+}
+
+/* Background / structural layer */
+.art-bg-blocks{z-index:1;width:20vw;left:17vw;top:17vh;opacity:.82}
+.art-bg-orbs{z-index:1;width:10vw;left:43vw;top:8vh;opacity:.42}
+.art-bg-flowers{z-index:1;width:18vw;right:18vw;top:15vh;opacity:.74}
+.art-bg-tree{z-index:1;width:20vw;right:-2.8vw;top:-1vh;opacity:.92}
+
+/* Left side — expressive / visceral */
+.art-skull{z-index:5;width:20vw;left:-2.4vw;top:4vh}
+.art-bird-color{z-index:7;width:17.5vw;left:14.2vw;top:16vh}
+.art-bird-dark{z-index:4;width:15.5vw;left:3.2vw;top:40vh}
+.art-gentleman{z-index:8;width:7.3vw;left:-.7vw;top:48vh}
+.art-portrait{z-index:4;width:11.8vw;left:1.3vw;bottom:-1.2vh;opacity:.94}
+.art-fluffy{z-index:6;width:9.6vw;left:10.6vw;bottom:-.8vh}
+.art-foliage{z-index:9;width:11.8vw;left:22vw;bottom:-4.4vh}
+
+/* Small bridges around the safe zone */
+.art-shark{z-index:3;width:11.5vw;left:34.5vw;top:4vh}
+.art-sketch{z-index:2;width:12.3vw;right:28.2vw;top:8vh;opacity:.84}
+.art-creatures{z-index:7;width:17vw;left:35.5vw;bottom:-.7vh}
+.art-mask{z-index:3;width:7.2vw;right:5.7vw;bottom:1.4vh;opacity:.92}
+
+/* Right side — curated / vertical */
+.art-stack{z-index:5;width:10.3vw;right:12vw;top:1.8vh}
+.art-face{z-index:5;width:14.2vw;right:-1.3vw;top:18vh}
+.art-guitar{z-index:7;width:13.2vw;right:17vw;top:12vh}
+.art-hand{z-index:10;width:13vw;right:19.4vw;bottom:-1.5vh}
+.art-dino{z-index:8;width:8.2vw;right:10.2vw;bottom:-1.2vh}
+.art-spa{z-index:9;width:7.6vw;right:1.8vw;bottom:-2.8vh}
+
+/* The original demo pseudo-glows are softened now that the art itself carries color. */
+.art-stage::before,.art-stage::after{opacity:.42}
+
+/* Wide desktop tuning — target reference 1920×1080. */
+@media(min-width:1500px) and (min-height:800px){
+  .art-skull{width:21vw;left:-2.7vw;top:2vh}
+  .art-bird-color{width:18vw;left:14.5vw;top:14vh}
+  .art-bird-dark{width:16vw;left:3vw;top:38vh}
+  .art-portrait{width:12.2vw;bottom:-2vh}
+  .art-fluffy{width:10vw}
+  .art-foliage{width:12.3vw;left:22.5vw}
+  .art-bg-blocks{width:21vw;left:17.8vw}
+  .art-shark{width:11.8vw;left:34.2vw}
+  .art-creatures{width:18vw;left:35vw;bottom:-1.4vh}
+  .art-stack{width:10.8vw;right:11.5vw}
+  .art-face{width:14.7vw;right:-1.6vw}
+  .art-guitar{width:14vw;right:17vw;top:10vh}
+  .art-hand{width:13.5vw;right:19vw}
+  .art-bg-tree{width:21vw;right:-3.2vw}
+  .art-dino{width:8.5vw;right:9.5vw}
+  .art-spa{width:8vw;right:1.3vw}
+}
+
+/* Laptop / compact landscape. Preserve all 21 assets but reduce collisions. */
+@media(max-width:1280px) and (min-width:901px){
+  .art-copy-safe{width:min(600px,39vw);padding:20px 24px}
+  .art-skull{width:22vw;left:-4vw}
+  .art-bird-color{width:18vw;left:13vw;top:19vh}
+  .art-bird-dark{width:16vw;left:2vw}
+  .art-portrait{width:12vw}
+  .art-fluffy{width:10vw}
+  .art-foliage{width:11vw;left:22vw}
+  .art-bg-blocks{width:20vw;left:16vw}
+  .art-shark{width:10vw;left:35vw}
+  .art-creatures{width:16vw;left:36vw}
+  .art-stack{width:10vw;right:11vw}
+  .art-face{width:15vw;right:-2vw}
+  .art-guitar{width:14vw;right:16vw}
+  .art-hand{width:13vw;right:18vw}
+  .art-bg-tree{width:21vw;right:-4vw}
+  .art-dino{width:8vw}
+  .art-spa{width:8vw}
+}
+
+/* Mobile / vertical experience: fewer visible pieces, still unmistakably the same collage. */
+@media(max-width:900px){
+  .art-copy-safe{
+    width:min(88vw,620px);
+    max-width:88vw;
+    padding:18px 18px 22px;
+    background:radial-gradient(circle at center,rgba(246,241,232,.98) 0 48%,rgba(246,241,232,.86) 67%,transparent 88%);
+  }
+
+  .art-stage .art-asset{display:none}
+
+  .art-skull,.art-bird-color,.art-bird-dark,.art-bg-blocks,
+  .art-face,.art-guitar,.art-hand,.art-stack,.art-bg-tree,
+  .art-creatures,.art-portrait{display:block}
+
+  .art-bg-blocks{width:58vw;left:-3vw;top:10vh;opacity:.58}
+  .art-bg-tree{width:51vw;right:-24vw;top:5vh;opacity:.72}
+  .art-skull{width:50vw;left:-27vw;top:6vh}
+  .art-bird-color{width:31vw;left:-7vw;top:28vh}
+  .art-bird-dark{width:28vw;left:-14vw;top:54vh}
+  .art-portrait{width:25vw;left:-7vw;bottom:-1vh;opacity:.76}
+  .art-creatures{width:42vw;left:29vw;bottom:-3vh;opacity:.92}
+
+  .art-stack{width:28vw;right:-7vw;top:7vh}
+  .art-face{width:38vw;right:-22vw;top:29vh}
+  .art-guitar{width:30vw;right:-6vw;top:45vh}
+  .art-hand{width:31vw;right:-10vw;bottom:-1vh}
+
+  .art-stage::before,.art-stage::after{opacity:.25}
+}
+
+@media(max-width:520px){
+  .art-skull{width:56vw;left:-32vw;top:8vh}
+  .art-bird-color{width:34vw;left:-11vw;top:29vh}
+  .art-bg-blocks{width:62vw;left:-7vw}
+  .art-stack{width:31vw;right:-10vw}
+  .art-face{width:42vw;right:-27vw;top:31vh}
+  .art-guitar{width:34vw;right:-10vw;top:48vh}
+  .art-hand{width:34vw;right:-13vw}
+  .art-creatures{width:46vw;left:27vw}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .art-stage .art-asset{will-change:auto}
+}
