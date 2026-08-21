@@ -26,7 +26,7 @@
 /* Background / structural layer */
 .art-bg-blocks{z-index:1;width:20vw;left:17vw;top:17vh;opacity:.82}
 .art-bg-orbs{z-index:1;width:10vw;left:43vw;top:8vh;opacity:.42}
-.art-bg-flowers{z-index:1;width:18vw;right:18vw;top:15vh;opacity:.74}
+.art-bg-flowers{z-index:1;width:32vw;right:6vw;top:7vh;opacity:.74;rotate:-76deg}
 /* Lower and overscan the blue tree so the rough bottom cut disappears behind foreground layers. */
 .art-bg-tree{
   z-index:1;
