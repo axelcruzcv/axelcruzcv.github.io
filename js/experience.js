@@ -15,19 +15,23 @@
   const smoothstep=t=>t*t*(3-2*t);
 
   /*
-    Four hero ART elements receive a second, stronger vertical parallax pass.
-    The approved desktop composition remains untouched when the ART chapter
-    first snaps into place (local ~= .50). Motion then accelerates as the user
-    scrolls through the copy and reverses naturally when scrolling back up.
+    Four hero ART elements receive a stronger vertical parallax pass.
+    Their total travel stays the same, but their timing is intentionally
+    staggered so they do not feel like one synchronized animation.
+
+    Skull moves first and quickly.
+    Flowers follow shortly after.
+    Blocks begin later and travel over a longer window.
+    Stack enters last, creating a second wave of depth through the paragraph.
 
     yVh = total additional travel, expressed as viewport-height percentage.
     Positive values travel down; negative values travel up.
   */
   const artHeroMotion={
-    'art-skull':      {start:.50,end:.69,yVh:34},
-    'art-stack':      {start:.54,end:.77,yVh:27},
-    'art-bg-blocks':  {start:.54,end:.77,yVh:-33},
-    'art-bg-flowers': {start:.50,end:.69,yVh:-38}
+    'art-skull':      {start:.47,end:.61,yVh:34},
+    'art-bg-flowers': {start:.52,end:.67,yVh:-38},
+    'art-bg-blocks':  {start:.56,end:.76,yVh:-33},
+    'art-stack':      {start:.61,end:.79,yVh:27}
   };
 
   const heroYOffset=(el,local)=>{
