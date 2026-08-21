@@ -28,7 +28,16 @@
 .art-bg-orbs{z-index:1;width:10vw;left:43vw;top:8vh;opacity:.42}
 .art-bg-flowers{z-index:1;width:18vw;right:18vw;top:15vh;opacity:.74}
 /* Lower and overscan the blue tree so the rough bottom cut disappears behind foreground layers. */
-.art-bg-tree{z-index:1;width:20.8vw;right:-2.2vw;top:auto;bottom:-8vh;opacity:.92}
+.art-bg-tree{
+  z-index:1;
+  height:125vh;
+  width:auto;
+  max-width:none;
+  right:-2vw;
+  top:auto;
+  bottom:-10vh;
+  opacity:.92;
+}
 
 /* Left side — expressive / visceral */
 .art-skull{z-index:5;width:20vw;left:-2.4vw;top:4vh}
@@ -71,7 +80,14 @@
   .art-fluffy{width:11.8vw;left:9.9vw;bottom:.2vh}
   .art-foliage{width:12.3vw;left:22.5vw}
   .art-bg-blocks{width:21vw;left:17.8vw}
-  .art-bg-tree{width:21.7vw;right:-2.6vw;bottom:-8.8vh}
+.art-bg-tree{
+  height:125vh;
+  width:auto;
+  max-width:none;
+  right:-2vw;
+  top:auto;
+  bottom:-10vh;
+}
   .art-shark{width:11.8vw;left:34.2vw}
   .art-creatures{width:18vw;left:35vw;bottom:-1.4vh}
   .art-mask{width:8.7vw;right:6.9vw;bottom:.8vh}
