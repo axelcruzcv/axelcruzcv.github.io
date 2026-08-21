@@ -33,7 +33,7 @@
   height:108vh;
   width:auto;
   max-width:none;
-  right:-53vw;
+  right:-15vw;
   top:auto;
   bottom:-3vh;
   transform: scaleX(-1);
@@ -85,7 +85,7 @@
     height:108vh;
     width:auto;
     max-width:none;
-    right:-53vw;
+    right:-15vw;
     top:auto;
     bottom:-3vh;
   }
