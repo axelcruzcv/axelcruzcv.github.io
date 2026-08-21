@@ -80,12 +80,12 @@
   .art-foliage{width:12.3vw;left:22.5vw}
   .art-bg-blocks{width:21vw;left:17.8vw}
   .art-bg-tree{
-    height:108vh;
+    height:84vh;
     width:auto;
     max-width:none;
-    right:-25vw;
+    right:-3vw;
     top:auto;
-    bottom:-3vh;
+    bottom:17vh;
   }
 }
   .art-shark{width:11.8vw;left:34.2vw}
