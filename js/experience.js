@@ -3,6 +3,7 @@
   const bg=document.querySelector('.ambient-bg');
   const pill=document.querySelector('.cv-pill');
   const rail=document.querySelector('.phrase-rail');
+  const artSection=document.querySelector('#art');
   const artAssets=[...document.querySelectorAll('.art-asset')];
   const techAssets=[...document.querySelectorAll('.tech-asset')];
   const mountains=document.querySelector('.mountains');
@@ -11,6 +12,32 @@
   const colors=[[246,241,232],[244,236,221],[213,224,221],[13,27,42],[6,8,13]];
   const mix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
   const colorAt=p=>{const s=clamp(p,0,.9999)*(colors.length-1),i=Math.floor(s),t=s-i;return mix(colors[i],colors[Math.min(i+1,colors.length-1)],t)};
+  const smoothstep=t=>t*t*(3-2*t);
+
+  /*
+    Four hero ART elements receive a second, stronger vertical parallax pass.
+    The approved desktop composition remains untouched when the ART chapter
+    first snaps into place (local ~= .50). Motion then accelerates as the user
+    scrolls through the copy and reverses naturally when scrolling back up.
+
+    yVh = total additional travel, expressed as viewport-height percentage.
+    Positive values travel down; negative values travel up.
+  */
+  const artHeroMotion={
+    'art-skull':      {start:.50,end:.69,yVh:34},
+    'art-stack':      {start:.54,end:.77,yVh:27},
+    'art-bg-blocks':  {start:.54,end:.77,yVh:-33},
+    'art-bg-flowers': {start:.50,end:.69,yVh:-38}
+  };
+
+  const heroYOffset=(el,local)=>{
+    if(innerWidth<1500 || innerHeight<800) return 0;
+    const key=Object.keys(artHeroMotion).find(cls=>el.classList.contains(cls));
+    if(!key) return 0;
+    const cfg=artHeroMotion[key];
+    const t=clamp((local-cfg.start)/(cfg.end-cfg.start),0,1);
+    return innerHeight*(cfg.yVh/100)*smoothstep(t);
+  };
 
   const phrases=['art','tech','strategy'].map(key=>({
     key,
@@ -32,7 +59,7 @@
     if(!reduced && document.startViewTransition && !transitioning){
       transitioning=true;
       const vt=document.startViewTransition(mutate);
-      vt.finished.finally(()=>{transitioning=false; updateDocking(true)});
+      vt.finished.finally(()=>{transitioning=false;updateDocking(true)});
     }else mutate();
   };
 
@@ -66,23 +93,45 @@
   },{threshold:[.35,.55,.7]});
   sections.forEach(s=>observer.observe(s));
 
+  const applyParallax=(els,section,xFactor,strongArt=false)=>{
+    if(!section)return;
+    const r=section.getBoundingClientRect();
+    const local=(innerHeight-r.top)/(innerHeight+r.height);
+    els.forEach((el,i)=>{
+      const depth=parseFloat(el.dataset.depth||'.1');
+      const baseY=(local-.5)*innerHeight*depth*1.1;
+      const extraY=strongArt?heroYOffset(el,local):0;
+      const x=Math.sin((local+i*.17)*Math.PI)*innerWidth*depth*xFactor*(i%2?1:-1);
+      el.style.transform=`translate3d(${x}px,${baseY+extraY}px,0)`;
+    });
+  };
+
   let ticking=false;
   const onScroll=()=>{
-    if(ticking)return;ticking=true;
+    if(ticking)return;
+    ticking=true;
     requestAnimationFrame(()=>{
-      const max=document.documentElement.scrollHeight-innerHeight,p=max?scrollY/max:0,c=colorAt(p);
+      const max=document.documentElement.scrollHeight-innerHeight;
+      const p=max?scrollY/max:0;
+      const c=colorAt(p);
       bg.style.backgroundColor=`rgb(${c.join(',')})`;
       updateDocking();
+
       if(!reduced){
-        const apply=(els,section,xFactor)=>{const r=section.getBoundingClientRect(),local=(innerHeight-r.top)/(innerHeight+r.height);els.forEach((el,i)=>{const depth=parseFloat(el.dataset.depth||'.1'),y=(local-.5)*innerHeight*depth*1.1,x=Math.sin((local+i*.17)*Math.PI)*innerWidth*depth*xFactor*(i%2?1:-1);const flipX = el.classList.contains('art-bg-tree') ? ' scaleX(-1)' : '';
-el.style.transform=`translate3d(${x}px,${y}px,0)${flipX}``})};
-        apply(artAssets,document.querySelector('#art'),.035);
-        apply(techAssets,document.querySelector('#technology'),.018);
-        if(mountains){const r=document.querySelector('#strategy').getBoundingClientRect(),local=(innerHeight-r.top)/(innerHeight+r.height);mountains.style.transform=`translate3d(0,${(local-.5)*18}px,0) scale(${1.005+local*.008})`}
+        applyParallax(artAssets,artSection,.035,true);
+        applyParallax(techAssets,document.querySelector('#technology'),.018,false);
+
+        if(mountains){
+          const r=document.querySelector('#strategy').getBoundingClientRect();
+          const local=(innerHeight-r.top)/(innerHeight+r.height);
+          mountains.style.transform=`translate3d(0,${(local-.5)*18}px,0) scale(${1.005+local*.008})`;
+        }
       }
       ticking=false;
     });
   };
-  addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll,{passive:true});
+
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',onScroll,{passive:true});
   onScroll();
 })();
