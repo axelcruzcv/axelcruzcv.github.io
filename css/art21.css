@@ -59,10 +59,10 @@
 /* Right side — curated / vertical */
 .art-stack{z-index:5;width:10.3vw;right:12vw;top:1.8vh}
 .art-face{z-index:5;width:14.2vw;right:-1.3vw;top:18vh}
-.art-guitar{z-index:7;width:13.2vw;right:17vw;top:12vh}
+.art-guitar{z-index:2;width:13.2vw;right:17vw;top:12vh}
 .art-hand{z-index:10;width:13vw;right:19.4vw;bottom:-1.5vh}
 /* Move the dino out of the tiny right-side cluster. */
-.art-dino{z-index:8;width:22.3vw;right:75.4vw;bottom:1.6vh}
+.art-dino{z-index:20;width:22.3vw;right:75.4vw;bottom:1.6vh}
 /* Keep the lime-green tree paired with the dream/orb. */
 .art-spa{z-index:9;width:8.2vw;right:.4vw;bottom:-1.2vh}
 
