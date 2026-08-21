@@ -12,26 +12,22 @@
   const colors=[[246,241,232],[244,236,221],[213,224,221],[13,27,42],[6,8,13]];
   const mix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
   const colorAt=p=>{const s=clamp(p,0,.9999)*(colors.length-1),i=Math.floor(s),t=s-i;return mix(colors[i],colors[Math.min(i+1,colors.length-1)],t)};
-  const smoothstep=t=>t*t*(3-2*t);
+  const smootherstep=t=>t*t*t*(t*(t*6-15)+10);
 
   /*
-    Four hero ART elements receive a stronger vertical parallax pass.
-    Their total travel stays the same, but their timing is intentionally
-    staggered so they do not feel like one synchronized animation.
-
-    Skull moves first and quickly.
-    Flowers follow shortly after.
-    Blocks begin later and travel over a longer window.
-    Stack enters last, creating a second wave of depth through the paragraph.
+    Four hero ART elements receive a long, subtle secondary parallax pass.
+    Instead of quick independent bursts, each layer now drifts across a much
+    broader portion of the ART chapter, with only a light stagger between them.
+    This creates a slower cinematic sweep while preserving depth.
 
     yVh = total additional travel, expressed as viewport-height percentage.
     Positive values travel down; negative values travel up.
   */
   const artHeroMotion={
-    'art-skull':      {start:.47,end:.61,yVh:34},
-    'art-bg-flowers': {start:.52,end:.67,yVh:-38},
-    'art-bg-blocks':  {start:.56,end:.76,yVh:-33},
-    'art-stack':      {start:.61,end:.79,yVh:27}
+    'art-skull':      {start:.47,end:.82,yVh:22},
+    'art-bg-flowers': {start:.49,end:.85,yVh:-24},
+    'art-bg-blocks':  {start:.51,end:.88,yVh:-21},
+    'art-stack':      {start:.53,end:.90,yVh:18}
   };
 
   const heroYOffset=(el,local)=>{
@@ -40,7 +36,7 @@
     if(!key) return 0;
     const cfg=artHeroMotion[key];
     const t=clamp((local-cfg.start)/(cfg.end-cfg.start),0,1);
-    return innerHeight*(cfg.yVh/100)*smoothstep(t);
+    return innerHeight*(cfg.yVh/100)*smootherstep(t);
   };
 
   const phrases=['art','tech','strategy'].map(key=>({
