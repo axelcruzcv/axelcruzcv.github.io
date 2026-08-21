@@ -1,0 +1,100 @@
+/* Axel Professional 2026 — TECHNOLOGY collage
+   Seven cohesive illustrated technology panels: systems, code, automation,
+   data, human/AI collaboration, machine intelligence and analytics. */
+
+.tech-section{
+  isolation:isolate;
+  background:
+    radial-gradient(circle at 50% 44%,rgba(246,241,232,.72) 0 18%,rgba(226,238,235,.78) 38%,transparent 64%),
+    linear-gradient(180deg,#e8efec 0%,#d8e6e4 52%,#c9d9d8 100%);
+}
+
+.tech-stage{
+  overflow:hidden;
+  background-image:
+    linear-gradient(rgba(38,127,131,.065) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(38,127,131,.065) 1px,transparent 1px);
+  background-size:54px 54px;
+}
+
+.tech-stage::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:radial-gradient(circle at 50% 48%,transparent 0 32%,rgba(13,27,42,.035) 74%,rgba(13,27,42,.08) 100%);
+}
+
+.tech-stage .tech-asset{
+  aspect-ratio:4/3;
+  object-fit:cover;
+  max-width:none;
+  border:1px solid rgba(38,127,131,.30);
+  border-radius:2px;
+  box-shadow:0 22px 50px rgba(13,27,42,.16),0 0 0 1px rgba(246,241,232,.30) inset;
+  filter:saturate(.94) contrast(1.04);
+  transform-origin:center;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  contain:layout paint;
+}
+
+.tech-copy-safe{
+  width:min(640px,35vw);
+  max-width:640px;
+  padding:clamp(22px,2.3vw,34px);
+  background:radial-gradient(circle at center,rgba(237,244,241,.985) 0 39%,rgba(237,244,241,.92) 56%,rgba(237,244,241,.58) 70%,transparent 86%);
+}
+
+.tech-section .tech-accent,
+.tech-section .tech-color{color:#267f83}
+
+.tech-01{z-index:1;width:25vw;left:-5vw;top:3vh;opacity:.82;rotate:-2.6deg}
+.tech-02{z-index:5;width:21vw;right:-1.8vw;top:5vh;opacity:.96;rotate:2.2deg}
+.tech-03{z-index:6;width:19vw;left:3vw;top:39vh;opacity:.96;rotate:1.8deg}
+.tech-04{z-index:3;width:22vw;right:2vw;top:38vh;opacity:.90;rotate:-2deg}
+.tech-05{z-index:7;width:25vw;right:-5vw;bottom:-7vh;opacity:.98;rotate:2deg}
+.tech-06{z-index:4;width:18vw;left:22vw;bottom:-7vh;opacity:.91;rotate:-1.8deg}
+.tech-07{z-index:5;width:23vw;left:-4vw;bottom:-6vh;opacity:.96;rotate:-2.4deg}
+
+@media(min-width:1500px) and (min-height:800px){
+  .tech-01{width:26vw;left:-5.5vw;top:1vh}
+  .tech-02{width:22vw;right:-1.5vw;top:3vh}
+  .tech-03{width:20vw;left:2vw;top:38vh}
+  .tech-04{width:23vw;right:1.5vw;top:37vh}
+  .tech-05{width:26vw;right:-5.5vw;bottom:-7vh}
+  .tech-06{width:19vw;left:21vw;bottom:-7vh}
+  .tech-07{width:24vw;left:-4.5vw;bottom:-6vh}
+}
+
+@media(max-width:1280px) and (min-width:901px){
+  .tech-copy-safe{width:min(600px,39vw);padding:20px 24px}
+  .tech-01{width:27vw;left:-8vw}
+  .tech-02{width:23vw;right:-5vw}
+  .tech-03{width:21vw;left:-1vw;top:42vh}
+  .tech-04{width:23vw;right:-2vw;top:40vh}
+  .tech-05{width:27vw;right:-8vw}
+  .tech-06{width:19vw;left:18vw}
+  .tech-07{width:25vw;left:-7vw}
+}
+
+@media(max-width:900px){
+  .tech-copy-safe{
+    width:min(88vw,620px);
+    max-width:88vw;
+    padding:18px 18px 22px;
+    background:radial-gradient(circle at center,rgba(237,244,241,.99) 0 50%,rgba(237,244,241,.91) 67%,transparent 89%);
+  }
+
+  .tech-stage .tech-asset{display:none}
+  .tech-01,.tech-02,.tech-05,.tech-07{display:block}
+
+  .tech-01{width:60vw;left:-30vw;top:5vh;opacity:.72}
+  .tech-02{width:48vw;right:-24vw;top:11vh}
+  .tech-07{width:52vw;left:-28vw;bottom:-2vh}
+  .tech-05{width:60vw;right:-31vw;bottom:-4vh}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .tech-stage .tech-asset{will-change:auto}
+}
