@@ -33,10 +33,11 @@
   height:108vh;
   width:auto;
   max-width:none;
-  right:-8vw;
+  right:-53vw;
   top:auto;
   bottom:-3vh;
-  opacity:.92;
+  transform: scaleX(-1);
+  transform-origin: center center;
 }
 
 /* Left side — expressive / visceral */
@@ -80,13 +81,13 @@
   .art-fluffy{width:11.8vw;left:9.9vw;bottom:.2vh}
   .art-foliage{width:12.3vw;left:22.5vw}
   .art-bg-blocks{width:21vw;left:17.8vw}
-.art-bg-tree{
-    height:112vh;
+  .art-bg-tree{
+    height:108vh;
     width:auto;
     max-width:none;
-    right:-9vw;
+    right:-53vw;
     top:auto;
-    bottom:-4vh;
+    bottom:-3vh;
   }
 }
   .art-shark{width:11.8vw;left:34.2vw}
