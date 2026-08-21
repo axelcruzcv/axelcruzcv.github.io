@@ -30,12 +30,12 @@
 /* Lower and overscan the blue tree so the rough bottom cut disappears behind foreground layers. */
 .art-bg-tree{
   z-index:1;
-  height:125vh;
+  height:108vh;
   width:auto;
   max-width:none;
-  right:-2vw;
+  right:-8vw;
   top:auto;
-  bottom:-10vh;
+  bottom:-3vh;
   opacity:.92;
 }
 
@@ -81,12 +81,13 @@
   .art-foliage{width:12.3vw;left:22.5vw}
   .art-bg-blocks{width:21vw;left:17.8vw}
 .art-bg-tree{
-  height:125vh;
-  width:auto;
-  max-width:none;
-  right:-2vw;
-  top:auto;
-  bottom:-10vh;
+    height:112vh;
+    width:auto;
+    max-width:none;
+    right:-9vw;
+    top:auto;
+    bottom:-4vh;
+  }
 }
   .art-shark{width:11.8vw;left:34.2vw}
   .art-creatures{width:18vw;left:35vw;bottom:-1.4vh}
