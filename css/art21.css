@@ -54,7 +54,7 @@
 .art-sketch{z-index:2;width:12.3vw;right:28.2vw;top:8vh;opacity:.84}
 .art-creatures{z-index:7;width:17vw;left:35.5vw;bottom:-.7vh}
 /* Keep the dream/orb closer to the lime tree, and free space around the base. */
-.art-mask{z-index:3;width:40vw;right:-8vw;bottom:-8vh;opacity:.92}
+.art-mask{z-index:3;width:28vw;right:-4vw;bottom:-5vh;opacity:.92}
 
 /* Right side — curated / vertical */
 .art-stack{z-index:5;width:10.3vw;right:12vw;top:1.8vh}
@@ -90,7 +90,7 @@
 }
   .art-shark{width:11.8vw;left:34.2vw}
   .art-creatures{width:18vw;left:35vw;bottom:-1.4vh}
-  .art-mask{width:40vw;right:-8vw;bottom:-8vh}
+  .art-mask{width:28vw;right:-4vw;bottom:-5vh}
   .art-stack{width:10.8vw;right:11.5vw}
   .art-face{width:14.7vw;right:-1.6vw}
   .art-guitar{width:14vw;right:17vw;top:10vh}
