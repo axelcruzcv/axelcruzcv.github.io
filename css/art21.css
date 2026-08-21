@@ -71,13 +71,13 @@
 
 /* Wide desktop tuning — target reference 1920×1080. */
 @media(min-width:1500px) and (min-height:800px){
-  .art-skull{width:21vw;left:-2.7vw;top:2vh}
+  .art-skull{width:21vw;left:8.3vw;top:0vh}
   .art-bird-color{width:18vw;left:18.5vw;top:7vh}
-  .art-bird-dark{width:16vw;left:3vw;top:38vh}
+  .art-bird-dark{width:13vw;left:60vw;top:3vh}
   .art-gentleman{width:9.4vw;left:-4.5vw;top:50vh}
   .art-portrait{width:12.2vw;left:.4vw;bottom:-2.5vh}
-  .art-fluffy{width:11.8vw;left:9.9vw;bottom:.2vh}
-  .art-foliage{width:12.3vw;left:22.5vw}
+  .art-fluffy{width:16.8vw;left:3.9vw;bottom:9.2vh}
+  .art-foliage{width:12.3vw;left:34.5vw;bottom:-1.4vh}
   .art-bg-blocks{width:21vw;left:17.8vw}
   .art-sketch{width:15vw;right:41.2vw;top:6vh}
   .art-bg-tree{
@@ -88,14 +88,13 @@
     top:auto;
     bottom:17vh;
   }
-}
   .art-shark{width:11.8vw;left:34.2vw}
   .art-creatures{width:23vw;left:53vw;bottom:-1.4vh}
   .art-mask{width:28vw;right:-4vw;bottom:-5vh}
   .art-stack{width:12.8vw;right:15.5vw}
   .art-face{width:17.7vw;right:-0.6vw}
   .art-guitar{width:14vw;right:17vw;top:10vh}
-  .art-hand{width:13.5vw;right:63vw;bottom:-0.5vh}
+  .art-hand{width:13.5vw;right:65vw;bottom:-0.5vh}
   .art-dino{width:22.3vw;right:75.4vw;bottom:1.6vh}
   .art-spa{width:44.6vw;right:1388px;bottom:-5.8vh}
 }
