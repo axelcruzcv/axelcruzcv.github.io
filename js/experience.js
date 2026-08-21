@@ -74,7 +74,8 @@
       bg.style.backgroundColor=`rgb(${c.join(',')})`;
       updateDocking();
       if(!reduced){
-        const apply=(els,section,xFactor)=>{const r=section.getBoundingClientRect(),local=(innerHeight-r.top)/(innerHeight+r.height);els.forEach((el,i)=>{const depth=parseFloat(el.dataset.depth||'.1'),y=(local-.5)*innerHeight*depth*1.1,x=Math.sin((local+i*.17)*Math.PI)*innerWidth*depth*xFactor*(i%2?1:-1);el.style.transform=`translate3d(${x}px,${y}px,0)`})};
+        const apply=(els,section,xFactor)=>{const r=section.getBoundingClientRect(),local=(innerHeight-r.top)/(innerHeight+r.height);els.forEach((el,i)=>{const depth=parseFloat(el.dataset.depth||'.1'),y=(local-.5)*innerHeight*depth*1.1,x=Math.sin((local+i*.17)*Math.PI)*innerWidth*depth*xFactor*(i%2?1:-1);const flipX = el.classList.contains('art-bg-tree') ? ' scaleX(-1)' : '';
+el.style.transform=`translate3d(${x}px,${y}px,0)${flipX}``})};
         apply(artAssets,document.querySelector('#art'),.035);
         apply(techAssets,document.querySelector('#technology'),.018);
         if(mountains){const r=document.querySelector('#strategy').getBoundingClientRect(),local=(innerHeight-r.top)/(innerHeight+r.height);mountains.style.transform=`translate3d(0,${(local-.5)*18}px,0) scale(${1.005+local*.008})`}
