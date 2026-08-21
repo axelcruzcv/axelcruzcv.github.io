@@ -33,11 +33,9 @@
   height:108vh;
   width:auto;
   max-width:none;
-  right:-15vw;
+  right:-25vw;
   top:auto;
   bottom:-3vh;
-  transform: scaleX(-1);
-  transform-origin: center center;
 }
 
 /* Left side — expressive / visceral */
@@ -85,7 +83,7 @@
     height:108vh;
     width:auto;
     max-width:none;
-    right:-15vw;
+    right:-25vw;
     top:auto;
     bottom:-3vh;
   }
