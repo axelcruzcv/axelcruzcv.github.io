@@ -42,9 +42,9 @@
 
   /*
     BUSINESS STRATEGY uses the supplied foreground mountain cutout as a second
-    depth plane. The two layers only drift by a handful of pixels across the
-    chapter: a restrained lateral helicopter glide rather than an obvious
-    animation. The near ridge moves slightly farther than the distant range.
+    depth plane. The camera drift remains slow and elegant, but the differential
+    travel between the distant range and near ridge is now strong enough to read
+    clearly as a premium helicopter-style parallax rather than a static image.
   */
   let mountainForeground=null;
   if(mountains&&strategySection){
@@ -63,19 +63,19 @@
     const local=clamp((innerHeight-r.top)/(innerHeight+r.height),0,1);
     const sweep=smootherstep(local)-.5;
 
-    /* distant range: almost imperceptible camera drift */
-    const farX=sweep*-8;
-    const farY=sweep*6;
-    const farScale=1.014+local*.0025;
-    const farRotate=sweep*.045;
+    /* distant range: slow stabilized camera drift */
+    const farX=sweep*-18;
+    const farY=sweep*12;
+    const farScale=1.018+local*.004;
+    const farRotate=sweep*.07;
     mountains.style.transform=`translate3d(${farX}px,${farY}px,0) scale(${farScale}) rotate(${farRotate}deg)`;
 
-    /* foreground ridge: just enough differential travel to create real depth */
+    /* foreground ridge: greater travel creates visible depth without looking animated */
     if(mountainForeground){
-      const nearX=sweep*14;
-      const nearY=sweep*9;
-      const nearScale=1.018+local*.0035;
-      const nearRotate=sweep*.07;
+      const nearX=sweep*36;
+      const nearY=sweep*24;
+      const nearScale=1.026+local*.006;
+      const nearRotate=sweep*.11;
       mountainForeground.style.transform=`translate3d(${nearX}px,${nearY}px,0) scale(${nearScale}) rotate(${nearRotate}deg)`;
     }
   };
