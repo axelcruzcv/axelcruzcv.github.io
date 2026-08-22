@@ -4,6 +4,7 @@
   const pill=document.querySelector('.cv-pill');
   const rail=document.querySelector('.phrase-rail');
   const artSection=document.querySelector('#art');
+  const technologySection=document.querySelector('#technology');
   const strategySection=document.querySelector('#strategy');
   const artAssets=[...document.querySelectorAll('.art-asset')];
   const techAssets=[...document.querySelectorAll('.tech-asset')];
@@ -14,6 +15,7 @@
   const mix=(a,b,t)=>a.map((v,i)=>Math.round(v+(b[i]-v)*t));
   const colorAt=p=>{const s=clamp(p,0,.9999)*(colors.length-1),i=Math.floor(s),t=s-i;return mix(colors[i],colors[Math.min(i+1,colors.length-1)],t)};
   const smootherstep=t=>t*t*t*(t*(t*6-15)+10);
+  const nearViewport=r=>r.bottom>-innerHeight*.25&&r.top<innerHeight*1.25;
 
   /*
     Four hero ART elements receive a long, subtle secondary parallax pass.
@@ -42,9 +44,8 @@
 
   /*
     BUSINESS STRATEGY uses the supplied foreground mountain cutout as a second
-    depth plane. The camera drift remains slow and elegant, but the differential
-    travel between the distant range and near ridge is now strong enough to read
-    clearly as a premium helicopter-style parallax rather than a static image.
+    depth plane. The two layers drift like a restrained stabilized helicopter
+    move, with the near ridge travelling farther than the distant range.
   */
   let mountainForeground=null;
   if(mountains&&strategySection){
@@ -53,6 +54,7 @@
     mountainForeground.alt='';
     mountainForeground.setAttribute('aria-hidden','true');
     mountainForeground.decoding='async';
+    mountainForeground.loading='lazy';
     mountainForeground.style.cssText='position:absolute;z-index:0;inset:-2%;width:104%;height:104%;object-fit:cover;object-position:center 58%;pointer-events:none;will-change:transform;';
     mountains.insertAdjacentElement('afterend',mountainForeground);
   }
@@ -60,22 +62,21 @@
   const applyMountainParallax=()=>{
     if(!mountains||!strategySection)return;
     const r=strategySection.getBoundingClientRect();
+    if(!nearViewport(r))return;
     const local=clamp((innerHeight-r.top)/(innerHeight+r.height),0,1);
     const sweep=smootherstep(local)-.5;
 
-    /* distant range: slow stabilized camera drift */
-    const farX=sweep*-18;
-    const farY=sweep*12;
-    const farScale=1.018+local*.004;
-    const farRotate=sweep*.07;
+    const farX=sweep*-16;
+    const farY=sweep*11;
+    const farScale=1.016+local*.004;
+    const farRotate=sweep*.08;
     mountains.style.transform=`translate3d(${farX}px,${farY}px,0) scale(${farScale}) rotate(${farRotate}deg)`;
 
-    /* foreground ridge: greater travel creates visible depth without looking animated */
     if(mountainForeground){
-      const nearX=sweep*36;
-      const nearY=sweep*24;
-      const nearScale=1.026+local*.006;
-      const nearRotate=sweep*.11;
+      const nearX=sweep*31;
+      const nearY=sweep*18;
+      const nearScale=1.021+local*.006;
+      const nearRotate=sweep*.13;
       mountainForeground.style.transform=`translate3d(${nearX}px,${nearY}px,0) scale(${nearScale}) rotate(${nearRotate}deg)`;
     }
   };
@@ -137,8 +138,12 @@
   const applyParallax=(els,section,xFactor,strongArt=false)=>{
     if(!section)return;
     const r=section.getBoundingClientRect();
+    if(!nearViewport(r))return;
     const local=(innerHeight-r.top)/(innerHeight+r.height);
     els.forEach((el,i)=>{
+      /* Responsive CSS hides most collage pieces on mobile. Do not spend a
+         transform/layout pass on elements that are not being painted. */
+      if(el.offsetParent===null)return;
       const depth=parseFloat(el.dataset.depth||'.1');
       const baseY=(local-.5)*innerHeight*depth*1.1;
       const extraY=strongArt?heroYOffset(el,local):0;
@@ -160,7 +165,7 @@
 
       if(!reduced){
         applyParallax(artAssets,artSection,.035,true);
-        applyParallax(techAssets,document.querySelector('#technology'),.018,false);
+        applyParallax(techAssets,technologySection,.018,false);
         applyMountainParallax();
       }
       ticking=false;

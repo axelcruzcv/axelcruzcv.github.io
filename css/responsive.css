@@ -1,0 +1,206 @@
+/* Responsive polish for Axel Professional 2026.
+   IMPORTANT: this stylesheet is loaded only below 1500px, so the approved
+   1920x1080 desktop composition remains completely untouched. */
+
+@media (min-width:901px) and (max-width:1499px){
+  .chapter-copy-center{max-width:min(620px,44vw)}
+  .tech-copy-safe,.art-copy-safe{width:min(620px,42vw)}
+  .strategy-copy{max-width:min(610px,44vw)}
+}
+
+@media (max-width:900px){
+  /* Mobile becomes a deliberately simpler editorial experience. */
+  .chapter{
+    min-height:100svh;
+    padding:clamp(26px,7vw,40px) 18px;
+  }
+
+  .chapter-copy-center{
+    width:min(88vw,620px);
+    max-width:88vw;
+    padding:16px 14px 20px;
+  }
+
+  .chapter-copy h3{
+    font-size:clamp(1.72rem,7.2vw,2.45rem);
+    line-height:1.03;
+    margin-bottom:.62em;
+  }
+
+  .chapter-copy p{
+    max-width:32ch;
+    font-size:clamp(.94rem,4.15vw,1.04rem);
+    line-height:1.58;
+  }
+
+  /* The full progressive phrase rail is a desktop interaction. On narrow
+     screens it competes with the CV control and produces cropped fragments. */
+  .phrase-rail{display:none}
+  .fixed-utility{top:12px;left:12px;right:12px}
+  .cv-pill{
+    padding:9px 13px;
+    font-size:.68rem;
+    box-shadow:0 6px 20px rgba(13,27,42,.07);
+  }
+
+  /* ART — exactly four restrained accents. All other collage pieces remain
+     available for desktop but are not painted on mobile. */
+  .art-stage .art-asset{display:none!important}
+  .art-stage .art-foliage,
+  .art-stage .art-dino,
+  .art-stage .art-gentleman,
+  .art-stage .art-guitar{display:block!important;z-index:2!important}
+
+  .art-gentleman{
+    width:22vw!important;
+    left:-2vw!important;
+    right:auto!important;
+    top:10vh!important;
+    bottom:auto!important;
+    opacity:.90;
+    rotate:-3deg;
+  }
+
+  .art-guitar{
+    width:31vw!important;
+    left:auto!important;
+    right:-10vw!important;
+    top:17vh!important;
+    bottom:auto!important;
+    opacity:.90;
+    rotate:-31deg!important;
+  }
+
+  .art-foliage{
+    width:30vw!important;
+    left:-11vw!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:2vh!important;
+    opacity:.88;
+  }
+
+  .art-dino{
+    width:31vw!important;
+    left:auto!important;
+    right:-10vw!important;
+    top:auto!important;
+    bottom:2vh!important;
+    opacity:.94;
+  }
+
+  .art-stage::before,.art-stage::after{opacity:.16}
+
+  /* TECHNOLOGY — four panels only, scaled as visual punctuation rather than
+     desktop-style cards. The center remains a clean reading field. */
+  .tech-stage .tech-asset{display:none!important}
+  .tech-stage .tech-01,
+  .tech-stage .tech-03,
+  .tech-stage .tech-05,
+  .tech-stage .tech-07{display:block!important;z-index:2!important}
+
+  .tech-01{
+    width:42vw!important;
+    left:-16vw!important;
+    right:auto!important;
+    top:8vh!important;
+    bottom:auto!important;
+    opacity:.82;
+    rotate:-2.2deg!important;
+  }
+
+  .tech-03{
+    width:36vw!important;
+    left:auto!important;
+    right:-13vw!important;
+    top:17vh!important;
+    bottom:auto!important;
+    opacity:.90;
+    rotate:2.2deg!important;
+  }
+
+  .tech-07{
+    width:40vw!important;
+    left:-14vw!important;
+    right:auto!important;
+    top:auto!important;
+    bottom:4vh!important;
+    opacity:.88;
+    rotate:-2.5deg!important;
+  }
+
+  .tech-05{
+    width:43vw!important;
+    left:auto!important;
+    right:-17vw!important;
+    top:auto!important;
+    bottom:3vh!important;
+    opacity:.92;
+    rotate:2deg!important;
+  }
+
+  /* TECHNOLOGY is the one long chapter title; give it its own optical scale
+     instead of letting the generic mobile title rule clip it. */
+  .tech-section .chapter-title{
+    width:100%;
+    max-width:100%;
+    white-space:nowrap;
+    font-size:clamp(3rem,13.5vw,5rem);
+    line-height:.82;
+    letter-spacing:-.052em;
+  }
+
+  .tech-copy-safe{
+    width:min(88vw,620px);
+    max-width:88vw;
+    padding:16px 14px 20px;
+    background:radial-gradient(circle at center,rgba(237,244,241,.99) 0 50%,rgba(237,244,241,.92) 67%,transparent 89%);
+  }
+
+  /* Strategy and Outcome are text-led on mobile; keep their hierarchy compact
+     and leave the landscape as atmosphere instead of competing with copy. */
+  .strategy-copy{
+    width:min(88vw,560px);
+    max-width:88vw;
+    margin-left:0;
+    padding:0 4px;
+  }
+
+  .strategy-copy .chapter-title{
+    font-size:clamp(3.5rem,14vw,5.7rem);
+    line-height:.80;
+  }
+
+  .outcome-inner{
+    width:min(88vw,620px);
+    gap:28px;
+  }
+
+  .outcome-section h2{
+    font-size:clamp(4rem,17vw,7rem);
+  }
+}
+
+@media (max-width:520px){
+  .chapter-copy-center{width:90vw;max-width:90vw;padding-inline:12px}
+  .chapter-copy p{max-width:30ch}
+
+  .art-gentleman{width:23vw!important;left:-3vw!important;top:11vh!important}
+  .art-guitar{width:32vw!important;right:-11vw!important;top:18vh!important}
+  .art-foliage{width:31vw!important;left:-12vw!important;bottom:1vh!important}
+  .art-dino{width:32vw!important;right:-11vw!important;bottom:1vh!important}
+
+  .tech-01{width:43vw!important;left:-17vw!important}
+  .tech-03{width:37vw!important;right:-14vw!important}
+  .tech-07{width:41vw!important;left:-15vw!important}
+  .tech-05{width:44vw!important;right:-18vw!important}
+
+  .tech-section .chapter-title{font-size:13.2vw}
+}
+
+@media (max-width:380px){
+  .chapter{padding-left:14px;padding-right:14px}
+  .chapter-copy p{font-size:.92rem;line-height:1.55}
+  .tech-section .chapter-title{font-size:12.8vw}
+  .cv-pill{padding:8px 11px;font-size:.64rem}
+}
