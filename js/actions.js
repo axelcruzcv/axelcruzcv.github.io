@@ -51,7 +51,7 @@
 
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = `${base}css/coherence-v1.css`;
+  css.href = `${base}css/coherence-v1.css?v=2026-09-10-4`;
   document.head.appendChild(css);
 
   const transitionTo = (link) => {
@@ -69,13 +69,13 @@
     if (title && !document.querySelector('.intro-philosophy')) {
       const philosophy = document.createElement('div');
       philosophy.className = 'intro-philosophy';
-      philosophy.setAttribute('aria-label', 'Professional philosophy');
+      philosophy.setAttribute('aria-label', 'Professional positioning');
       philosophy.innerHTML = `
-        <span class="art">Art is where my way of thinking begins.</span>
+        <span class="art">Creative &amp; Digital Production</span>
         <span class="dot">•</span>
-        <span class="tech">Tools are the multiplier.</span>
+        <span class="tech">Integrated Delivery</span>
         <span class="dot">•</span>
-        <span class="strategy">Strategy turns digital work into real-world outcomes.</span>`;
+        <span class="strategy">Client &amp; Commercial Ownership</span>`;
       title.insertAdjacentElement('afterend', philosophy);
 
       if (!(window.CSS && CSS.supports('animation-timeline: scroll()'))) {
@@ -102,9 +102,9 @@
 
   if (isCV) {
     // The public site offers one downloadable asset only: the finalized ATS PDF.
-    document.querySelectorAll('a[download$=".docx"], a[href$=".docx"]').forEach(link => link.remove());
-    document.querySelectorAll('a[href$="Axel_Cruz_Professional_CV.pdf"]').forEach(link => {
-      link.setAttribute('download', 'Axel_Cruz_Master_CV_Project_Program_Management.pdf');
+    document.querySelectorAll('a[download$=".docx"], a[href*=".docx"]').forEach(link => link.remove());
+    document.querySelectorAll('a[href*="Axel_Cruz_Professional_CV.pdf"]').forEach(link => {
+      link.setAttribute('download', 'Axel_Cruz_Senior_Integrated_Project_Manager.pdf');
     });
 
     const shell = document.querySelector('.cv-shell');
