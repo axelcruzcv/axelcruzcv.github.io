@@ -3,7 +3,7 @@ name: Publish resume downloads
 on:
   push:
     paths:
-      - 'downloads/resume_refresh.zip.b64'
+      - 'downloads/resume_refresh.ready'
 
 permissions:
   contents: write
@@ -19,9 +19,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          base64 --decode downloads/resume_refresh.zip.b64 > /tmp/resume_refresh.zip
+          cat downloads/resume_refresh.part* > /tmp/resume_refresh.zip.b64
+          base64 --decode /tmp/resume_refresh.zip.b64 > /tmp/resume_refresh.zip
           unzip -o /tmp/resume_refresh.zip -d downloads/
-          rm downloads/resume_refresh.zip.b64
+          rm downloads/resume_refresh.part* downloads/resume_refresh.ready
 
       - name: Commit generated resume files
         shell: bash
