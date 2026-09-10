@@ -1,0 +1,38 @@
+name: Publish resume downloads
+
+on:
+  push:
+    paths:
+      - 'downloads/resume_refresh.zip.b64'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Decode and publish resume files
+        shell: bash
+        run: |
+          set -euo pipefail
+          base64 --decode downloads/resume_refresh.zip.b64 > /tmp/resume_refresh.zip
+          unzip -o /tmp/resume_refresh.zip -d downloads/
+          rm downloads/resume_refresh.zip.b64
+
+      - name: Commit generated resume files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A downloads/
+          if git diff --cached --quiet; then
+            echo "No resume changes to commit."
+          else
+            git commit -m "Publish refreshed ATS resume downloads"
+            git push
+          fi
