@@ -81,13 +81,27 @@
     }
   };
 
-  const phrases=['art','tech','strategy'].map(key=>({
-    key,
-    node:document.querySelector(`.source-statement[data-key="${key}"]`),
-    home:document.querySelector(`.statement-home[data-home="${key}"]`),
-    slot:document.querySelector(`.phrase-slot[data-slot="${key}"]`),
-    docked:false
-  }));
+  /* Keep the fuller section statements in place, but use compact brand labels
+     whenever those nodes dock into the fixed rail. This prevents collisions on
+     dark/final chapters while preserving the narrative copy inside each section. */
+  const railLabels={
+    art:'Creative & Digital Production',
+    tech:'Integrated Delivery',
+    strategy:'Client & Commercial Ownership'
+  };
+
+  const phrases=['art','tech','strategy'].map(key=>{
+    const node=document.querySelector(`.source-statement[data-key="${key}"]`);
+    return {
+      key,
+      node,
+      home:document.querySelector(`.statement-home[data-home="${key}"]`),
+      slot:document.querySelector(`.phrase-slot[data-slot="${key}"]`),
+      homeText:node?.textContent||'',
+      railText:railLabels[key],
+      docked:false
+    };
+  });
   const sep1=document.querySelector('[data-sep="art-tech"]');
   const sep2=document.querySelector('[data-sep="tech-strategy"]');
   let current='intro',transitioning=false;
@@ -95,6 +109,7 @@
   const relocate=(moves)=>{
     if(!moves.length) return;
     const mutate=()=>moves.forEach(({item,toDock})=>{
+      if(item.node) item.node.textContent=toDock?item.railText:item.homeText;
       (toDock?item.slot:item.home).appendChild(item.node);
       item.docked=toDock;
     });
