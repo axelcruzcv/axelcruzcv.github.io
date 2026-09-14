@@ -38,12 +38,10 @@
       } else if (fallbackCopy(email)) {
         confirm();
       }
-      // Do not preventDefault(): the native mailto action still runs.
     });
   });
 })();
 
-/* V05 coherence enhancements. Kept isolated so the original V05 layout remains untouched. */
 (() => {
   const isCV = document.body.classList.contains('cv-page');
   const isExperience = document.body.classList.contains('experience-page');
@@ -66,6 +64,7 @@
 
   if (isExperience) {
     const title = document.querySelector('.intro-title');
+    if (title) title.textContent = 'Working With Me';
     if (title && !document.querySelector('.intro-philosophy')) {
       const philosophy = document.createElement('div');
       philosophy.className = 'intro-philosophy';
@@ -101,7 +100,9 @@
   }
 
   if (isCV) {
-    // The public site offers one downloadable asset only: the finalized ATS PDF.
+    const whoPill = document.querySelector('.who-pill');
+    if (whoPill) whoPill.textContent = 'Working With Me';
+
     document.querySelectorAll('a[download$=".docx"], a[href*=".docx"]').forEach(link => link.remove());
     document.querySelectorAll('a[href*="Axel_Cruz_Professional_CV.pdf"]').forEach(link => {
       link.setAttribute('download', 'Axel_Cruz_Senior_Integrated_Project_Manager.pdf');
@@ -113,7 +114,7 @@
       const cta = document.createElement('a');
       cta.className = 'continuation-cta cv-loop-cta';
       cta.href = '../';
-      cta.innerHTML = '<span>Continue the experience</span><strong>Who I Am <b aria-hidden="true">→</b></strong>';
+      cta.innerHTML = '<span>Continue the experience</span><strong>Working With Me <b aria-hidden="true">→</b></strong>';
       closing.insertAdjacentElement('afterend', cta);
       transitionTo(cta);
     }
