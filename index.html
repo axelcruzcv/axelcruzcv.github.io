@@ -87,10 +87,10 @@ const section=document.querySelector('.experience');
 const buttons=[...document.querySelectorAll('[data-lens]')];
 if(!section||buttons.length!==4)return;
 const content={
- digital:{company:'HINO / DIGITAL PLATFORM',title:'Hino LMS',value:'2,000+',unit:'users',detail:'Across 38 dealers. Product roadmaps, distributed teams, releases and support.',index:'01 / 04',url:'https://axelcruzcv.github.io/axelcruzportafolio/#hino'},
- creative:{company:'KPMG + KIA / CREATIVE DELIVERY',title:'Creative Ops',value:'15+',unit:'projects',detail:'Creative production, cross-functional capacity, review cycles and stakeholder decisions.',index:'02 / 04',url:'https://axelcruzcv.github.io/axelcruzportafolio/#kpmg'},
- client:{company:'COSTCO / CLIENT DELIVERY',title:'Costco',value:'12',unit:'projects',detail:'An initial assignment evolved through proposals, scoping, negotiation and delivery.',index:'03 / 04',url:'https://axelcruzcv.github.io/axelcruzportafolio/#costco'},
- all:{company:'AXEL / INTEGRATED DELIVERY',title:'The full picture',value:'25',unit:'specialists',detail:'Creative, technology and commercial work moving in one direction.',index:'04 / 04',url:'https://axelcruzcv.github.io/axelcruzportafolio/'}
+ digital:{company:'HINO / DIGITAL PLATFORM',title:'Hino LMS',value:'2,000+',unit:'users',detail:'Across 38 dealers. Product roadmaps, distributed teams, releases and support.',index:'01 / 04',url:'https://axelcruzcv.github.io/axelcruzportafolio/?lens=digital#hino'},
+ creative:{company:'KPMG + KIA / CREATIVE DELIVERY',title:'Creative Ops',value:'15+',unit:'projects',detail:'Creative production, cross-functional capacity, review cycles and stakeholder decisions.',index:'02 / 04',url:'https://axelcruzcv.github.io/axelcruzportafolio/?lens=creative#kpmg'},
+ client:{company:'COSTCO / CLIENT DELIVERY',title:'Costco',value:'12',unit:'projects',detail:'An initial assignment evolved through proposals, scoping, negotiation and delivery.',index:'03 / 04',url:'https://axelcruzcv.github.io/axelcruzportafolio/?lens=client#costco'},
+ all:{company:'AXEL / INTEGRATED DELIVERY',title:'The full picture',value:'25',unit:'specialists',detail:'Creative, technology and commercial work moving in one direction.',index:'04 / 04',url:'https://axelcruzcv.github.io/axelcruzportafolio/?lens=all'}
 };
 const fields={company:document.querySelector('#case-company'),title:document.querySelector('#case-title'),value:document.querySelector('#case-value'),detail:document.querySelector('#case-detail'),index:document.querySelector('#case-index'),link:document.querySelector('#case-link')};
 let selected='digital';
