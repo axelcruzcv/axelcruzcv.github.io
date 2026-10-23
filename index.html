@@ -4,9 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b131b">
-<!-- Existing first-party analytics property, preserved across the new homepage. -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ5RT0GT5M"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WQ5RT0GT5M');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WQ5RT0GT5M"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WQ5RT0GT5M');</script>
 <meta name="description" content="Axel Cruz — Senior Integrated Digital Project Manager. Creative Operations, Digital Platforms, Client Delivery. Command the Complexity.">
 <meta property="og:type" content="website"><meta property="og:title" content="AXEL CRUZ · Command the Complexity"><meta property="og:description" content="Creative instinct. Operational command. Proof in the delivery."><meta property="og:url" content="https://axelcruzcv.github.io/">
 <title>Axel Cruz — Command the Complexity</title>
@@ -33,6 +31,7 @@
 @media(max-width:350px){.main{--hero-height:405px}.hero-signature{font-size:8px}.hero-name{top:113px}.hero-description{top:145px}.command-scene{top:116px}.lens-intro h2{font-size:28px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.signal-track,.scene-engine,.scene-halo,.hero-glow,.data-ring,.packet,.spark,.data-bit,.lens.is-looping,.lens.is-looping .shape-body{animation:none!important}*,*:before,*:after{transition-duration:0ms!important;scroll-behavior:auto!important}}
 
+.scene-engine .art-fragment{position:absolute;inset:0;opacity:.9;transform:translate3d(0,0,0);pointer-events:none;will-change:transform}.scene-engine .fragment-a{clip-path:polygon(73% 13%,94% 13%,94% 36%,73% 36%);animation:fragment-a 5.4s ease-in-out infinite alternate}.scene-engine .fragment-b{clip-path:polygon(8% 32%,30% 32%,30% 61%,8% 61%);animation:fragment-b 6.8s ease-in-out infinite alternate}.scene-engine .fragment-c{clip-path:polygon(27% 66%,65% 66%,65% 88%,27% 88%);animation:fragment-c 7.4s ease-in-out infinite alternate}@keyframes fragment-a{to{transform:translate3d(7px,-13px,0)}}@keyframes fragment-b{to{transform:translate3d(-8px,9px,0)}}@keyframes fragment-c{to{transform:translate3d(10px,7px,0)}}@media(min-width:1000px) and (max-height:760px){.main{--hero-height:46svh;--lens-h:30svh}.primary-paths{min-height:83px;padding-block:8px}}@media(max-width:580px){.scene-engine .art-fragment{display:none}}@media(prefers-reduced-motion:reduce){.scene-engine .art-fragment{animation:none!important}}
 </style>
 
 </head>
@@ -49,7 +48,7 @@
   </div>
   <div class="command-scene" aria-hidden="true">
     <div class="scene-halo"></div>
-    <div class="scene-engine"><img src="assets/command-core.webp" alt="" width="720" height="720" fetchpriority="high" decoding="async"></div>
+    <div class="scene-engine"><img src="assets/command-core.webp" alt="" width="720" height="720" fetchpriority="high" decoding="async"><img class="art-fragment fragment-a" src="assets/command-core.webp" alt="" aria-hidden="true" width="720" height="720" loading="lazy"><img class="art-fragment fragment-b" src="assets/command-core.webp" alt="" aria-hidden="true" width="720" height="720" loading="lazy"><img class="art-fragment fragment-c" src="assets/command-core.webp" alt="" aria-hidden="true" width="720" height="720" loading="lazy"></div>
     <div class="data-ring ring-a"></div><div class="data-ring ring-b"></div>
     <div class="packet packet-a"></div><div class="packet packet-b"></div><div class="packet packet-c"></div>
     <span class="spark s1"></span><span class="spark s2"></span><span class="spark s3"></span><span class="spark s4"></span><span class="spark s5"></span><span class="spark s6"></span>
@@ -114,8 +113,6 @@ window.addEventListener('keydown',e=>{if(['PageDown','PageUp'].includes(e.key)&&
 })();
 
 </script>
-<script>
-for(const control of document.querySelectorAll('[data-lens]'))control.addEventListener('click',()=>{if(typeof window.gtag==='function')window.gtag('event','lens_select',{lens:control.dataset.lens});});
-</script>
+<script>for(const b of document.querySelectorAll('[data-lens]'))b.addEventListener('click',()=>{if(typeof window.gtag==='function')window.gtag('event','lens_select',{lens:b.dataset.lens})});</script>
 </body>
 </html>
