@@ -18,18 +18,9 @@ const servicePaths={
  people:'M24 7a8 8 0 1 0 0 16 8 8 0 0 0 0-16M8 42v-6c0-7 7-10 16-10s16 3 16 10v6'
 };
 function serviceIcon(key){return '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+(servicePaths[key]||servicePaths.platform)+'"/></svg>';}
-const projectArt={
- hino:{label:'Learning ecosystem',icons:['learning','platform','mobile']},
- kpmg:{label:'Creative operations',icons:['video','message','team']},
- kia:{label:'Content & brand',icons:['video','scope','check']},
- edenred:{label:'Platform continuity',icons:['platform','learning','check']},
- teojama:{label:'Release readiness',icons:['mobile','learning','check']},
- costco:{label:'Client to delivery',icons:['handshake','scope','video']},
- mazda:{label:'Technical learning',icons:['tool','learning','check']},
- recovery:{label:'Restore. Verify. Resume.',icons:['clock','platform','check']}
-};
 function projectArtwork(p){
- const art=projectArt[p.id];if(!art)return '<img src="assets/cph-cover.svg" alt="Cine Para Huevones editorial cover" width="640" height="440">';
- const image=p.id==='recovery'?'<div class="recovery-photos"><img src="assets/project-photos/hino.webp" alt="Hino client reference"><img src="assets/project-photos/edenred.webp" alt="Edenred Training client reference"></div>':'<img class="project-photo" src="assets/project-photos/'+p.id+'.webp" alt="'+p.name+' client imagery" width="640" height="440" loading="lazy">';
- return '<div class="case-art case-art-'+p.id+'">'+image+'<span class="case-art-label">'+art.label+'</span><span class="service-thread" aria-hidden="true"></span><div class="service-badges" aria-hidden="true">'+art.icons.map((icon,i)=>'<span class="service-badge service-badge-'+i+'">'+serviceIcon(icon)+'</span>').join('')+'</div></div>';
+ if(p.id==='cph')return '<img src="assets/cph-cover.svg" alt="Cine Para Huevones editorial cover" width="640" height="440">';
+ const platform=['edenred','teojama','recovery'].includes(p.id),source=platform?'assets/project-covers/'+p.id+'.svg':'assets/project-photos/'+p.id+'.webp';
+ const alt=platform?(p.id==='recovery'?'Illustration of coordinated Hino and Edenred service recovery':'Illustrative platform view for '+p.name):p.name+' client imagery';
+ return '<div class="case-art case-art-'+p.id+(platform?' platform-cover':'')+'"><img class="project-photo" src="'+source+'" alt="'+alt+'" width="640" height="440" loading="lazy"></div>';
 }

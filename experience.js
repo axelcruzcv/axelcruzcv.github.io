@@ -22,7 +22,7 @@ syncJourney(location.hash.slice(1).split('/')[0]||'home');
 function stateEnter(selector){const el=$(selector);if(!el)return;el.classList.remove('state-enter');void el.offsetWidth;el.classList.add('state-enter');}
 let previousDeliveryIndex=0;
 function deliveryVisual(index){
- const colors=['#a8c183','#e7c84f','#b94a40','#85bace','#4f6c45','#ebe9df','#a3d5c3','#e7c84f'];
+ const colors=deliveryStageColors;
  const out=$('#delivery-visual');
  let svg='<svg viewBox="0 0 1000 190" role="group" aria-label="Select a delivery stage, or advance with the moving card"><defs><linearGradient id="handoff-line"><stop stop-color="#2e79b8"/><stop offset="1" stop-color="#fa746c"/></linearGradient></defs><path d="M85 112H920" stroke="#85bad044" stroke-width="1" fill="none"/>';
  for(let i=0;i<stages.length;i++){const x=85+i*(835/(stages.length-1));svg+='<g class="delivery-stop" role="button" tabindex="0" aria-label="'+stages[i].name+' stage" aria-pressed="'+(i===index)+'" data-stage="'+i+'"><rect x="'+(x-48)+'" y="88" width="96" height="83" rx="8" fill="transparent"/><circle cx="'+x+'" cy="112" r="'+(i===index?13:5)+'" fill="'+(i<=index?colors[i]:'#2b424f')+'"/><text x="'+x+'" y="155" text-anchor="middle" fill="'+(i===index?'#f5f1e8':'#9bb6c5')+'" font-family="IBM Plex Mono,monospace" font-size="11">'+stages[i].name.toUpperCase()+'</text></g>';}
