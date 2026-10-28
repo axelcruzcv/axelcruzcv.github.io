@@ -1,0 +1,12 @@
+/* V02.2 — the supplied Milky Way photograph, framed for the game invitation. */
+.game-launch{background-color:#0b131b;background-image:url('assets/pm-game-space.jpg');background-repeat:no-repeat;background-size:cover;background-position:50% 46%}
+.game-launch:before{background:linear-gradient(180deg,#0710181a 0%,#0710184d 32%,#07101873 62%,#071018cc 100%)}
+.game-launch h2{text-shadow:0 2px 14px #000b,0 1px 3px #0009}
+.game-launch .launch-top{color:#e5e9df;text-shadow:0 1px 5px #000}
+.game-launch .launch-orbit b{background:#0b131b70;backdrop-filter:blur(2px)}
+.game-launch .launch-action{text-shadow:0 1px 8px #000}
+.game-launch .launch-caption{color:#e1e6dc;text-shadow:0 1px 5px #000}
+@media(min-width:1600px){.game-launch{background-position:50% 51%}}
+@media(min-width:601px) and (max-width:1100px){.game-launch{background-position:55% 48%}}
+@media(max-width:600px){.game-launch{background-position:61% 50%}.game-launch:before{background:linear-gradient(180deg,#07101826 0%,#07101866 38%,#07101873 68%,#071018c7 100%)}}
+@media(max-width:360px){.game-launch{background-position:64% 50%}}
