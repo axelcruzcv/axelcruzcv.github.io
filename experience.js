@@ -24,25 +24,20 @@ let previousDeliveryIndex=0;
 function deliveryVisual(index){
  const colors=['#a8c183','#e7c84f','#b94a40','#85bace','#4f6c45','#ebe9df','#a3d5c3','#e7c84f'];
  const out=$('#delivery-visual');
- let svg='<svg viewBox="0 0 1000 190" role="img" aria-label="A deliverable moves through the selected handoff"><defs><linearGradient id="handoff-line"><stop stop-color="#2e79b8"/><stop offset="1" stop-color="#fa746c"/></linearGradient></defs><path d="M85 112H920" stroke="#85bad044" stroke-width="1" fill="none"/>';
- for(let i=0;i<stages.length;i++){const x=85+i*(835/(stages.length-1));svg+='<circle cx="'+x+'" cy="112" r="'+(i===index?13:5)+'" fill="'+(i<=index?colors[i]:'#2b424f')+'"/><text x="'+x+'" y="155" text-anchor="middle" fill="'+(i===index?'#f5f1e8':'#9bb6c5')+'" font-family="IBM Plex Mono,monospace" font-size="10">'+stages[i].name.toUpperCase()+'</text>';}
+ let svg='<svg viewBox="0 0 1000 190" role="group" aria-label="Select a delivery stage, or advance with the moving card"><defs><linearGradient id="handoff-line"><stop stop-color="#2e79b8"/><stop offset="1" stop-color="#fa746c"/></linearGradient></defs><path d="M85 112H920" stroke="#85bad044" stroke-width="1" fill="none"/>';
+ for(let i=0;i<stages.length;i++){const x=85+i*(835/(stages.length-1));svg+='<g class="delivery-stop" role="button" tabindex="0" aria-label="'+stages[i].name+' stage" aria-pressed="'+(i===index)+'" data-stage="'+i+'"><rect x="'+(x-48)+'" y="88" width="96" height="83" rx="8" fill="transparent"/><circle cx="'+x+'" cy="112" r="'+(i===index?13:5)+'" fill="'+(i<=index?colors[i]:'#2b424f')+'"/><text x="'+x+'" y="155" text-anchor="middle" fill="'+(i===index?'#f5f1e8':'#9bb6c5')+'" font-family="IBM Plex Mono,monospace" font-size="11">'+stages[i].name.toUpperCase()+'</text></g>';}
+
  const center=85+index*(835/(stages.length-1)),previousCenter=85+previousDeliveryIndex*(835/(stages.length-1));previousDeliveryIndex=index;
- svg+='<g transform="translate('+center+' 0)">'+(!energyReduced.matches?'<animateTransform attributeName="transform" type="translate" from="'+previousCenter+' 0" to="'+center+' 0" dur=".65s" fill="freeze"/>':'')+'<rect x="-64" y="25" width="128" height="55" rx="4" fill="'+colors[index]+'"/><path d="M-43 43h50m-50 9h77m-77 9h63" stroke="#13232d" stroke-width="2" fill="none"/><path d="M0 80v19" stroke="'+colors[index]+'" stroke-width="1.5"/></g><text x="965" y="31" text-anchor="end" fill="#91acbb" font-family="IBM Plex Mono,monospace" font-size="8">ONE DELIVERABLE / EXPLORABLE HANDOFF</text></svg>';
+ svg+='<g class="delivery-moving-card" data-stage-next role="button" tabindex="0" aria-label="Continue to '+stages[(index+1)%stages.length].name+'" transform="translate('+center+' 0)">'+(!energyReduced.matches?'<animateTransform attributeName="transform" type="translate" from="'+previousCenter+' 0" to="'+center+' 0" dur=".65s" fill="freeze"/>':'')+'<rect x="-64" y="25" width="128" height="55" rx="4" fill="'+colors[index]+'"/><path d="M-43 43h50m-50 9h55m-55 9h40m49-17 7 7-7 7" stroke="#13232d" stroke-width="2" fill="none"/><path d="M0 80v19" stroke="'+colors[index]+'" stroke-width="1.5"/></g><text x="965" y="31" text-anchor="end" fill="#91acbb" font-family="IBM Plex Mono,monospace" font-size="8">ONE DELIVERABLE / EXPLORABLE HANDOFF</text></svg>';
  out.innerHTML=svg;
  stateEnter('#delivery-detail');
 }
 window.addEventListener('command-stage',e=>deliveryVisual(e.detail.index));
 deliveryVisual(0);
 function stakeholderVisual(index){
- const short=['PRODUCT','IT / CRM','TRAINING','COMMS','SALES','LEGAL','HR'];
- const colors=['#85bad0','#2e79b8','#d9ae70','#fa746c','#b5c5a2','#c7856b','#f5f1e8'];
- const points=short.map(function(label,i){const a=-Math.PI/2+i*Math.PI*2/7;return {x:310+Math.cos(a)*104,y:108+Math.sin(a)*76,label};});
- let svg='<svg viewBox="0 0 600 215"><defs><linearGradient id="stakeholder-path"><stop stop-color="#fa746c"/><stop offset="1" stop-color="#85bad0"/></linearGradient></defs>';
- points.forEach(function(p,i){svg+='<path d="M130 108 Q230 '+p.y+' '+p.x+' '+p.y+'" fill="none" stroke="'+(i===index?colors[i]:'#85bad025')+'" stroke-width="'+(i===index?2:1)+'"/>';});
- svg+='<circle cx="130" cy="108" r="40" fill="#fa746c"/><text x="130" y="113" text-anchor="middle" fill="#0b131b" font-family="Bricolage Grotesque,sans-serif" font-size="19" font-weight="800">AXEL</text>';
- points.forEach(function(p,i){svg+='<circle cx="'+p.x+'" cy="'+p.y+'" r="'+(i===index?24:17)+'" fill="'+(i===index?colors[i]:'#203746')+'" stroke="'+(i===index?colors[i]:'#526b7a')+'"/><text x="'+(p.x+35)+'" y="'+(p.y+3)+'" fill="'+(i===index?'#f5f1e8':'#8caaba')+'" font-family="IBM Plex Mono,monospace" font-size="8">'+p.label+'</text>';});
- svg+='<text x="35" y="28" fill="#a2bdcb" font-family="IBM Plex Mono,monospace" font-size="8">DIFFERENT PRIORITIES / A SHARED DECISION</text></svg>';
- $('#stakeholder-visual').innerHTML=svg;stateEnter('#stakeholder-detail');
+ const a=-Math.PI/2+index*Math.PI*2/7,x=250+Math.cos(a)*175,y=250+Math.sin(a)*175;
+ $('#stakeholder-visual').innerHTML='<svg viewBox="0 0 500 500"><circle class="meeting-ring" cx="250" cy="250" r="175"/><circle class="meeting-ring inner" cx="250" cy="250" r="115"/><path class="meeting-connection" d="M250 250L'+x+' '+y+'"/><circle class="meeting-core" cx="250" cy="250" r="59"/><text x="250" y="248" text-anchor="middle" class="meeting-axel">AXEL</text><text x="250" y="268" text-anchor="middle" class="meeting-align">CONNECT / ALIGN</text></svg>';
+ stateEnter('#stakeholder-detail');
 }
 window.addEventListener('command-stakeholder',e=>stakeholderVisual(e.detail.index));stakeholderVisual(0);
 function renderSystemWires(){
