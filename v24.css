@@ -1,0 +1,15 @@
+/* The solid yellow arrow follows Axel's supplied wide composition. */
+.home-stage .home-intro{position:relative;z-index:2}
+.intro-invitation{display:block;min-height:38px;margin-top:30px}
+.home-stage .intro-invitation>p{max-width:64%}
+.intro-play-direction{position:absolute;left:70%;right:auto;bottom:clamp(-48px,-2.5vw,-18px);width:37.5%;z-index:4;pointer-events:none}
+.intro-play-direction svg{display:block;width:100%;height:auto;fill:currentColor;stroke:none;filter:none}
+.intro-play-direction .play-arrow-down{display:none}
+@media(max-width:800px) and (min-width:601px){.intro-invitation{margin-top:22px}.home-stage .intro-invitation>p{max-width:70%}}
+@media(max-width:600px){
+ .intro-invitation{display:grid;grid-template-columns:minmax(0,1fr) clamp(85px,25vw,125px);gap:12px;margin-top:5px;min-height:0}
+ .home-stage .intro-invitation>p{max-width:none}
+ .intro-play-direction{position:relative;left:auto;right:auto;bottom:auto;width:100%;transform:translateY(23px)}
+ .intro-play-direction .play-arrow-wide{display:none}
+ .intro-play-direction .play-arrow-down{display:block;height:auto;stroke:none}
+}
