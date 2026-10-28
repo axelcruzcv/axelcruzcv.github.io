@@ -1,0 +1,51 @@
+/* V01.8 — a simpler game, and one uninterrupted professional journey. */
+#home .simulator-heading{display:flex;justify-content:space-between;align-items:flex-end;padding:0 0 13px;border-bottom:1px solid #a8c18366;margin-bottom:16px;font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:.95;font-size:clamp(23px,1.8vw,36px)}
+.simulator-heading>.simulator-title{padding:0;background:none;color:var(--ivory)}
+.simulator-title>span{display:block;font-size:.8em;color:var(--signal-yellow);margin-top:4px;letter-spacing:-.025em}
+.simulator-heading>.simulator-direction{padding:0;background:none;font:400 35px/1 var(--body);color:var(--field-green)}
+.home-stage .task-editor .task-card{padding:16px 12px;font:500 clamp(14px,1vw,19px)/1.45 var(--mono)}
+.task-editor .code-task-line{align-items:center;gap:10px;background:none;min-height:65px}
+.task-editor #task-text{flex:1;min-width:0;overflow-wrap:normal}
+.task-editor .task-grip{margin:0;opacity:.7;font-size:21px}
+.task-editor .task-drag-mark{margin:0;display:block;opacity:.8;font-size:18px}
+.editor-file{font-size:11px;letter-spacing:.015em}
+.editor-status{min-height:25px}
+.home-stage .intro-welcome>p:last-child{max-width:30ch}
+body[data-experience=work] .topbar{position:sticky;top:0;z-index:40}
+.main-nav a[aria-current=location]{color:var(--signal-yellow)}
+.main-nav a[aria-current=location]:after{content:'';height:2px;position:absolute;bottom:0;left:0;right:0;background:currentColor}
+.work-chapter{scroll-margin-top:calc(var(--header-height,78px) + 20px);padding-bottom:1px}
+.work-chapter+.work-chapter{border-top:6px solid var(--sage)}
+#delivery.work-chapter{border-top-color:var(--signal-yellow)}
+#systems.work-chapter{border-top-color:var(--blue)}
+.chapter-bridge{padding-block:24px 40px;display:flex;justify-content:flex-end}
+.chapter-bridge a{display:flex;gap:18px;align-items:center;text-decoration:none;font:700 18px var(--display);letter-spacing:-.025em}
+.chapter-bridge span{font:500 9px var(--mono);letter-spacing:.06em;color:var(--muted)}
+.chapter-bridge i{font:400 22px var(--body);font-style:normal;color:var(--sage);transition:transform .25s}
+.chapter-bridge a:hover i{transform:translateY(4px)}
+.work-outro{background:var(--signal-yellow);color:var(--night);padding-block:80px;margin-top:50px}
+.work-outro .eyebrow{font-size:11px;color:#334e30}
+.work-outro h2{font:800 clamp(45px,6vw,110px)/.9 var(--display);letter-spacing:-.04em;margin:0 0 28px}
+.work-outro p:not(.eyebrow){font:400 16px/1.7 var(--body);max-width:54ch}
+.work-outro-actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:30px}
+.work-outro .button{font-size:12px;min-height:56px;min-width:220px}
+.work-outro .button.primary{background:var(--night);border-color:var(--night);color:var(--ivory)}
+@media(max-width:600px){
+ #home .simulator-heading{font-size:25px;padding-bottom:12px}
+ .simulator-heading>.simulator-direction{font-size:30px}
+ .home-stage .console-chrome b{font-size:7px;letter-spacing:0}
+ .home-stage .console-chrome>div{gap:8px}
+ .home-stage .task-editor .task-card{font-size:14px;padding:15px 10px}
+ .task-editor .code-task-line{gap:8px;min-height:76px}
+ .task-editor .task-grip{font-size:19px}
+ .task-editor .task-drag-mark{font-size:16px}
+ .work-outro{padding-block:45px;margin-top:30px}
+ .work-outro h2{font-size:clamp(38px,10vw,60px)}
+ .work-outro p:not(.eyebrow){font-size:14px}
+ .work-outro-actions{display:grid}
+ .work-outro .button{width:100%;font-size:11px}
+ .chapter-bridge{padding-block:20px 28px}
+}
+@media(max-width:360px){.home-stage .console-chrome{padding-inline:9px}.home-stage .console-chrome b{font-size:6px}.home-stage .console-chrome>div{gap:6px}.console-lights{gap:3px}.console-lights i{width:4px;height:4px}}
+/* The sticky header is accounted for by the chapter's margin, once. */
+html{scroll-padding-top:0}
