@@ -1,0 +1,50 @@
+/* V02.3 — four chapters, introduced by typographic landmarks. */
+#team{--chapter-background:#0b131b;--chapter-ink:#f5f1e8;--chapter-accent:#e7c84f;--chapter-size:42cqw}
+#client{--chapter-background:#334e30;--chapter-ink:#f5f1e8;--chapter-accent:#e7c84f;--chapter-size:35.2cqw}
+#delivery{--chapter-background:#e7c84f;--chapter-ink:#0b131b;--chapter-accent:#334e30;--chapter-size:25.8cqw}
+#systems{--chapter-background:#2e557c;--chapter-ink:#f5f1e8;--chapter-accent:#e7c84f;--chapter-size:25.8cqw}
+.work-chapter+.work-chapter{border-top:0}
+.chapter-title{display:block;width:100%;background:var(--chapter-background);color:var(--chapter-ink);margin:0;padding-block:26px 30px;border:0;border-radius:0}
+.chapter-title>.wrap{container-type:inline-size;min-width:0}
+.chapter-title .chapter-marker{display:flex;gap:17px;align-items:baseline;margin:0;color:var(--chapter-accent)}
+.chapter-marker b{font:800 clamp(29px,3.7vw,66px)/1 var(--display);letter-spacing:-.05em}
+.chapter-marker>span{font:500 clamp(8px,.8vw,13px)/1.5 var(--mono);letter-spacing:.045em;color:var(--chapter-ink);opacity:.82}
+.chapter-title .chapter-name{font:800 var(--chapter-size)/.8 var(--display);letter-spacing:-.06em;color:var(--chapter-ink);white-space:nowrap;text-transform:uppercase;margin:24px 0 30px;padding:0}
+.chapter-name>span{display:inline-block}
+.chapter-title .chapter-subtitle{font:500 clamp(18px,2.2vw,40px)/1.25 var(--display);letter-spacing:-.025em;max-width:60ch;margin:0;color:var(--chapter-ink)}
+.chapter-context{padding-block:22px 8px}
+.chapter-context p{font:400 13px/1.7 var(--body);max-width:100ch;margin:0;color:#42545e}
+.chapter-context strong{font-weight:700;color:var(--night)}
+#team .testimonial-band{padding-block:25px;gap:40px;grid-template-columns:.65fr 1.35fr}
+#team .testimonial-label h2{font:800 clamp(28px,3.1vw,48px)/.95 var(--display);letter-spacing:-.035em;margin:0}
+#team .testimonial-label .eyebrow{font-size:9px;margin-bottom:14px}
+#client .project-grid{padding-top:18px}
+#systems .system-workspace{margin-top:10px}
+.work-chapter{padding-bottom:25px}
+@media(min-width:1600px){.chapter-title{padding-block:34px 37px}.chapter-title .chapter-name{margin-block:27px 37px}}
+@media(max-width:800px){
+ .chapter-title{padding-block:23px 26px}
+ .chapter-title .chapter-name{margin-block:22px 25px}
+ .chapter-title .chapter-subtitle{font-size:clamp(18px,2.6vw,24px);max-width:42ch}
+ .chapter-context{padding-block:18px 5px}
+ #team .testimonial-band{gap:25px}
+}
+@media(max-width:600px){
+ .chapter-title{padding-block:20px 23px}
+ .chapter-title .chapter-marker{gap:12px}
+ .chapter-marker b{font-size:31px}
+ .chapter-marker>span{font-size:8px;letter-spacing:.025em}
+ .chapter-title .chapter-name{margin-block:23px 21px}
+ .chapter-title .chapter-subtitle{font-size:19px;line-height:1.3;max-width:28ch}
+ .chapter-context p{font-size:12px;line-height:1.7}
+ #team .testimonial-band{grid-template-columns:1fr;gap:19px;padding-block:23px}
+ #team .testimonial-label h2{font-size:31px}
+ #team .testimonial-label h2 br{display:none}
+ #team .testimonial-label h2 br:after{content:' '}
+ #team .testimonial-label .eyebrow{margin-bottom:11px;font-size:8px}
+ .work-chapter{padding-bottom:22px}
+}
+/* The chapter landmarks use the screen width, including wide desktop displays. */
+.chapter-title>.wrap{width:calc(100% - 7.2vw);max-width:none}
+@media(max-width:600px){.chapter-title>.wrap{width:calc(100% - 36px)}}
+@media(max-width:360px){#delivery,#systems{--chapter-size:24.4cqw}}
