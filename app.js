@@ -93,14 +93,17 @@ function setNavigationChapter(page){
  $('#route-label').textContent='PM / '+page.toUpperCase();
 }
 function motionIsReduced(){return document.documentElement.classList.contains('reduce-motion')||matchMedia('(prefers-reduced-motion: reduce)').matches;}
-function scrollToChapter(page,behavior){
+const disclosureRoutes={'team/hiring':'hiring-detail','team/voices':'team-voices','client/stakeholders':'stakeholder-detail-fold','delivery/change':'change-detail','delivery/creative':'creative-detail','systems/analytics':'analytics-detail'};
+function scrollToChapter(page,behavior,detail){
  if(page==='home'){window.scrollTo({top:0,behavior});return;}
- const target=$('#'+page);if(!target)return;
- navigationTarget=page;navigationDeadline=performance.now()+1800;
+ const foldId=disclosureRoutes[page+'/'+detail],fold=foldId?$('#'+foldId):null;
+ if(fold)fold.open=true;
+ const target=fold||$('#'+page);if(!target)return;
+ navigationTarget=target.id;navigationDeadline=performance.now()+1800;
  target.scrollIntoView({block:'start',behavior});
 }
 function route({intent='history',force=false,restoreCase=false}={}){
- const [raw='home',projectId]=location.hash.slice(1).split('/');
+ const [raw='home',projectId,perspective]=location.hash.slice(1).split('/');
  const page=raw==='work'?'team':['home',...workChapters].includes(raw)?raw:'home';
  const experience=page==='home'?'home':'work';
  const project=(page==='client'||(page==='delivery'&&projectId==='cph'))?projects.find(x=>x.id===projectId):null;
@@ -111,8 +114,8 @@ function route({intent='history',force=false,restoreCase=false}={}){
  document.body.dataset.experience=experience;
  $('#client-index').hidden=false;$('#project-detail').hidden=!project;
  document.title='Axel Cruz — '+(project?project.name:experience==='home'?'Senior Digital Project & Program Manager':'Teams, Clients, Delivery & Systems');
- if(page==='systems'&&systemData[projectId]){system=projectId;systemNode=0;renderSystem();}
- const nextKey=page+(project?'/'+project.id:projectId&&page==='systems'?'/'+projectId:'');
+ if(page==='systems'&&systemData[projectId]){system=projectId;systemNode=0;if(['user','architecture','ownership'].includes(perspective))systemView=perspective;renderSystem();}
+ const nextKey=page+(projectId?'/'+projectId:'')+(perspective?'/'+perspective:'');
  if(project){
   if(!modal.open){
    window.scrollTo({top:window.scrollY,behavior:'instant'});navigationTarget='';
@@ -125,7 +128,7 @@ function route({intent='history',force=false,restoreCase=false}={}){
    navigationTarget='';window.scrollTo({top:clientScroll,behavior:'instant'});
    if(caseReturnFocus&&document.contains(caseReturnFocus))caseReturnFocus.focus({preventScroll:true});
   }else{
-   scrollToChapter(page,intent==='link'&&!entering&&!motionIsReduced()?'smooth':'instant');
+   scrollToChapter(page,intent==='link'&&!entering&&!motionIsReduced()?'smooth':'instant',projectId);
    if(previousPage)$('#main').focus({preventScroll:true});
   }
  }

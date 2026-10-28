@@ -1,0 +1,175 @@
+/* V01.9 — essential evidence first; explicit, native disclosures for the rest. */
+.intro-tour{display:inline-flex;align-items:center;gap:24px;margin-top:22px;padding:12px 16px;background:var(--night);color:var(--ivory);font:500 10px/1.4 var(--mono);letter-spacing:.025em;text-decoration:none;border-radius:3px;transition:background .2s,transform .2s}
+.intro-tour span{color:var(--signal-yellow);font:500 19px/1 var(--body)}
+.intro-tour:hover{background:#334e30;transform:translateY(-2px)}
+#home .experience{padding-block:40px}
+#home .experience-band h2{font-size:clamp(55px,6.6vw,142px);margin-bottom:28px}
+#home .experience-grid{gap:25px 4vw;padding-top:25px}
+#home .experience-grid .eyebrow{margin-bottom:13px}
+#home .experience-grid h3{font-size:clamp(23px,1.65vw,31px);margin-bottom:10px}
+#home .experience-grid p:not(.eyebrow){font-size:clamp(14px,.95vw,18px);margin-block:8px;line-height:1.6}
+#home .play-handoff{padding-top:40px;padding-bottom:26px}
+#home .play-handoff h2{font-size:clamp(39px,4vw,76px);margin-bottom:13px}
+#home .journey-overview a{padding-block:20px}
+.home-followup{padding-bottom:40px}
+.work-chapter .page-heading{padding-block:30px 25px}
+.work-chapter .page-heading .eyebrow{margin-bottom:16px;font-size:10px}
+.work-chapter .page-heading h1{font-size:clamp(45px,5.5vw,92px);line-height:.92;letter-spacing:-.035em}
+.work-chapter .page-heading .lead-small{font-size:14px;line-height:1.6;margin-top:18px;max-width:65ch}
+#team .testimonial-band{display:block;min-height:0;padding-block:30px 22px}
+#team .testimonial-label h1{font-size:clamp(45px,5.5vw,92px);line-height:.92;letter-spacing:-.035em}
+#team .testimonial-label h1 br{display:none}
+#team .testimonial-label h1 br:after{content:' '}
+.chapter-purpose{font:400 14px/1.6 var(--body);margin:14px 0 0;color:#42545e}
+#team .testimonial-label .eyebrow{margin-bottom:16px;font-size:10px}
+#team .network-section{padding-block:28px 25px}
+.network-section .section-line #network-title{font-size:clamp(32px,3.1vw,52px);line-height:.95;letter-spacing:-.035em}
+.network-section .section-line{margin-bottom:10px}
+.network-layout{max-width:1230px;grid-template-columns:minmax(0,1fr) 280px;gap:28px;align-items:center}
+.network-desktop{max-height:565px;max-width:100%;width:100%}
+.network-section .network-detail h3{font-size:29px;letter-spacing:-.035em}
+.network-section .network-detail p{font-size:13px;line-height:1.65}
+.network-section .count-editor{margin-top:4px;padding-top:12px}
+.network-section .network-detail{padding-left:20px}
+#team .team-quote{padding:24px 3.6vw;margin-block:20px}
+#team .team-quote p{font-size:clamp(23px,2.1vw,36px);line-height:1.1;letter-spacing:-.025em;margin-bottom:12px}
+#team .team-quote p br{display:none}
+#team .team-quote cite{font-size:10px}
+/* A summary says exactly what opening it will reveal. */
+.compact-fold{border:0;border-top:1px solid #13232d35;border-bottom:1px solid #13232d35;margin-block:14px;background:transparent;padding:0;border-radius:0}
+.compact-fold>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:17px 0;min-height:72px;cursor:pointer;color:var(--ink)}
+.compact-fold>summary::-webkit-details-marker{display:none}
+.compact-fold>summary::marker{content:''}
+.compact-fold>summary>span{min-width:0}
+.compact-fold>summary strong{display:block;font:700 21px/1.15 var(--display);letter-spacing:-.025em}
+.compact-fold>summary small{display:block;font:400 12px/1.5 var(--body);color:#56676a;margin-top:5px}
+.fold-toggle{display:grid;place-items:center;flex:none;width:32px;height:32px;border:1px solid #334e3066;border-radius:50%;color:#334e30;font:400 23px/1 var(--body);font-style:normal;transition:background .2s,color .2s}
+.fold-toggle:after{content:'+'}
+.compact-fold[open]>summary .fold-toggle:after{content:'−'}
+.compact-fold>summary:hover .fold-toggle{background:#334e30;color:var(--ivory)}
+.compact-fold[open]>summary{border-bottom:1px solid #13232d26}
+.fold-content{padding-block:20px 25px}
+.compact-fold .wrap{width:100%;max-width:none}
+.compact-fold .hr-section,.compact-fold .stakeholders,.compact-fold .change-principles,.compact-fold .analytics-lab,.compact-fold .team-photos{padding-block:8px;gap:30px}
+.compact-fold .hr-section h2,.compact-fold .stakeholders h2,.compact-fold .change-principles h2,.compact-fold .analytics-lab h2,.compact-fold .team-photos h2{font-size:clamp(30px,3.2vw,48px);letter-spacing:-.035em}
+.compact-fold .body-copy{font-size:14px;line-height:1.7}
+#team-voices .testimonial-stage{max-width:850px;margin:0 auto 25px}
+#team-voices .team-photos h2{font-size:32px}
+#team-voices .photo-pending{padding:24px}
+#team-voices .photo-pending>span{display:none}
+#team-voices .photo-pending h3{font-size:24px}
+.wide-fold{width:100%;max-width:none;background:#e6e6d9;margin-top:20px}
+.wide-fold>summary{width:min(1380px,calc(100% - 96px));margin:auto}
+.wide-fold>.fold-content{padding:0}
+/* Eight visual entries; the case holds the detailed narrative. */
+#client .project-grid{padding-top:24px;gap:25px 20px}
+#client .project-cover{aspect-ratio:1.65}
+#client .project-cover img{padding:9px 16px}
+#client .project-card h2{font-size:clamp(21px,1.65vw,28px);line-height:1.05;letter-spacing:-.025em;margin:9px 0}
+#client .project-type{font-size:9px;margin-top:11px;line-height:1.45}
+#client .project-card>p:not(.project-type){display:none}
+#client .card-link{font-size:9px}
+#client .illustration-caption{margin-top:16px;margin-bottom:20px;font-size:8px}
+.project-ribbon{padding-block:7px}
+.project-ribbon span{font-size:8px}
+.delivery-workspace{padding-top:24px}
+.delivery-workspace .section-line{margin-bottom:12px}
+.delivery-workspace .section-line h2{font-size:32px;letter-spacing:-.035em}
+.delivery-visual{height:125px;margin-block:16px 15px}
+.stage-controls button{min-height:58px;padding:10px 12px;font-size:12px}
+.delivery-detail{padding-block:22px;gap:30px}
+.delivery-detail h3{font-size:29px;letter-spacing:-.035em}
+.delivery-detail p,.definition-list dd{font-size:13px;line-height:1.65}
+.system-workspace{padding-top:24px}
+.system-tabs button{font-size:21px;padding:14px 17px}
+.system-heading{margin-top:22px;margin-bottom:15px}
+.system-heading h2{font-size:clamp(33px,3.6vw,55px);letter-spacing:-.035em}
+.system-view-controls button{font-size:11px;padding:10px 14px}
+.architecture .system-node{min-height:135px;font-size:19px;padding:14px 16px 19px}
+.architecture-layout{gap:22px;margin-top:20px}
+.architecture-layout>.network-detail h3{font-size:29px;letter-spacing:-.035em}
+.architecture-layout>.network-detail p{font-size:13px}
+.system-outcome{font-size:13px;margin-top:15px;padding:16px}
+/* One obvious next step, rather than another menu. */
+.chapter-bridge{padding-block:22px 30px}
+.chapter-bridge>a{display:flex;align-items:center;justify-content:space-between;width:100%;padding:18px 22px;background:#334e30;color:var(--ivory);border-radius:3px;gap:20px;transition:background .25s,transform .25s}
+.chapter-bridge>a:hover{background:#253d26;transform:translateY(-2px)}
+.chapter-bridge .bridge-copy{display:block;color:inherit}
+.bridge-copy small{font:500 9px/1.3 var(--mono);color:var(--signal-yellow);letter-spacing:.07em}
+.bridge-copy strong{display:inline-block;font:700 22px/1.2 var(--display);letter-spacing:-.025em;margin-left:18px}
+.bridge-copy>span{display:block;font:400 12px/1.5 var(--body);color:#d5dfcd;margin-top:5px}
+.chapter-bridge i{font-size:31px;color:var(--signal-yellow)}
+.work-outro{padding-block:45px;margin-top:25px}
+.work-outro h2{font-size:clamp(42px,4.6vw,80px);margin-bottom:20px}
+.work-outro-actions{margin-top:22px}
+@media(max-width:800px){
+ .network-layout{grid-template-columns:1fr;gap:12px}
+ .network-section .network-detail{border-left:0;border-top:2px solid var(--signal-yellow);padding:15px 0 0}
+ .network-section .network-detail h3{font-size:25px;margin-bottom:10px}
+ .network-section .network-detail p{margin-block:10px}
+ .compact-fold .hr-section,.compact-fold .stakeholders,.compact-fold .change-principles,.compact-fold .analytics-lab,.compact-fold .team-photos{grid-template-columns:1fr;gap:18px}
+ .wide-fold>summary{width:calc(100% - 40px)}
+ #client .project-grid{gap:22px 16px}
+}
+@media(max-width:600px){
+ .intro-tour{margin-top:17px;font-size:10px;padding:10px 13px}
+ #home .experience{padding-block:30px}
+ #home .experience-band h2{font-size:clamp(39px,10.3vw,60px)}
+ #home .experience-grid{gap:22px}
+ .work-chapter .page-heading{padding-block:25px 20px}
+ .work-chapter .page-heading h1,#team .testimonial-label h1{font-size:clamp(38px,10vw,57px);line-height:.95}
+ .work-chapter .page-heading .lead-small{font-size:13px;margin-top:14px}
+ #team .testimonial-band{padding-block:25px 20px}
+ #team .network-section{padding:23px 18px}
+ .network-section .section-line #network-title{font-size:32px}
+ .network-section .section-line{gap:16px}
+ .network-actions{flex-direction:row;align-items:center;flex-wrap:wrap;gap:10px}
+ #download-team{min-width:155px;padding:11px 13px;font-size:9px}
+ .network-actions>.fine:first-child{display:none}
+ .network-mobile{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+ .network-mobile button{font-size:10px;line-height:1.35;min-height:44px;padding:10px}
+ #team .team-quote{padding:23px 20px;margin-block:18px}
+ #team .team-quote p{font-size:23px}
+ .compact-fold>summary{min-height:70px;padding-block:15px;gap:15px}
+ .compact-fold>summary strong{font-size:19px}
+ .compact-fold>summary small{font-size:11px;line-height:1.5}
+ .fold-content{padding-block:18px}
+ .compact-fold .body-copy{font-size:13px}
+ .wide-fold>summary{width:calc(100% - 36px)}
+ #client .project-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:23px 12px}
+ #client .project-cover{aspect-ratio:1.05}
+ #client .project-cover img{padding:6px}
+ #client .project-type{font-size:8px;line-height:1.5;margin-top:9px}
+ #client .project-card h2{font-size:20px;line-height:1.05}
+ #client .card-link{font-size:8px;line-height:1.4}
+ .project-ribbon{padding-block:6px}.project-ribbon span{font-size:7px}
+ .delivery-visual{height:115px}
+ .delivery-workspace .section-line h2{font-size:29px}
+ .stage-controls button{font-size:10px;padding:10px 8px;min-height:58px}
+ .delivery-detail{gap:18px;padding-block:20px}
+ .delivery-detail h3{font-size:28px}
+ .system-tabs button{font-size:16px;padding:12px 9px}
+ .system-view-controls button{font-size:10px;padding:10px 9px}
+ .architecture .system-node{min-height:120px;font-size:17px;padding:12px}
+ .chapter-bridge{padding-block:18px 24px}
+ .chapter-bridge>a{padding:17px 15px}
+ .bridge-copy small{font-size:8px}
+ .bridge-copy strong{font-size:19px;margin-left:12px}
+ .bridge-copy>span{font-size:11px}
+ .chapter-bridge i{font-size:25px}
+ .work-outro{padding-block:33px;margin-top:20px}
+ .work-outro h2{font-size:clamp(38px,10vw,55px)}
+}
+@media(prefers-reduced-motion:reduce){.compact-fold,.chapter-bridge>a,.intro-tour{transition:none}}
+.reduce-motion .compact-fold,.reduce-motion .chapter-bridge>a,.reduce-motion .intro-tour{transition:none}
+.cloud-node.selected[style] text{fill:var(--node-ink,var(--ivory))}
+@media(min-width:801px){.work-chapter .page-heading h1{font-size:clamp(40px,4.2vw,76px);line-height:1.02}.work-chapter .page-heading h1 br{display:none}}
+.compact-fold{scroll-margin-top:calc(var(--header-height,78px) + 20px)}
+.delivery-detail{min-height:0}
+.definition-list dd{margin-bottom:12px}
+.definition-list dd:last-child{margin-bottom:0}
+.delivery-workspace,.system-workspace{padding-bottom:20px}
+.home-stage .intro-welcome .intro-tour{display:inline-flex;color:var(--ivory);text-decoration:none}
+.home-stage .intro-welcome>p:nth-child(2){font:400 clamp(12px,.98vw,18px)/1.6 var(--body);color:#42545e;margin:16px 0 0;max-width:30ch}
+@media(max-width:600px){.home-stage .intro-welcome>p:nth-child(2){font-size:12px;line-height:1.6;margin-top:9px}}
+@media(max-width:600px){#client .project-card h2{font-size:clamp(16px,5vw,20px);overflow-wrap:anywhere}}

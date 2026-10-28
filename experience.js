@@ -9,7 +9,7 @@ const chapterData=[
 function syncJourney(page){
  document.body.dataset.chapter=page;
  if(page!=='home')requestAnimationFrame(renderSystemWires);
- if(page==='delivery')document.querySelectorAll('.art-stage img').forEach(img=>{img.loading='eager';img.decode().catch(()=>{});});
+ if(page==='delivery'&&$('#creative-detail').open)document.querySelectorAll('.art-stage img').forEach(img=>{img.loading='eager';img.decode().catch(()=>{});});
 }
 chapterData.forEach(function(c){
  const nav=$('#'+c.id+' .journey-nav');if(!nav)return;nav.dataset.journeyCaption=c.caption;
