@@ -1,0 +1,147 @@
+/* V02.5 — Axel's full HOME composition, built as a responsive, live page. */
+#home{--home-cyan:#8dbdc1}
+#home .home-stage{grid-template-columns:1fr 1fr;min-height:clamp(355px,27vw,535px)}
+.home-stage .home-intro{position:relative;isolation:isolate;justify-content:center;align-items:center;padding:44px 3.2vw 80px;gap:0;overflow:visible}
+.intro-monogram{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none;font:800 clamp(360px,48vw,960px)/.77 var(--display);letter-spacing:-.13em;text-align:center;color:var(--home-cyan);padding-right:.1em;display:flex;align-items:center;justify-content:center}
+.home-stage .home-intro>.intro-monogram{max-width:none}
+.home-stage .intro-stack{position:relative;width:100%;text-align:center}
+.home-stage .intro-name{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);margin:0}
+.home-stage #intro-title{font-size:clamp(30px,9.4cqw,84px);line-height:.88;letter-spacing:-.055em;text-align:center}
+.home-stage #intro-title>span:last-child{text-align:center}
+.intro-work-line{font:700 clamp(15px,1.3vw,24px)/1.3 var(--display);letter-spacing:-.025em;color:var(--night);margin:20px 0 0;text-align:left;padding-left:18%}
+.home-stage .intro-invitation{position:absolute;left:70%;right:auto;bottom:-8%;width:38%;aspect-ratio:360/290;display:block;margin:0;min-height:0;z-index:5}
+.home-stage .intro-invitation>p{position:absolute;z-index:6;left:7%;top:28%;width:62%;max-width:none;font:400 clamp(10px,.9vw,16px)/1.6 var(--body);color:var(--night);padding:0;margin:0;text-align:left}
+.home-stage .intro-play-direction{position:absolute;inset:0;width:100%;height:auto;transform:none}
+.home-stage .intro-play-direction svg{width:100%;height:100%;fill:currentColor;stroke:none}
+.home-stage .intro-play-direction .play-arrow-down{display:none}
+.home-stage .play-home{padding:40px 2.8vw 40px 3.2vw}
+.home-stage .game-launch{min-height:clamp(280px,19.5vw,390px)}
+.scope-ticker{position:relative;z-index:1}
+#home .home-manifesto{z-index:0;overflow-x:clip;overflow-y:visible;padding-top:24px;padding-bottom:24px}
+.manifesto-art{position:absolute;pointer-events:none;height:auto;max-width:none;z-index:0;filter:drop-shadow(0 12px 18px #0003)}
+.manifesto-eagle{width:24%;left:14%;top:-2.5vw;animation:eagle-drift 9s ease-in-out infinite}
+.manifesto-shark{width:49%;right:4%;bottom:1.2vw;animation:shark-drift 12s ease-in-out infinite}
+#home-title{z-index:2}
+#home .manifesto-subline{z-index:2}
+@keyframes eagle-drift{50%{transform:translate3d(0,-7px,0) rotate(-1.5deg)}}
+@keyframes shark-drift{50%{transform:translate3d(-9px,-5px,0) rotate(1deg)}}
+#home .experience-band{background:var(--armor);color:var(--night);border-top:7px solid var(--signal-yellow)}
+.experience-banner{background:var(--signal-yellow);color:var(--olive);padding:30px 4.5vw 26px;display:flex;justify-content:flex-end}
+.experience-banner>div{width:max-content;max-width:100%}
+#home .experience-banner #experience-title{font:800 clamp(58px,12.5vw,245px)/.82 var(--display);letter-spacing:-.06em;white-space:nowrap;color:var(--olive);margin:0}
+.experience-banner p{font:700 clamp(23px,2.6vw,46px)/1.1 var(--display);letter-spacing:-.035em;margin:10px 0 0 1.6%;color:var(--night)}
+.experience-rows{width:100%}
+.experience-row{--experience-accent:#4f6c45;display:grid;grid-template-columns:1fr 1fr;min-height:clamp(230px,18vw,360px)}
+.experience-fentec{--experience-accent:#ad7d37}.experience-toca{--experience-accent:#2e557c}.experience-education{--experience-accent:#b94a40}
+.experience-copy{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:30px 3.6vw;border-right:clamp(10px,1.8vw,34px) solid var(--experience-accent)}
+.experience-copy:before{content:'';display:block;height:2px;background:var(--experience-accent);margin-bottom:18px}
+.experience-copy .eyebrow{font:500 clamp(8px,.67vw,12px)/1.5 var(--mono);letter-spacing:.11em;color:#4f6346;margin:0 0 12px}
+.experience-copy h3{font:800 clamp(21px,1.85vw,36px)/1.08 var(--display);letter-spacing:-.035em;margin:0 0 12px;color:var(--night)}
+.experience-copy p:not(.eyebrow){font:400 clamp(12px,.93vw,18px)/1.65 var(--body);color:#42545e;margin:0;max-width:65ch}
+.experience-copy p+p:not(.eyebrow){margin-top:8px}
+.experience-copy strong{font-weight:700;color:var(--night)}
+.experience-media{margin:0;min-width:0;position:relative;overflow:hidden;display:grid;place-items:center}
+.experience-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.experience-row:hover .experience-media img{transform:scale(1.025)}
+.experience-reverse .experience-copy{grid-column:2;grid-row:1;border-right:0;border-left:clamp(10px,1.8vw,34px) solid var(--experience-accent)}
+.experience-reverse .experience-media{grid-column:1;grid-row:1}
+.brand-tom{background:#222}.brand-tom img{object-fit:contain}
+.brand-fentec{background:#383838}.brand-fentec img{object-fit:contain}
+.brand-toca{background:#ff4c50}.brand-toca img{position:absolute;width:175%;max-width:none;height:auto;left:-1%;object-fit:contain}
+.education-workbench{background:#0b131b}.education-workbench img{object-fit:cover}
+#home>.home-followup{width:100%;max-width:none;padding:0 0 32px;margin:0;background:var(--night)}
+#home .portrait-handoff{position:relative;isolation:isolate;display:grid;grid-template-columns:29% 42% 29%;min-height:clamp(430px,29vw,640px);gap:0;padding:35px 0 0;margin:0;background:linear-gradient(90deg,#0b131b 0 28%,#05090c 28% 71%,#0b131b 71%);overflow:visible}
+.home-portrait{position:absolute;z-index:1;bottom:0;height:112%;width:auto;max-width:32%;object-fit:contain;object-position:center bottom;pointer-events:none;filter:drop-shadow(0 15px 25px #0005)}
+.portrait-executive{left:2%}.portrait-at-work{right:0;max-width:33%;height:108%}
+.handoff-center{grid-column:2;position:relative;z-index:2;align-self:center;padding:25px 2vw;text-align:center;min-width:0}
+#home .portrait-handoff .eyebrow{font-size:clamp(7px,.63vw,11px);line-height:1.6;margin:0 0 18px;color:var(--signal-yellow);letter-spacing:.08em}
+#home .portrait-handoff h2{font:800 clamp(29px,3.05vw,58px)/.94 var(--display);letter-spacing:-.04em;margin:0 0 20px;color:var(--ivory)}
+#home .portrait-handoff .handoff-intro{font:400 clamp(12px,.95vw,17px)/1.6 var(--body);color:#b6c6c8;margin:0 auto 22px;max-width:35ch}
+#home .portrait-handoff .handoff-action{max-width:none;width:100%;display:flex;flex-direction:column;align-items:stretch;gap:14px}
+.portrait-handoff .button.primary{background:var(--signal-yellow);color:var(--night);border-color:var(--signal-yellow);border-radius:2px;font-size:clamp(9px,.7vw,12px);padding:18px 16px;min-height:55px;gap:12px}
+.portrait-handoff .text-link{font-size:clamp(8px,.65vw,11px);line-height:1.6;color:#85bad0;align-self:center}
+#home .journey-overview{width:92.8%;margin:0 auto;position:relative;z-index:3;background:var(--night)}
+#home .journey-overview a{padding:20px 14px}
+@media(min-width:1600px){.home-stage .home-intro{padding-bottom:105px}.experience-copy{padding-block:45px}.experience-copy:before{margin-bottom:22px}}
+@media(max-width:1100px){
+ #home .home-stage{grid-template-columns:1fr 1fr;min-height:360px}
+ .home-stage .home-intro{padding:40px 3vw 95px;gap:0}
+ .home-stage .play-home{padding:30px 2.5vw 30px 3.2vw}
+ .home-stage .game-launch{padding:20px 16px;min-height:280px}
+ .home-stage .game-launch h2{font-size:clamp(25px,2.9vw,33px)}
+ .home-stage .intro-invitation{left:70%;width:38%;bottom:-5%}
+ .home-stage .intro-invitation>p{font-size:10px}
+ .experience-copy{padding:24px 3.5vw}
+ #home .portrait-handoff{min-height:405px}
+ .home-portrait{height:105%;max-width:32%}
+ .portrait-at-work{max-width:33%}
+ .handoff-center{padding:22px 1.8vw}
+ #home .portrait-handoff h2{font-size:32px}
+ .portrait-handoff .button.primary{padding:16px 12px;font-size:9px}
+}
+@media(max-width:800px) and (min-width:601px){
+ .home-stage .home-intro{padding-inline:20px}
+ .home-stage #intro-title{font-size:clamp(27px,9.4cqw,40px)}
+ .intro-work-line{font-size:15px}
+ .home-stage .intro-invitation>p{font-size:9px;line-height:1.45}
+ .home-stage .game-launch h2{font-size:25px}
+ .experience-copy h3{font-size:22px}
+ .experience-copy p:not(.eyebrow){font-size:12px}
+ .experience-row{min-height:240px}
+ #home .portrait-handoff{min-height:370px;grid-template-columns:25% 50% 25%}
+ .home-portrait{max-width:29%;height:93%}.portrait-at-work{max-width:29%}
+ #home .portrait-handoff h2{font-size:30px}
+ .portrait-handoff .text-link{font-size:8px}
+}
+@media(max-width:600px){
+ #home .home-stage{grid-template-columns:1fr;min-height:0}
+ .home-stage .home-intro{min-height:330px;padding:36px 22px 128px;align-items:flex-start;justify-content:center}
+ .intro-monogram{font-size:110vw;line-height:.8;align-items:flex-start;padding-top:5px}
+ .home-stage .intro-stack{text-align:left}
+ .home-stage #intro-title{font-size:clamp(29px,8.45vw,48px);line-height:.9;text-align:left}
+ .home-stage #intro-title>span:last-child{text-align:left}
+ .intro-work-line{font-size:17px;line-height:1.3;margin-top:18px;padding-left:0}
+ .home-stage .intro-invitation{position:absolute;left:22px;bottom:8px;width:calc(100% - 44px);height:106px;aspect-ratio:auto;display:block;margin:0}
+ .home-stage .intro-invitation>p{left:0;top:25px;width:calc(100% - 112px);max-width:32ch;font-size:12px;line-height:1.6;padding:0}
+ .home-stage .intro-play-direction{inset:0 0 auto auto;width:90px;height:112px;transform:translateY(15px)}
+ .home-stage .intro-play-direction .play-arrow-wide{display:none}
+ .home-stage .intro-play-direction .play-arrow-down{display:block;width:100%;height:100%}
+ .home-stage .play-home{padding:25px 22px 22px}
+ .home-stage .game-launch{min-height:265px;padding:20px}
+ .home-stage .game-launch h2{font-size:30px}
+ #home .home-manifesto{padding-block:21px 20px}
+ .manifesto-eagle{width:30%;left:12%;top:-14px}
+ .manifesto-shark{width:59%;right:2%;bottom:12px}
+ #home .manifesto-subline{font-size:8px;margin-top:18px}
+ #home .experience-band{border-top-width:5px}
+ .experience-banner{padding:24px 18px 20px;justify-content:flex-start}
+ #home .experience-banner #experience-title{font-size:12.4vw;letter-spacing:-.055em}
+ .experience-banner p{font-size:24px;margin-top:7px}
+ .experience-row{display:flex;flex-direction:column;min-height:0}
+ .experience-media,.experience-reverse .experience-media{order:0;min-height:145px;max-height:185px;height:42vw;grid-column:auto;grid-row:auto}
+ .experience-copy,.experience-reverse .experience-copy{order:1;padding:25px 22px 28px;border-left:0;border-right:9px solid var(--experience-accent);grid-column:auto;grid-row:auto}
+ .experience-copy:before{margin-bottom:17px}
+ .experience-copy .eyebrow{font-size:9px;margin-bottom:10px}
+ .experience-copy h3{font-size:25px;margin-bottom:12px}
+ .experience-copy p:not(.eyebrow){font-size:14px;line-height:1.65}
+ .experience-media img{object-fit:contain}
+ .brand-tom img{max-width:420px}.brand-fentec img{max-width:420px}
+ .brand-toca img{width:175%;max-width:none;left:-1%}
+ .education-workbench img{object-fit:cover;object-position:center 44%}
+ #home .portrait-handoff{display:flex;flex-direction:column;justify-content:flex-end;min-height:650px;padding:0;background:#060b10;overflow:hidden}
+ .home-portrait{height:350px;max-width:55%;bottom:0;z-index:1;object-position:left bottom}
+ .portrait-executive{left:-3%;height:350px}.portrait-at-work{right:-8%;height:320px;max-width:62%;object-position:right bottom}
+ .handoff-center{align-self:stretch;order:0;padding:32px 22px 350px;text-align:left;width:100%;z-index:2}
+ #home .portrait-handoff .eyebrow{font-size:8px;margin-bottom:15px;max-width:36ch}
+ #home .portrait-handoff h2{font-size:40px;line-height:.95;margin-bottom:17px}
+ #home .portrait-handoff .handoff-intro{font-size:14px;margin:0 0 21px;max-width:34ch}
+ #home .portrait-handoff .handoff-action{gap:12px}
+ .portrait-handoff .button.primary{font-size:10px;min-height:54px;padding:16px}
+ .portrait-handoff .text-link{font-size:10px;align-self:flex-start}
+ #home .journey-overview{width:calc(100% - 36px);grid-template-columns:1fr 1fr;margin-top:0}
+ #home .journey-overview a{padding:17px 10px;gap:10px}
+ #home>.home-followup{padding-bottom:24px}
+}
+@media(max-width:360px){.intro-work-line{font-size:15px}.home-stage .game-launch h2{font-size:26px}.home-stage .intro-invitation>p{font-size:11px}.experience-copy h3{font-size:23px}#home .portrait-handoff h2{font-size:35px}.portrait-handoff .button.primary{font-size:9px;padding-inline:12px}#home .journey-overview a{padding-inline:8px}}
+@media(prefers-reduced-motion:reduce){.manifesto-art{animation:none}.experience-media img{transition:none}.experience-row:hover .experience-media img{transform:none}}
+html.reduce-motion .manifesto-art{animation:none}
