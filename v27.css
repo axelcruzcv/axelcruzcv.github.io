@@ -1,0 +1,54 @@
+/* HOME refinement: an eight-channel machine, with the galaxy outside its panel. */
+.home-stage .play-home{position:relative;isolation:isolate;overflow:clip}
+.home-stage .play-home:before{content:'';position:absolute;inset:-7% -2%;z-index:-2;background:url('assets/pm-game-space.jpg') 50% 48%/cover no-repeat;opacity:.72;mask-image:radial-gradient(ellipse at center,#000 12%,#0009 46%,transparent 74%);pointer-events:none}
+.home-stage .play-home:after{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,transparent 35%,#0b131b 94%);pointer-events:none}
+.home-stage .game-launch{position:relative;background:#111d23;background-image:linear-gradient(145deg,#19262c,#0e191f 65%,#152229);background-size:auto;background-position:0 0;border-color:#8eaa8766;box-shadow:0 15px 35px #0006,0 0 28px #a8c1831c,inset 0 1px #ffffff12;padding:23px 28px 26px;gap:0;overflow:hidden}
+.home-stage .game-launch:before{background:linear-gradient(125deg,#ffffff05,transparent 42%),repeating-linear-gradient(0deg,transparent 0 3px,#ffffff01 3px 4px);z-index:-1}
+.home-stage .game-launch:after{content:'';position:absolute;inset:8px;pointer-events:none;background:radial-gradient(circle,#8b9a9c 0 1px,#050b0e 1.5px 3px,transparent 3.5px) top left/7px 7px no-repeat,radial-gradient(circle,#8b9a9c 0 1px,#050b0e 1.5px 3px,transparent 3.5px) top right/7px 7px no-repeat,radial-gradient(circle,#8b9a9c 0 1px,#050b0e 1.5px 3px,transparent 3.5px) bottom left/7px 7px no-repeat,radial-gradient(circle,#8b9a9c 0 1px,#050b0e 1.5px 3px,transparent 3.5px) bottom right/7px 7px no-repeat}
+.game-launch .launch-top{min-height:12px;margin:0 0 15px;color:#a8c183;text-shadow:none}
+.panel-status-light{display:block;width:5px;height:5px;border-radius:50%;background:#a8c183;box-shadow:0 0 7px #a8c18388}
+.panel-vents{display:flex;gap:3px;align-items:center}
+.panel-vents i{display:block;width:2px;height:9px;background:#405056;border-radius:1px;transform:skew(-15deg)}
+.home-stage .game-launch h2{font-size:clamp(27px,2.5vw,43px);line-height:.98;letter-spacing:-.035em;text-shadow:none}
+.launch-channels{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:7px;width:min(100%,314px);margin:21px auto 0;flex:none}
+.launch-channel{display:grid;place-items:center;position:relative;min-width:0;aspect-ratio:1;border:1px solid color-mix(in srgb,var(--channel-light) 65%,#142129);border-radius:3px;background:color-mix(in srgb,var(--channel) 55%,#101a20);color:var(--channel-light);box-shadow:inset 0 1px #ffffff12;transition:background .25s,border-color .25s,box-shadow .25s;animation:channel-signal 5.5s ease-in-out infinite;animation-delay:calc(var(--channel-index)*.12s)}
+.launch-channel svg{width:65%;height:65%;opacity:.9}
+.launch-channel:after{content:'';position:absolute;bottom:2px;left:23%;right:23%;height:2px;border-radius:1px;background:var(--channel-light)}
+.game-launch:hover .launch-channel,.game-launch:focus-visible .launch-channel{border-color:var(--channel-light);background:color-mix(in srgb,var(--channel) 75%,#101a20);box-shadow:inset 0 0 12px color-mix(in srgb,var(--channel) 12%,transparent)}
+.game-launch .launch-orbit{margin:20px 0 15px;gap:24px}
+.game-launch .launch-orbit i{width:42px;background:linear-gradient(90deg,transparent,#85bad066)}
+.game-launch .launch-orbit b{width:48px;height:48px;background:#0a1218;border-color:#e7c84f77;box-shadow:0 0 0 6px #e7c84f07,inset 0 2px 8px #0007;transition:background .2s,color .2s,box-shadow .2s;backdrop-filter:none}
+.game-launch:hover .launch-orbit b,.game-launch:focus-visible .launch-orbit b{background:var(--signal-yellow);color:var(--night);box-shadow:0 0 0 7px #e7c84f10,0 0 24px #e7c84f22}
+.game-launch .launch-action{font-weight:500;letter-spacing:.13em;text-shadow:none}
+@keyframes channel-signal{0%,62%,100%{opacity:.92;filter:none}73%,82%{opacity:1;filter:drop-shadow(0 0 3px var(--channel))}}
+.home-stage .game-launch .launch-caption{display:none}
+.portrait-executive{height:124%;left:4%}
+#home .portrait-handoff .handoff-intro{max-width:32ch}
+@media(max-width:1100px){
+ .home-stage .game-launch{padding:19px 20px 23px}
+ .home-stage .game-launch h2{font-size:clamp(25px,2.9vw,33px)}
+ .launch-channels{gap:5px;width:min(100%,270px);margin-top:18px}
+ .game-launch .launch-orbit{margin:18px 0 14px}
+ .portrait-executive{height:114%;left:2%}
+}
+@media(max-width:800px) and (min-width:601px){
+ .home-stage .game-launch{padding-inline:17px}
+ .home-stage .game-launch h2{font-size:25px}
+ .launch-channels{gap:4px}
+ .launch-channel svg{width:70%;height:70%}
+ .portrait-executive{height:100%;left:1%}
+}
+@media(max-width:600px){
+ .home-stage .play-home:before{inset:-3% -1%;background-position:61% 50%;mask-image:radial-gradient(ellipse at center,#000 5%,#0009 52%,transparent 77%)}
+ .home-stage .game-launch{min-height:280px;padding:20px 23px 24px}
+ .home-stage .game-launch h2{font-size:30px}
+ .launch-channels{width:min(100%,285px);gap:5px;margin-top:21px}
+ .game-launch .launch-orbit{margin:20px 0 15px}
+ .game-launch .launch-orbit b{width:46px;height:46px;font-size:16px}
+ .game-launch .launch-action{font-size:11px}
+ .portrait-executive{height:365px;left:-1%;max-width:58%}
+ #home .portrait-handoff .handoff-intro{max-width:34ch}
+}
+@media(max-width:360px){.home-stage .game-launch{padding-inline:18px}.home-stage .game-launch h2{font-size:26px}.launch-channels{gap:4px}.game-launch .launch-orbit b{width:43px;height:43px}.portrait-executive{height:340px}}
+@media(prefers-reduced-motion:reduce){.launch-channel{animation:none;opacity:1;filter:none}}
+html.reduce-motion .launch-channel{animation:none;opacity:1;filter:none}
