@@ -1,9 +1,12 @@
 /* V02.5 — Axel's full HOME composition, built as a responsive, live page. */
 #home{--home-cyan:#8dbdc1}
 #home .home-stage{grid-template-columns:1fr 1fr;min-height:clamp(355px,27vw,535px)}
-.home-stage .home-intro{position:relative;isolation:isolate;justify-content:center;align-items:center;padding:44px 3.2vw 80px;gap:0;overflow:visible}
-.intro-monogram{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none;font:800 clamp(360px,48vw,960px)/.77 var(--display);letter-spacing:-.13em;text-align:center;color:var(--home-cyan);padding-right:.1em;display:flex;align-items:center;justify-content:center}
+.home-stage .home-intro{position:relative;isolation:isolate;justify-content:center;align-items:center;padding:44px 3.2vw 80px;gap:0;overflow:visible;background:var(--home-cyan)}
+.intro-monogram{position:absolute;inset:0;overflow:hidden;z-index:-1;pointer-events:none;font:800 clamp(390px,52vw,1040px)/.77 var(--display);letter-spacing:-.13em;text-align:center;color:var(--ivory);padding-right:.1em;display:flex;align-items:center;justify-content:center}
 .home-stage .home-intro>.intro-monogram{max-width:none}
+.intro-monogram>span{display:block;flex:none}
+/* Keep the typographic column cropped at both edges on the narrow two-panel layout. */
+@media(min-width:601px) and (max-width:850px){.intro-monogram>span{transform:scaleY(1.45)}}
 .home-stage .intro-stack{position:relative;width:100%;text-align:center}
 .home-stage .intro-name{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);margin:0}
 .home-stage #intro-title{font-size:clamp(30px,9.4cqw,84px);line-height:.88;letter-spacing:-.055em;text-align:center}
@@ -96,7 +99,7 @@
 @media(max-width:600px){
  #home .home-stage{grid-template-columns:1fr;min-height:0}
  .home-stage .home-intro{min-height:330px;padding:36px 22px 128px;align-items:flex-start;justify-content:center}
- .intro-monogram{font-size:110vw;line-height:.8;align-items:flex-start;padding-top:5px}
+ .intro-monogram{font-size:max(510px,130vw);line-height:.77;align-items:center;padding-top:0}
  .home-stage .intro-stack{text-align:left}
  .home-stage #intro-title{font-size:clamp(29px,8.45vw,48px);line-height:.9;text-align:left}
  .home-stage #intro-title>span:last-child{text-align:left}
