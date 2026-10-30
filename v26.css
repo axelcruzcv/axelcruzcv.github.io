@@ -1,0 +1,48 @@
+/* Two recurring journeys: a quicker falcon flight and a slower shark swim. */
+.manifesto-eagle{
+ left:0;right:auto;top:-2.5vw;
+ transform-origin:42% 65%;
+ animation:falcon-cross 9s linear .15s infinite both,falcon-glide 1.25s ease-in-out infinite;
+}
+.manifesto-shark{
+ left:0;right:auto;bottom:1.2vw;
+ transform-origin:64% 52%;
+ animation:shark-cross 14s linear 1.1s infinite both,shark-swim 2.6s ease-in-out infinite;
+}
+.home-manifesto .manifesto-art{animation-play-state:paused;will-change:translate,transform}
+.home-manifesto.manifesto-motion-on .manifesto-art{animation-play-state:running}
+/* Each animal exits fully before an invisible reset and a brief rest. */
+@keyframes falcon-cross{
+ 0%{translate:104vw 0;opacity:0}
+ 3%{opacity:1}
+ 74%{translate:-110% 0;opacity:1}
+ 76%,100%{translate:-110% 0;opacity:0}
+}
+@keyframes falcon-glide{
+ 0%,100%{transform:translateY(0) rotate(-2deg)}
+ 50%{transform:translateY(-9px) rotate(1.5deg)}
+}
+@keyframes shark-cross{
+ 0%{translate:-110% 0;opacity:0}
+ 3%{opacity:1}
+ 78%{translate:104vw 0;opacity:1}
+ 80%,100%{translate:104vw 0;opacity:0}
+}
+@keyframes shark-swim{
+ 0%,100%{transform:perspective(800px) translateY(2px) rotateY(-5deg) rotate(-.7deg)}
+ 50%{transform:perspective(800px) translateY(-6px) rotateY(5deg) rotate(.7deg)}
+}
+@media(max-width:600px){
+ .manifesto-eagle{top:-14px}
+ .manifesto-shark{bottom:12px}
+ @keyframes falcon-glide{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-4px) rotate(1.5deg)}}
+ @keyframes shark-swim{0%,100%{transform:perspective(800px) translateY(1px) rotateY(-5deg) rotate(-.7deg)}50%{transform:perspective(800px) translateY(-3px) rotateY(5deg) rotate(.7deg)}}
+}
+@media(prefers-reduced-motion:reduce){
+ .home-manifesto .manifesto-art{animation:none;translate:none;transform:none;opacity:1;will-change:auto}
+ .manifesto-eagle{left:14%}
+ .manifesto-shark{left:auto;right:4%}
+}
+html.reduce-motion .home-manifesto .manifesto-art{animation:none;translate:none;transform:none;opacity:1;will-change:auto}
+html.reduce-motion .manifesto-eagle{left:14%}
+html.reduce-motion .manifesto-shark{left:auto;right:4%}
