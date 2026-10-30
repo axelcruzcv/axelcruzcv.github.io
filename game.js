@@ -28,8 +28,8 @@ const taskDeck=[
  {text:'Write the launch announcement for the new platform.',team:'content'}
 ];
 const taskCard=$('#task-card'),specialtyModal=$('#specialty-modal');
-let taskIndex=0,taskNumber=1,connections=0,roundErrors=0,roundNumber=1,roundWon=false,roundResetting=false,medalEarned=false,currentTask={...taskDeck[0]},taskLocked=false,taskSelected=false,nextTimer=0,resetTimer=0,drag=null,ignoreTaskClickUntil=0,activeArea=null,returnTarget=null;
-const rewardModal=$('#reward-modal');
+let taskIndex=0,taskNumber=1,connections=0,roundErrors=0,roundNumber=1,roundWon=false,roundResetting=false,reminderEarned=false,currentTask={...taskDeck[0]},taskLocked=false,taskSelected=false,nextTimer=0,resetTimer=0,drag=null,ignoreTaskClickUntil=0,activeArea=null,returnTarget=null;
+const rewardModal=$('#reward-modal'),supportModal=$('#support-modal');
 $('#correct-blocks').innerHTML=Array.from({length:10},()=>'<i></i>').join('');
 $('#error-blocks').innerHTML=Array.from({length:3},()=>'<i></i>').join('');
 function boxSVG(t){
@@ -48,8 +48,8 @@ function updateProgress(){
  $('#connection-count').textContent=connections+' / 10';$('#error-count').textContent=roundErrors+' / 3';
  $('#correct-blocks').setAttribute('aria-label',connections+' of 10 correct connections');$('#error-blocks').setAttribute('aria-label',roundErrors+' of 3 errors');
  $$('#correct-blocks i').forEach((el,i)=>el.classList.toggle('filled',connections>i));$$('#error-blocks i').forEach((el,i)=>el.classList.toggle('filled',roundErrors>i));
- $('#earned-medal').hidden=!medalEarned;
- $('#game-continue').hidden=!medalEarned;$('#next-task').textContent=roundWon?'NEW ROUND ↻':'NEXT TASK ↻';
+ $('#earned-reminder').hidden=!reminderEarned;
+ $('#game-continue').hidden=!reminderEarned;$('#next-task').textContent=roundWon?'NEW ROUND ↻':'NEXT TASK ↻';
  $('#next-task').disabled=roundResetting;$('#ai-task').disabled=roundWon||roundResetting;
 }
 function screenReaction(kind,box){
@@ -64,10 +64,10 @@ function resetRound(){
  updateProgress();setTask(taskDeck[0],false);$('#task-feedback').textContent='New round. Find the main team for each task.';
 }
 function winRound(){
- clearTimeout(nextTimer);roundWon=true;medalEarned=true;document.body.classList.add('simulator-won');screenReaction('win');updateProgress();
+ clearTimeout(nextTimer);roundWon=true;reminderEarned=true;document.body.classList.add('simulator-won');screenReaction('win');updateProgress();
  $('.play-handoff').classList.add('handoff-ready');$('#handoff-eyebrow').textContent='YOU’VE CONNECTED THE WORK. NOW MEET YOUR TEAMMATE.';
  $('#handoff-title').innerHTML='You’ve met the teams.<br><em>Now meet Axel.</em>';
- $('#task-feedback').innerHTML='<b>10 connections. Medal unlocked.</b> Download your medal, or keep knowing Axel.';
+ $('#task-feedback').innerHTML='<b>Well played. 10 connections.</b> Don’t forget what matters most: TEAM.';
  rewardModal.showModal();
 }
 function assignTask(id){
@@ -77,16 +77,20 @@ function assignTask(id){
  if(id===currentTask.team){taskLocked=true;connections++;taskCard.disabled=true;setSelected(false);taskCard.classList.add('task-delivered');box.classList.add('artifact-success');screenReaction('correct',box);$('#task-feedback').innerHTML='<b>Connected with '+esc(area.name)+'.</b> '+esc(area.reason);updateProgress();if(connections===10)winRound();else nextTimer=setTimeout(nextTask,1800);}
  else{
   roundErrors++;setSelected(false);box.classList.add('artifact-nudge');screenReaction('incorrect',box);updateProgress();
-  if(roundErrors===3){roundResetting=true;taskLocked=true;taskCard.disabled=true;updateProgress();$('#task-feedback').innerHTML='<b>Three errors. A fresh start.</b> The round restarts; your next connection is a new opportunity.';resetTimer=setTimeout(resetRound,1400);}
+  if(roundErrors===3){roundResetting=true;taskLocked=true;taskCard.disabled=true;updateProgress();$('#task-feedback').innerHTML='<b>Let’s regroup.</b> Try again, or get a little PM backup.';resetTimer=setTimeout(()=>{if($('#game-dialog').open&&!supportModal.open)supportModal.showModal();else resetRound();},600);}
   else{$('#task-feedback').innerHTML='<b>Try another team.</b> '+esc(area.reason)+' '+(3-roundErrors)+' '+(roundErrors===1?'errors':'error')+' before the round restarts.';}
  }
 }
 $('#task-teams').addEventListener('click',function(e){const b=e.target.closest('[data-drop-team]');if(!b)return;if(taskSelected)assignTask(b.dataset.dropTeam);else openSpecialty(b.dataset.dropTeam,b);});
 $('#next-task').addEventListener('click',function(){if(roundWon){resetRound();return;}nextTask();$('#task-feedback').textContent='A fresh task. Find its team, or open a specialty to explore.';});
-function closeReward(){if(rewardModal.open)rewardModal.close();$('#earned-medal').focus({preventScroll:true});}
+function closeReward(){if(rewardModal.open)rewardModal.close();$('#earned-reminder').focus({preventScroll:true});}
+$('#earned-reminder').addEventListener('click',()=>{if(!rewardModal.open)rewardModal.showModal();});
 $('#close-reward').addEventListener('click',closeReward);$('#reward-next').addEventListener('click',closeReward);$('#reward-replay').addEventListener('click',()=>{closeReward();resetRound();taskCard.focus({preventScroll:true});});
 rewardModal.addEventListener('cancel',e=>{e.preventDefault();closeReward();});rewardModal.addEventListener('click',e=>{if(e.target===rewardModal)closeReward();});
-window.addEventListener('command-route',e=>{if(e.detail.page!=='home'){if(rewardModal.open)rewardModal.close();$('#screen-reaction').className='screen-reaction';}});
+function closeSupport(focusTask=true){if(supportModal.open)supportModal.close();resetRound();if(focusTask&&$('#game-dialog').open)taskCard.focus({preventScroll:true});}
+$('#support-retry').addEventListener('click',()=>closeSupport());$('#close-support').addEventListener('click',()=>closeSupport());$('#support-contact').addEventListener('click',()=>closeSupport(false));
+supportModal.addEventListener('cancel',e=>{e.preventDefault();closeSupport();});supportModal.addEventListener('click',e=>{if(e.target===supportModal)closeSupport();});
+window.addEventListener('command-route',e=>{if(e.detail.page!=='home'){if(rewardModal.open)rewardModal.close();if(supportModal.open)closeSupport(false);$('#screen-reaction').className='screen-reaction';}});
 updateProgress();
 taskCard.addEventListener('pointerdown',function(e){if(taskLocked||e.button!==0)return;drag={x:e.clientX,y:e.clientY,moved:false};taskCard.setPointerCapture(e.pointerId);taskCard.classList.add('task-held');});
 taskCard.addEventListener('pointermove',function(e){if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.hypot(dx,dy)>7)drag.moved=true;if(!drag.moved)return;taskCard.style.transform='translate3d('+dx+'px,'+dy+'px,0) rotate('+Math.max(-5,Math.min(5,dx/45))+'deg)';$$('.team-artifact').forEach(function(b){const r=b.getBoundingClientRect();b.classList.toggle('drop-target',e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom);});$('.command-app').classList.add('drag-active');});
