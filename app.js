@@ -89,7 +89,9 @@ const workChapters=['team','client','delivery','systems'];
 let previousPage='',previousExperience='',clientScroll=0,caseReturnChapter='client',caseReturnFocus=null;
 let navigationTarget='',navigationDeadline=0,chapterFrame=0;
 function setNavigationChapter(page){
+ const changed=document.body.dataset.chapter!==page;
  document.body.dataset.chapter=page;
+ if(changed)window.dispatchEvent(new CustomEvent('command-chapter',{detail:{page}}));
  $$('[data-nav]').forEach(a=>{if(a.dataset.nav===page)a.setAttribute('aria-current',['home','cv'].includes(page)?'page':'location');else a.removeAttribute('aria-current');});
  $('#route-label').textContent='PM / '+page.toUpperCase();
 }
@@ -108,6 +110,7 @@ function route({intent='history',force=false,restoreCase=false}={}){
  const [raw='home',projectId,perspective]=location.hash.slice(1).split('/');
  const page=raw==='work'?'team':['home','cv',...workChapters].includes(raw)?raw:'home';
  const experience=page==='home'?'home':page==='cv'?'cv':'work';
+ window.dispatchEvent(new CustomEvent('command-will-navigate',{detail:{page,experience}}));
  const caseId=page==='cv'&&projectId==='case'?perspective:projectId;
  const project=(page==='client'||(page==='delivery'&&projectId==='cph')||(page==='cv'&&projectId==='case'))?projects.find(x=>x.id===caseId):null;
  const modal=$('#project-modal'),closingCase=modal.open&&!project,entering=experience!==previousExperience;
@@ -180,20 +183,26 @@ let testimonialIndex=0;
 function renderTestimonial(){const t=testimonials[testimonialIndex];$('#testimonial-company').textContent=t.company+' / COLLABORATOR VOICE';$('#testimonial-index').textContent=String(testimonialIndex+1).padStart(2,'0')+' / 09';$('#testimonial-copy').innerHTML=`<span class="pending">TESTIMONIAL PENDING / PRIVATE REVIEW SLOT</span>${esc(t.focus)}`;$('#testimonial-person').innerHTML=esc(t.name)+`<small>Role and publishable wording to be confirmed</small>`;}
 $('#testimonial-prev').addEventListener('click',()=>{testimonialIndex=(testimonialIndex+8)%9;renderTestimonial();});$('#testimonial-next').addEventListener('click',()=>{testimonialIndex=(testimonialIndex+1)%9;renderTestimonial();});
 
-// Counts start unknown. The view only gains quantitative sizes after documented input.
-let counts={};try{const raw=JSON.parse(localStorage.getItem('axel-specialist-counts')||'{}');if(raw&&typeof raw==='object'&&!Array.isArray(raw))counts=raw;}catch{}
-counts=Object.fromEntries(people.map(p=>[p.id,teamMapCount(counts[p.id])]).filter(([,n])=>n>0));
-let selectedPerson=0;
-function recordCounts(){try{localStorage.setItem('axel-specialist-counts',JSON.stringify(counts));}catch{}}
+// Visitor configurations are a temporary exploration, reset when TEAM is left.
+let counts={},selectedPerson=0;
 function renderNetwork(){
- $('#people-network').innerHTML=teamMapSVG(people,counts,selectedPerson)+`<details class="network-specialty-list"><summary>CHOOSE A SPECIALTY <span>+</span></summary><div class="network-mobile" role="group" aria-label="Specialties">${people.map((p,i)=>{const n=teamMapCount(counts[p.id]);return `<button type="button" data-person="${i}" aria-pressed="${i===selectedPerson}">${esc(p.name)}${n?`<span class="count">${n} recorded collaborators</span>`:''}</button>`;}).join('')}</div></details>`;
+ const listOpen=$('#people-network .network-specialty-list')?.open;
+ $('#people-network').innerHTML=teamMapSVG(people,counts,selectedPerson)+`<details class="network-specialty-list"${listOpen?' open':''}><summary>CHOOSE A SPECIALTY <span>+</span></summary><div class="network-mobile" role="group" aria-label="Specialties">${people.map((p,i)=>{const n=teamMapCount(counts[p.id]);return `<button type="button" data-person="${i}" aria-pressed="${i===selectedPerson}">${esc(p.name)}${n?`<span class="count">${n.toLocaleString('en')} configured collaborators</span>`:''}</button>`;}).join('')}</div></details>`;
  const p=people[selectedPerson];$('#network-detail').innerHTML=tag(p.area)+`<h3>${esc(p.name)}</h3><p>${esc(p.detail)}</p><a href="${p.id==='specialty-15'?'#team':projectLink(p.case)}">${p.id==='specialty-15'?'People, talent and team readiness':'See related work'} ↗</a>`;
+ window.dispatchEvent(new CustomEvent('command-team-map'));
 }
+function setTeamCount(id,value){
+ const n=teamMapCount(value),index=people.findIndex(p=>p.id===id);if(index<0)return;
+ if(n)counts[id]=n;else delete counts[id];selectedPerson=index;
+ const field=$('[data-count="'+id+'"]');if(field&&field!==document.activeElement)field.value=n||'';
+ $('#team-download-status').textContent='';renderNetwork();
+}
+function resetTeamCounts(){counts={};selectedPerson=0;$$('[data-count]').forEach(i=>i.value='');$('#team-download-status').textContent='';renderNetwork();}
 $('#people-network').addEventListener('click',e=>{const node=e.target.closest('[data-person]');if(node){selectedPerson=Number(node.dataset.person);renderNetwork();}});
 $('#people-network').addEventListener('keydown',e=>{if(!['Enter',' '].includes(e.key))return;const n=e.target.closest('[data-person]');if(n){e.preventDefault();selectedPerson=Number(n.dataset.person);renderNetwork();$('#people-network [data-person="'+selectedPerson+'"]').focus();}});
-$('#counts-form').innerHTML=people.map(p=>`<label>${esc(p.name)}<input type="number" min="0" max="500" step="1" data-count="${p.id}" value="${Number(counts[p.id])||''}" inputmode="numeric" placeholder="Not recorded"></label>`).join('');
-$('#counts-form').addEventListener('input',e=>{const id=e.target.dataset.count;if(!id)return;const value=e.target.valueAsNumber;if(Number.isInteger(value)&&value>0&&value<=500)counts[id]=value;else delete counts[id];recordCounts();renderNetwork();});
-$('#counts-form').addEventListener('submit',e=>e.preventDefault());$('#clear-counts').addEventListener('click',()=>{counts={};recordCounts();$$('[data-count]').forEach(i=>i.value='');renderNetwork();});
+$('#counts-form').innerHTML=people.map(p=>`<label>${esc(p.name)}<input type="number" min="0" step="1" data-count="${p.id}" inputmode="numeric" placeholder="0"></label>`).join('');
+$('#counts-form').addEventListener('input',e=>{const id=e.target.dataset.count;if(id)setTeamCount(id,e.target.valueAsNumber);});
+$('#counts-form').addEventListener('submit',e=>e.preventDefault());$('#clear-counts').addEventListener('click',resetTeamCounts);
 
 function selectStakeholder(i){
  const s=stakeholders[i],icons=['scope','platform','learning','message','sales','legal','people'],short=['Product','IT / CRM','Training','Comms','Sales','Legal','HR'],colors=['#85bad0','#bba3e3','#e7c84f','#fa746c','#a8c183','#c7856b','#ebe9df'];
