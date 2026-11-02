@@ -98,7 +98,7 @@ const disclosureRoutes={'team/hiring':'hiring-detail','team/voices':'team-voices
 function scrollToChapter(page,behavior,detail){
  if(page==='home'){window.scrollTo({top:0,behavior});return;}
  const foldId=disclosureRoutes[page+'/'+detail],fold=foldId?$('#'+foldId):null;
- if(fold)fold.open=true;
+ if(fold&&fold.tagName==='DETAILS')fold.open=true;
  const target=fold||$('#'+page);if(!target)return;
  navigationTarget=target.id;navigationDeadline=performance.now()+1800;
  target.scrollIntoView({block:'start',behavior});
@@ -113,6 +113,7 @@ function route({intent='history',force=false,restoreCase=false}={}){
  if(closingCase)modal.close();
  $('#home').hidden=experience!=='home';$('#work').hidden=experience!=='work';
  document.body.dataset.experience=experience;
+ syncHeaderHeight();
  $('#client-index').hidden=false;$('#project-detail').hidden=!project;
  document.title='Axel Cruz — '+(project?project.name:experience==='home'?'Senior Digital Project & Program Manager':'Teams, Clients, Delivery & Systems');
  if(page==='systems'&&systemData[projectId]){system=projectId;systemNode=0;if(['user','architecture','ownership'].includes(perspective))systemView=perspective;renderSystem();}
@@ -157,7 +158,8 @@ function syncVisibleChapter(){
  setNavigationChapter(active);
 }
 window.addEventListener('scroll',()=>{if(!chapterFrame)chapterFrame=requestAnimationFrame(syncVisibleChapter);},{passive:true});
-new ResizeObserver(()=>{document.documentElement.style.setProperty('--header-height',$('.topbar').getBoundingClientRect().height+'px');}).observe($('.topbar'));
+function syncHeaderHeight(){document.documentElement.style.setProperty('--header-height',$('.topbar').getBoundingClientRect().height+'px');}
+syncHeaderHeight();new ResizeObserver(syncHeaderHeight).observe($('.topbar'));
 $('.skip').addEventListener('click',e=>{e.preventDefault();$('#main').focus({preventScroll:true});$('#main').scrollIntoView({block:'start'});});
 // End navigation.
 function projectLink(id){return '#client/'+id;}
@@ -165,7 +167,8 @@ function renderProject(p){
  $('#project-detail').innerHTML=`<button type="button" class="back-link" data-close-case>← BACK TO THE EXPERIENCE</button><div class="project-detail-header"><div>${tag(p.type)}<h2 id="project-modal-title">${esc(p.name)}</h2><p>${esc(p.summary)}</p><div class="case-tags">${p.tags.map(x=>`<span>${esc(x)}</span>`).join('')}</div></div>${projectArtwork(p)}</div><div class="project-metrics">${p.metrics.map(x=>`<div><strong>${esc(x[0])}</strong><span>${esc(x[1])}</span></div>`).join('')}</div><div class="case-body"><article><h2>The need.</h2><p>${esc(p.context)}</p></article><article><h2>My responsibility.</h2><p>${esc(p.role)}</p></article><article><h2>The people.</h2><p>${esc(p.team)}</p></article><article><h2>The delivery.</h2><p>${esc(p.delivery)}</p></article><article><h2>The result.</h2><p>${esc(p.outcome)}</p></article></div><section class="case-gallery" aria-label="Illustrated project views">${[1,2,3].map((n)=>`<figure><img src="assets/${p.id}-view-${n}.svg" alt="${esc(p.name)}: ${n===1?'project relationships':n===2?'delivery progression':'documented evidence'}" width="640" height="420" loading="lazy"><figcaption>${n===1?'The connections':n===2?'The progression':'The evidence'}</figcaption></figure>`).join('')}</section><p class="project-note">${esc(p.note)}</p><div class="project-next"><a class="button primary" href="${systemData[p.id]?'#systems/'+p.id:'#delivery'}">${systemData[p.id]?'EXPLORE THE SYSTEM':'EXPLORE DELIVERY'} ↗</a><a class="button" href="#team">MEET THE TEAM CONNECTIONS ↗</a><button type="button" class="button" data-copy-case="${p.id}">COPY CASE LINK ↗</button></div>`;
 }
 const projectSkills={hino:'Enablement & Training · Digital Platforms · Product Roadmaps · Engineering Coordination · QA/UAT',kpmg:'Creative Operations · Cross-functional Teams · Content Production · Stakeholders',kia:'Video Production · Branding · Review Cycles · Quality',edenred:'Enablement & Training · Platform Operations · Incident Coordination · Learning Technology · Client Delivery',teojama:'Learning Implementation · Deployment · SCORM · Acceptance Testing · Technical Coordination',costco:'Client Ownership · Proposals · Scope · Negotiation · Creative Delivery',mazda:'Training Delivery · Instructional Design · Technical Content · Stakeholder Review',recovery:'Incident Coordination · QA/UAT · Client Communication · Platform Operations',cph:'Storytelling · Creative Direction · Scripting · Production'};
-$('#project-grid').innerHTML=galleryProjects.map(p=>`<a class="project-card" href="${projectLink(p.id)}"><div class="project-cover">${projectArtwork(p)}<div class="project-ribbon" aria-label="${esc(projectSkills[p.id])}"><span>${esc(projectSkills[p.id])} · <span aria-hidden="true">${esc(projectSkills[p.id])} · </span></span></div></div><p class="project-type">${esc(p.type)}</p><h2>${esc(p.name)}</h2><p>${esc(p.summary)}</p><span class="card-link">EXPLORE THE PROJECT ↗</span></a>`).join('');
+const coverLabels={hino:'Hino LMS',kpmg:'KPMG',kia:'Kia MKT',edenred:'Edenred',teojama:'Teojama LMS',costco:'Costco',mazda:'Mazda',recovery:'Platform recovery'};
+$('#project-grid').innerHTML=galleryProjects.map((p,i)=>`<a class="project-card" data-case="${p.id}" href="${projectLink(p.id)}" aria-label="Explore ${esc(p.name)}: ${esc(p.summary)}"><div class="project-cover">${projectArtwork(p)}<span class="case-number" aria-hidden="true">${String(i+1).padStart(2,'0')} / 08</span><div class="case-cover-copy"><p class="project-type">${esc(p.type)}</p><h2><span class="case-name-full">${esc(p.name)}</span><span class="case-name-short">${esc(coverLabels[p.id]||p.name)}</span></h2><p class="cover-metric"><strong>${esc(p.metrics[0][0])}</strong><span>${esc(p.metrics[0][1])}</span></p><span class="card-link">EXPLORE THE PROJECT <b aria-hidden="true">↗</b></span></div><div class="project-ribbon" aria-label="${esc(projectSkills[p.id])}"><span>${esc(projectSkills[p.id])} · <span aria-hidden="true">${esc(projectSkills[p.id])} · </span></span></div></div></a>`).join('');
 
 function toast(text){$('#toast').textContent=text;$('#toast').hidden=false;setTimeout(()=>$('#toast').hidden=true,2600);}
 document.addEventListener('click',async e=>{if(e.target.closest('[data-close-case]')){closeProject();return;}const b=e.target.closest('[data-copy-case]');if(!b)return;try{await navigator.clipboard.writeText(location.origin+location.pathname+projectLink(b.dataset.copyCase));toast('Case link copied.');}catch{toast('Copy the case URL from your address bar.');}});
@@ -181,7 +184,7 @@ counts=Object.fromEntries(people.map(p=>[p.id,teamMapCount(counts[p.id])]).filte
 let selectedPerson=0;
 function recordCounts(){try{localStorage.setItem('axel-specialist-counts',JSON.stringify(counts));}catch{}}
 function renderNetwork(){
- $('#people-network').innerHTML=teamMapSVG(people,counts,selectedPerson)+`<div class="network-mobile" role="group" aria-label="Specialties">${people.map((p,i)=>{const n=teamMapCount(counts[p.id]);return `<button type="button" data-person="${i}" aria-pressed="${i===selectedPerson}">${esc(p.name)}${n?`<span class="count">${n} recorded collaborators</span>`:''}</button>`;}).join('')}</div>`;
+ $('#people-network').innerHTML=teamMapSVG(people,counts,selectedPerson)+`<details class="network-specialty-list"><summary>CHOOSE A SPECIALTY <span>+</span></summary><div class="network-mobile" role="group" aria-label="Specialties">${people.map((p,i)=>{const n=teamMapCount(counts[p.id]);return `<button type="button" data-person="${i}" aria-pressed="${i===selectedPerson}">${esc(p.name)}${n?`<span class="count">${n} recorded collaborators</span>`:''}</button>`;}).join('')}</div></details>`;
  const p=people[selectedPerson];$('#network-detail').innerHTML=tag(p.area)+`<h3>${esc(p.name)}</h3><p>${esc(p.detail)}</p><a href="${p.id==='specialty-15'?'#team':projectLink(p.case)}">${p.id==='specialty-15'?'People, talent and team readiness':'See related work'} ↗</a>`;
 }
 $('#people-network').addEventListener('click',e=>{const node=e.target.closest('[data-person]');if(node){selectedPerson=Number(node.dataset.person);renderNetwork();}});
