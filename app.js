@@ -84,19 +84,20 @@ const systemData = {
   ownership:[['Requirements','Test scope','Make functional requirements and acceptance work visible.'],['Deployment','Coordination','Track environment readiness with specialists.'],['Content','SCORM ZIP','Coordinate upload and content-validation follow-up.'],['Mobile','Android testing','Connect test-build availability to the validation plan.'],['Verification','Progress / score','Organize tests across the key workflows.'],['Readiness','Client test guide','Prepare a usable acceptance-test path.']]}}
 };
 
-// Routing: two experiences — HOME and a continuous TEAM → CLIENT → DELIVERY → SYSTEMS page.
+// Routing: HOME, a continuous TEAM → CLIENT → DELIVERY → SYSTEMS page, and MY CV.
 const workChapters=['team','client','delivery','systems'];
 let previousPage='',previousExperience='',clientScroll=0,caseReturnChapter='client',caseReturnFocus=null;
 let navigationTarget='',navigationDeadline=0,chapterFrame=0;
 function setNavigationChapter(page){
  document.body.dataset.chapter=page;
- $$('[data-nav]').forEach(a=>{if(a.dataset.nav===page)a.setAttribute('aria-current',page==='home'?'page':'location');else a.removeAttribute('aria-current');});
+ $$('[data-nav]').forEach(a=>{if(a.dataset.nav===page)a.setAttribute('aria-current',['home','cv'].includes(page)?'page':'location');else a.removeAttribute('aria-current');});
  $('#route-label').textContent='PM / '+page.toUpperCase();
 }
 function motionIsReduced(){return document.documentElement.classList.contains('reduce-motion')||matchMedia('(prefers-reduced-motion: reduce)').matches;}
 const disclosureRoutes={'team/hiring':'hiring-detail','team/voices':'team-voices','client/stakeholders':'stakeholder-detail-fold','delivery/change':'change-detail','delivery/creative':'creative-detail','systems/analytics':'analytics-detail'};
 function scrollToChapter(page,behavior,detail){
  if(page==='home'){window.scrollTo({top:0,behavior});return;}
+ if(page==='cv'){const target=detail?$('#cv-'+detail):$('#cv');(target||$('#cv')).scrollIntoView({block:'start',behavior});return;}
  const foldId=disclosureRoutes[page+'/'+detail],fold=foldId?$('#'+foldId):null;
  if(fold&&fold.tagName==='DETAILS')fold.open=true;
  const target=fold||$('#'+page);if(!target)return;
@@ -105,17 +106,18 @@ function scrollToChapter(page,behavior,detail){
 }
 function route({intent='history',force=false,restoreCase=false}={}){
  const [raw='home',projectId,perspective]=location.hash.slice(1).split('/');
- const page=raw==='work'?'team':['home',...workChapters].includes(raw)?raw:'home';
- const experience=page==='home'?'home':'work';
- const project=(page==='client'||(page==='delivery'&&projectId==='cph'))?projects.find(x=>x.id===projectId):null;
+ const page=raw==='work'?'team':['home','cv',...workChapters].includes(raw)?raw:'home';
+ const experience=page==='home'?'home':page==='cv'?'cv':'work';
+ const caseId=page==='cv'&&projectId==='case'?perspective:projectId;
+ const project=(page==='client'||(page==='delivery'&&projectId==='cph')||(page==='cv'&&projectId==='case'))?projects.find(x=>x.id===caseId):null;
  const modal=$('#project-modal'),closingCase=modal.open&&!project,entering=experience!==previousExperience;
  const oldChapter=document.body.dataset.chapter;
  if(closingCase)modal.close();
- $('#home').hidden=experience!=='home';$('#work').hidden=experience!=='work';
+ $('#home').hidden=experience!=='home';$('#work').hidden=experience!=='work';$('#cv').hidden=experience!=='cv';
  document.body.dataset.experience=experience;
  syncHeaderHeight();
  $('#client-index').hidden=false;$('#project-detail').hidden=!project;
- document.title='Axel Cruz — '+(project?project.name:experience==='home'?'Senior Digital Project & Program Manager':'Teams, Clients, Delivery & Systems');
+ document.title='Axel Cruz — '+(project?project.name:experience==='home'?'Senior Digital Project & Program Manager':experience==='cv'?'My CV · Senior Digital Project & Program Manager':'Teams, Clients, Delivery & Systems');
  if(page==='systems'&&systemData[projectId]){system=projectId;systemNode=0;if(['user','architecture','ownership'].includes(perspective))systemView=perspective;renderSystem();}
  const nextKey=page+(projectId?'/'+projectId:'')+(perspective?'/'+perspective:'');
  if(project){
@@ -126,7 +128,7 @@ function route({intent='history',force=false,restoreCase=false}={}){
   }
   renderProject(project);if(!modal.open)modal.showModal();
  }else if(force||nextKey!==previousPage||entering||closingCase){
-  if(closingCase&&experience==='work'&&(restoreCase||intent==='history')){
+  if(closingCase&&['work','cv'].includes(experience)&&(restoreCase||intent==='history')){
    navigationTarget='';window.scrollTo({top:clientScroll,behavior:'instant'});
    if(caseReturnFocus&&document.contains(caseReturnFocus))caseReturnFocus.focus({preventScroll:true});
   }else{
@@ -146,7 +148,7 @@ document.addEventListener('click',e=>{
  if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
  const link=e.target.closest('a[href^="#"]');if(!link)return;
  const hash=link.getAttribute('href'),raw=hash.slice(1).split('/')[0];
- if(!['home','work',...workChapters].includes(raw))return;
+ if(!['home','work','cv',...workChapters].includes(raw))return;
  e.preventDefault();if(location.hash!==hash)history.pushState(null,'',hash);
  route({intent:'link',force:true});
 });
