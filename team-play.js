@@ -9,6 +9,11 @@
  let teamVisible=document.body.dataset.chapter==='team',svg=null,current=teamMapNodes(people,{}),frame=0,followFrame=0,holdTimer=0,repeated=false;
  const isReduced=()=>reduced.matches||document.documentElement.classList.contains('reduce-motion');
  const hasCounts=()=>people.some(p=>teamMapCount(counts[p.id])>0);
+ function revealMap(){
+  if(!teamVisible)return;
+  const rect=host.getBoundingClientRect(),edge=header.getBoundingClientRect().bottom;
+  if(rect.bottom<edge+40||rect.top>innerHeight-80)host.scrollIntoView({block:'center',behavior:isReduced()?'instant':'smooth'});
+ }
  function stopHold(){clearTimeout(holdTimer);holdTimer=0;}
  function position(){
   followFrame=0;if(!svg||layer.hidden)return;
@@ -51,9 +56,9 @@
   const next=page==='team';
   if(teamVisible&&!next){teamVisible=false;reset();}else{teamVisible=next;sync();}
  }
- function change(delta){const id=people[selectedPerson].id,n=teamMapCount(counts[id]);setTeamCount(id,Math.max(0,Math.min(Number.MAX_SAFE_INTEGER,n+delta)));field.value=teamMapCount(counts[id]);}
- choice.addEventListener('change',()=>{selectedPerson=Number(choice.value);renderNetwork();});
- field.addEventListener('input',()=>setTeamCount(people[selectedPerson].id,field.valueAsNumber));
+ function change(delta){const id=people[selectedPerson].id,n=teamMapCount(counts[id]);setTeamCount(id,Math.max(0,Math.min(Number.MAX_SAFE_INTEGER,n+delta)));field.value=teamMapCount(counts[id]);revealMap();}
+ choice.addEventListener('change',()=>{selectedPerson=Number(choice.value);renderNetwork();revealMap();});
+ field.addEventListener('input',()=>{setTeamCount(people[selectedPerson].id,field.valueAsNumber);revealMap();});
  field.addEventListener('change',()=>{field.value=teamMapCount(counts[people[selectedPerson].id]);});
  dock.querySelectorAll('[data-team-step]').forEach(button=>{
   button.addEventListener('click',()=>{if(repeated){repeated=false;return;}change(Number(button.dataset.teamStep));});
