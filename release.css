@@ -6,3 +6,19 @@
 #team #testimonial-person small a{color:#375d73;text-underline-offset:3px}
 #team #testimonial-copy{min-height:64px}
 @media(max-width:600px){.footer-context{gap:8px!important}.footer-context #route-label{font-size:7px}#site-motion{font-size:7px;padding-inline:7px;min-height:44px}#team #testimonial-copy{min-height:72px}}
+
+/* Preserve each company’s supplied logo colors. */
+.team-moment-grid .moment-fentec img,.team-moment-grid .moment-toca img{mix-blend-mode:normal;filter:none}
+#team .quote-translation{font-size:7px!important;color:#657270;margin-top:5px!important}
+#team .testimonial-bottom{gap:12px;align-items:flex-end}
+#team #testimonial-person{min-width:0;overflow-wrap:anywhere}
+#team .carousel-controls{flex-shrink:0}
+.education-label{display:block;font:600 8px/1.6 var(--mono);letter-spacing:.07em;color:#b94a40;margin:18px 0 6px}
+.experience-education .education-degree p{margin:0}
+.experience-education .education-continuous p{margin:0 0 9px}
+.experience-education .education-tools{border-top:1px solid #13232d35;margin-top:18px!important;padding-top:14px;font-size:11px!important}
+.education-continuous .text-link{font:600 8px/1.6 var(--mono);color:var(--night);text-underline-offset:4px}
+#home .portrait-handoff h2{font-size:clamp(27px,3.05vw,58px)}
+#home .portrait-handoff .handoff-action .text-link{display:flex;gap:12px;flex-wrap:wrap}
+#project-modal{overflow-anchor:none;scroll-behavior:auto}
+@media(max-width:600px){#team #testimonial-copy{line-height:1.45}#team .testimonial-bottom{display:block}#team #testimonial-person small{display:block;max-width:none;font-size:8px;line-height:1.4}#team .carousel-controls{justify-content:flex-end;margin-top:10px}.education-label{font-size:9px}.education-continuous .text-link{font-size:9px}#home .portrait-handoff h2{font-size:31px}}

@@ -8,7 +8,7 @@ const projects = [
   "id": "hino",
   "name": "Hino LMS",
   "type": "Digital platform · Learning",
-  "summary": "From an initial learning need to a platform serving a dealer network.",
+  "summary": "A 10+ year learning-platform partnership, from the initial engagement to nationwide operations.",
   "metrics": [
    [
     "2,000+",
@@ -24,17 +24,17 @@ const projects = [
    ]
   ],
   "context": "Adapt learning and certification processes for Hino’s dealer network in Mexico, then support the platform as its requirements evolved.",
-  "role": "Founder and digital delivery lead. Originated a seven-figure MXN LMS engagement and led requirements, roadmap, specialist teams, QA and client communication.",
-  "team": "Backend, frontend, native mobile, instructional content and QA specialists, working with training, business and IT stakeholders.",
+  "role": "At Fentec, I originated the initial seven-figure MXN engagement and led delivery across the corporate learning platform. At TOM, I continue to lead digital delivery, coordinating requirements, the roadmap, specialist teams, QA and client communication across a 10+ year relationship.",
+  "team": "Backend, frontend, native mobile, content, audiovisual, instructional design and QA specialists, working with training, business and IT stakeholders.",
   "delivery": "The documented roadmap evolved through core LMS functionality, certification matrices, reporting, UX/UI, a loyalty program and ongoing support.",
-  "outcome": "A learning platform supporting 2,000+ users across 38 dealers. Recovery and ongoing quality work also form part of the Hino/Edenred operational story.",
+  "outcome": "A learning platform and supporting infrastructure serving 2,000+ users across 38 dealers throughout Mexico, sustained through a 10+ year client relationship. Recovery and ongoing quality work are also part of that operational story.",
   "tags": [
    "TEAM",
    "CLIENT",
    "DELIVERY",
    "SYSTEMS"
   ],
-  "note": "Delivery leadership across specialist development, quality assurance and continuing platform operations."
+  "note": "End-to-end delivery leadership, connecting the specialists responsible for each part of the platform."
  },
  {
   "id": "kpmg",
@@ -43,8 +43,12 @@ const projects = [
   "summary": "Connect specialists, review cycles and stakeholders across recurring communication work.",
   "metrics": [
    [
-    "ClickUp",
-    "hands-on delivery management"
+    "Hands-on",
+    "delivery management"
+   ],
+   [
+    "Adaptable",
+    "ClickUp, Asana, Jira or the tool the project needs"
    ],
    [
     "Multi-format",
@@ -52,68 +56,70 @@ const projects = [
    ]
   ],
   "context": "Coordinate recurring enterprise communication work, including newscasts, event materials and institutional content.",
-  "role": "Lead multidisciplinary delivery and quality coordination. KPMG-facing work is delivered under the Editech brand.",
+  "role": "Lead multidisciplinary delivery and quality coordination.",
   "team": "Design, video editing, VFX, animation, programming, QA and copywriting, working with internal communications and business stakeholders.",
-  "delivery": "Translate the brief into assigned work, review cycles, approvals and coordinated delivery. Keep decisions and dependencies visible in ClickUp.",
+  "delivery": "Translate the brief into assigned work, review cycles, approvals and coordinated delivery. Keep decisions and dependencies visible.",
   "outcome": "Recurring corporate communications and creative deliverables coordinated through stakeholder review and quality control.",
   "tags": [
    "TEAM",
    "CLIENT",
    "DELIVERY"
   ],
-  "note": "Client-facing work delivered under the Editech brand."
+  "note": "Hands-on delivery management, with the workflow and tools adapted to the project.",
+  "galleryLabel": "Hands-on delivery management"
  },
  {
   "id": "kia",
-  "name": "Kia MKT Ownership",
-  "type": "Content production · Quality",
-  "summary": "Take a multi-format content package through production and brand review.",
+  "name": "Kia Sales Enablement",
+  "type": "Sales enablement · National training",
+  "summary": "Managed national Kia sales-training materials from 2023 to 2025.",
   "metrics": [
    [
-    "2",
-    "base videos"
+    "170+",
+    "sales-enablement materials"
    ],
    [
-    "5",
-    "video cuts"
+    "15+",
+    "product-knowledge materials"
    ],
    [
-    "3 + 2",
-    "animated + static infographics"
+    "5+",
+    "conference presentations across Mexico"
    ]
   ],
-  "context": "Coordinate the July 2026 MKT Ownership content package, combining video and infographic formats.",
-  "role": "Project and quality coordination across production, revisions and client/brand acceptance.",
-  "team": "Video, animation, design and QA specialists, in dialogue with the client and branding stakeholders.",
-  "delivery": "Keep related deliverables aligned through review, revisions, quality checks and approval.",
-  "outcome": "A coordinated package spanning base videos, cuts and animated/static infographics, with legal and branding acceptance in the documented work.",
+  "context": "Coordinate Kia’s 2023–2025 national sales-training content program, combining video, animation, infographics and presentation materials.",
+  "role": "Project and quality coordination across production, revisions, client relationships and brand requirements.",
+  "team": "Video, animation, design and QA specialists, working with the client and branding stakeholders.",
+  "delivery": "Keep related deliverables aligned through review, revisions, quality checks and approval. Propose new ideas to improve the materials and respond to emerging business needs.",
+  "outcome": "A coordinated portfolio of 170+ materials spanning videos, cuts, animated and static infographics, and presentations, with legal and brand approval. The relationship also helped open 5+ new business opportunities with the brand.",
   "tags": [
    "TEAM",
    "CLIENT",
    "DELIVERY"
   ],
-  "note": "Figures describe the agreed Ownership content package."
+  "note": "Portfolio scope: 2023–2025. Product-knowledge materials form part of the wider sales-enablement work.",
+  "galleryLabel": "170+ sales-enablement materials"
  },
  {
   "id": "edenred",
   "name": "Edenred Training",
   "type": "Learning technology · Operations",
-  "summary": "Connect client priorities, specialist teams and continuity for a learning platform.",
+  "summary": "Connect client priorities, specialist teams and continuity across a B2C learning platform.",
   "metrics": [
    [
     "5,000+",
     "platform users"
    ],
    [
-    "Web + mobile",
-    "delivery environment"
+    "Web · iOS · Android",
+    "B2C learning platform"
    ]
   ],
-  "context": "Support enterprise learning-platform operations and coordinate recovery, requests and continuing improvements.",
+  "context": "Support operations for a B2C learning platform across web, iOS and Android, coordinating recovery, requests and continuing improvements.",
   "role": "Platform delivery and operations coordination: prioritize issues, connect specialists, structure verification and keep stakeholders informed.",
   "team": "Backend, frontend, native mobile and QA specialists, with client learning and technology stakeholders.",
   "delivery": "Track requirements, access, reporting, support priorities, QA/UAT and releases. Historical work included Heroku Postgres and content delivery through S3/CloudFront.",
-  "outcome": "Operational support for a platform serving 5,000+ users. The combined Hino/Edenred recovery case involved restoring service and strengthening follow-up.",
+  "outcome": "Operational support for a B2C learning platform serving 5,000+ users across web, iOS and Android. The combined Hino/Edenred recovery case involved restoring service and strengthening follow-up.",
   "tags": [
    "TEAM",
    "CLIENT",
@@ -267,6 +273,7 @@ const projects = [
   "note": "One recovery initiative across the Hino and Edenred learning platforms."
  }
 ];
+
 const galleryProjects = projects.filter(p=>p.id!=='cph');
 
 const people = [
@@ -290,7 +297,44 @@ const people = [
  ['Enablement & training','Enablement / Training','Connect learning goals, curricula, practice, platform readiness and reporting with training and business stakeholders.','hino']
 ].map((x,i)=>({id:'specialty-'+i,name:x[0],area:x[1],detail:x[2],case:x[3]}));
 // Add collaborator quotes here only after the author approves the text and attribution.
-const approvedTestimonials = [];
+const approvedTestimonials = [
+ {
+  "company": "TOM",
+  "name": "Jonathan Uriel Mera Sánchez",
+  "role": "Branding Lead · Top of Mind Communication",
+  "focus": "He actively looks after his team’s wellbeing and stability. He negotiates complex situations assertively, always protecting the talent and resources in his care."
+ },
+ {
+  "company": "TOM",
+  "name": "Mahatma Jalil Madrid Lerín",
+  "role": "Process & Customer Experience Specialist",
+  "focus": "He gets fully involved, contributes ideas and works shoulder to shoulder with the team to find solutions and move projects forward, even when things get complicated."
+ },
+ {
+  "company": "TOM",
+  "name": "Ingrid García Carrillo",
+  "role": "Colleague · Top of Mind Communication",
+  "focus": "He manages project timing with great precision and knows how to coordinate a large team across several projects at once. He always supports his team’s improvement."
+ },
+ {
+  "company": "TOM",
+  "name": "Frida Pérez",
+  "role": "Quality & Content Analyst · Top of Mind Communication",
+  "focus": "He coordinates multidisciplinary teams, manages resources efficiently and keeps an overall view of projects, ensuring that objectives are met with professionalism and high standards of quality."
+ },
+ {
+  "company": "FENTEC",
+  "name": "José Perea",
+  "role": "Senior QA Engineer · Fentec collaborator",
+  "focus": "He is a hybrid talent: he masters both technology and art with an ease that is uncommon in the industry."
+ },
+ {
+  "company": "TOCA",
+  "name": "Edwin Ampudia",
+  "role": "Former direct report · TOCA México",
+  "focus": "His leadership combines high standards with empathy, showing that results can be achieved without leaving people behind."
+ }
+];
 const teamApproach = [
  {
   "company": "Quality & delivery",
@@ -325,7 +369,7 @@ const teamApproach = [
   "name": "Keep the versions connected.",
   "focus": "I coordinate scripts, video, animation and design so related deliverables stay aligned through brand and client review.",
   "case": "kia",
-  "context": "Kia Ownership"
+  "context": "Kia Sales Enablement"
  },
  {
   "company": "Enablement & training",
@@ -382,8 +426,8 @@ const systemData = {
   user:[['Learners','Dealer network','Access training and certification workflows.'],['Web / mobile','User channels','Coordinate consistent platform requirements across web, iOS and Android.'],['Learning content','60+ WBT','Connect instructional production with access and progress requirements.'],['Certification','Matrices','Coordinate certification logic and stakeholder acceptance.'],['Reporting','Progress / decisions','Connect reporting requirements with business and training questions.'],['Support','Continuity','Track incidents, improvements and the next priorities.']],
   architecture:[['Web interface','React','Frontend specialists implemented the web experience; Axel coordinated requirements and delivery.'],['Native apps','Swift / Java','iOS and Android specialists implemented the apps; coordination included dependencies, testing and releases.'],['Application / API','Python / Django','Backend specialists implemented the platform logic and REST services.'],['Infrastructure','AWS EC2 / RDS','Documented application/database environment. Specialist infrastructure work supported application and database availability.'],['Content storage','S3 / CloudFront','Documented content storage and distribution, including origin-access controls.'],['QA / operations','Acceptance / support','Coordination of verification, releases and operational follow-through.']],
   ownership:[['Client alignment','Business / training / IT','Clarify requirements, approvals and the intended result.'],['Roadmap','Evolution','Coordinate work from MVP and core LMS to certification, reporting, UX and support.'],['Specialist teams','Distributed delivery','Connect engineering, content and QA workstreams.'],['Change control','Scope / estimates','Document the request, impact, quotation, implementation date and execution.'],['Verification','QA / UAT','Coordinate tests, issue priorities and acceptance.'],['Continuity','After launch','Maintain client communication and operational follow-up.']]}},
- edenred:{name:'Edenred Training',metric:'5,000+ PLATFORM USERS',snapshot:'PROJECT ARCHITECTURE / LEARNING PLATFORM OPERATIONS',outcome:'Platform operations, incident prioritization and specialist coordination supporting a 5,000+ user learning environment.',views:{
-  user:[['Learners','Access','Connect users with the training platform.'],['Web / mobile','Channels','Coordinate requirements and issue follow-up across the supported environment.'],['Training content','Learning','Connect content needs with platform availability.'],['Progress','Reporting','Coordinate learning progress and reporting requests.'],['Requests','Client priorities','Make support and enhancement needs explicit.'],['Support / release','Continuity','Coordinate verification and operational follow-through.']],
+ edenred:{name:'Edenred Training',metric:'5,000+ PLATFORM USERS',snapshot:'PROJECT ARCHITECTURE / LEARNING PLATFORM OPERATIONS',outcome:'Platform operations and specialist coordination supporting a B2C learning environment for 5,000+ users across web, iOS and Android.',views:{
+  user:[['Learners','B2C access','Connect users with the B2C training platform.'],['Web / iOS / Android','User channels','Coordinate requirements and issue follow-up across web and native iOS and Android apps.'],['Training content','Learning','Connect content needs with platform availability.'],['Progress','Reporting','Coordinate learning progress and reporting requests.'],['Requests','Client priorities','Make support and enhancement needs explicit.'],['Support / release','Continuity','Coordinate verification and operational follow-through.']],
   architecture:[['Interfaces','React / native apps','Web, Swift/iOS and Java/Android are part of the documented delivery stack.'],['Application / API','Python / Django','Backend specialists implement application and REST-service behavior.'],['Database','Historical Heroku Postgres','PostgreSQL service used during the project. Heroku Postgres was retired in June 2026; this view records that historical environment.'],['Content storage','S3','Documented storage for training content.'],['Distribution','CloudFront / access','Coordinate protected training-content delivery through CloudFront, including timed access.'],['Verification','QA / support','Delivery coordination connects issue priorities, tests and releases.']],
   ownership:[['Client requests','Prioritization','Translate business and learning requests into work and decisions.'],['Incident recovery','Coordination','Align engineering, QA and client communication around recovery.'],['Access / reporting','Requirements','Coordinate access and reporting requirements with the specialists implementing them.'],['Specialist teams','Dependencies','Make blockers and ownership visible.'],['QA / UAT','Validation','Coordinate tests and acceptance follow-up.'],['Continuity','Operation','Maintain support and enhancement follow-through.']]}},
  teojama:{name:'Teojama LMS',metric:'AWS / SCORM / ANDROID TEST APK',snapshot:'DEPLOYMENT & CLIENT ACCEPTANCE TESTING / AWS, SCORM AND ANDROID',outcome:'Deployment tracking and functional test preparation across login, groups, SCORM, progress and score workflows.',views:{
@@ -438,6 +482,8 @@ function route({intent='history',force=false,restoreCase=false}={}){
    clientScroll=window.scrollY;caseReturnChapter=entering?page:workChapters.includes(oldChapter)?oldChapter:page;caseReturnFocus=document.activeElement;
   }
   renderProject(project);if(!modal.open)modal.showModal();
+  modal.scrollTo({top:0,left:0,behavior:'instant'});
+  $('#close-project').focus({preventScroll:true});
  }else if(force||nextKey!==previousPage||entering||closingCase){
   if(closingCase&&['work','cv'].includes(experience)&&(restoreCase||intent==='history')){
    navigationTarget='';window.scrollTo({top:clientScroll,behavior:'instant'});
@@ -477,10 +523,10 @@ $('.skip').addEventListener('click',e=>{e.preventDefault();$('#main').focus({pre
 // End navigation.
 function projectLink(id){return '#client/'+id;}
 function renderProject(p){
- $('#project-detail').innerHTML=`<button type="button" class="back-link" data-close-case>← BACK TO THE EXPERIENCE</button><div class="project-detail-header"><div>${tag(p.type)}<h2 id="project-modal-title">${esc(p.name)}</h2><p>${esc(p.summary)}</p><div class="case-tags">${p.tags.map(x=>`<span>${esc(x)}</span>`).join('')}</div></div>${projectArtwork(p)}</div><div class="project-metrics">${p.metrics.map(x=>`<div><strong>${esc(x[0])}</strong><span>${esc(x[1])}</span></div>`).join('')}</div><div class="case-body"><article><h2>The need.</h2><p>${esc(p.context)}</p></article><article><h2>My responsibility.</h2><p>${esc(p.role)}</p></article><article><h2>The people.</h2><p>${esc(p.team)}</p></article><article><h2>The delivery.</h2><p>${esc(p.delivery)}</p></article><article><h2>The result.</h2><p>${esc(p.outcome)}</p></article></div><section class="case-gallery" aria-label="Illustrated project views">${[1,2,3].map((n)=>`<figure><img src="assets/${p.id}-view-${n}.svg" alt="${esc(p.name)}: ${n===1?'project relationships':n===2?'delivery progression':'project scope'}" width="640" height="420" loading="lazy"><figcaption>${n===1?'The connections':n===2?'The progression':'The scope'}</figcaption></figure>`).join('')}</section><p class="project-note">${esc(p.note)}</p><div class="project-next"><a class="button primary" href="${systemData[p.id]?'#systems/'+p.id:'#delivery'}">${systemData[p.id]?'EXPLORE THE SYSTEM':'EXPLORE DELIVERY'} ↗</a><a class="button" href="#team">MEET THE TEAM CONNECTIONS ↗</a><button type="button" class="button" data-copy-case="${p.id}">COPY CASE LINK ↗</button></div>`;
+ $('#project-detail').innerHTML=`<button type="button" class="back-link" data-close-case>← BACK TO THE EXPERIENCE</button><div class="project-detail-header"><div>${tag(p.type)}<h2 id="project-modal-title">${esc(p.name)}</h2><p>${esc(p.summary)}</p><div class="case-tags">${p.tags.map(x=>`<span>${esc(x)}</span>`).join('')}</div></div>${projectArtwork(p)}</div><div class="project-metrics">${p.metrics.map(x=>`<div><strong>${esc(x[0])}</strong><span>${esc(x[1])}</span></div>`).join('')}</div><div class="case-body"><article><h2>The need.</h2><p>${esc(p.context)}</p></article><article><h2>My responsibility.</h2><p>${esc(p.role)}</p></article><article><h2>The people.</h2><p>${esc(p.team)}</p></article><article><h2>The delivery.</h2><p>${esc(p.delivery)}</p></article><article><h2>The result.</h2><p>${esc(p.outcome)}</p></article></div><section class="case-gallery" aria-label="Illustrated project views">${[1,2,3].map((n)=>`<figure><img src="assets/${p.id}-view-${n}.svg?v=03112026-35" alt="${esc(p.name)}: ${n===1?'project relationships':n===2?'delivery progression':'project scope'}" width="640" height="420" loading="lazy"><figcaption>${n===1?'The connections':n===2?'The progression':esc(p.galleryLabel||'The scope')}</figcaption></figure>`).join('')}</section><p class="project-note">${esc(p.note)}</p><div class="project-next"><a class="button primary" href="${systemData[p.id]?'#systems/'+p.id:'#delivery'}">${systemData[p.id]?'EXPLORE THE SYSTEM':'EXPLORE DELIVERY'} ↗</a><a class="button" href="#team">MEET THE TEAM CONNECTIONS ↗</a><button type="button" class="button" data-copy-case="${p.id}">COPY CASE LINK ↗</button></div>`;
 }
-const projectSkills={hino:'Enablement & Training · Digital Platforms · Product Roadmaps · Engineering Coordination · QA/UAT',kpmg:'Creative Operations · Cross-functional Teams · Content Production · Stakeholders',kia:'Video Production · Branding · Review Cycles · Quality',edenred:'Enablement & Training · Platform Operations · Incident Coordination · Learning Technology · Client Delivery',teojama:'Learning Implementation · Deployment · SCORM · Acceptance Testing · Technical Coordination',costco:'Client Ownership · Proposals · Scope · Negotiation · Creative Delivery',mazda:'Training Delivery · Instructional Design · Technical Content · Stakeholder Review',recovery:'Incident Coordination · QA/UAT · Client Communication · Platform Operations',cph:'Storytelling · Creative Direction · Scripting · Production'};
-const coverLabels={hino:'Hino LMS',kpmg:'KPMG',kia:'Kia MKT',edenred:'Edenred',teojama:'Teojama LMS',costco:'Costco',mazda:'Mazda',recovery:'Platform recovery'};
+const projectSkills={hino:'Enablement & Training · Digital Platforms · Product Roadmaps · Engineering Coordination · QA/UAT',kpmg:'Creative Operations · Cross-functional Teams · Content Production · Stakeholders',kia:'Sales Enablement · Training Content · Production · Client Delivery · Quality',edenred:'Enablement & Training · Platform Operations · Incident Coordination · Learning Technology · Client Delivery',teojama:'Learning Implementation · Deployment · SCORM · Acceptance Testing · Technical Coordination',costco:'Client Ownership · Proposals · Scope · Negotiation · Creative Delivery',mazda:'Training Delivery · Instructional Design · Technical Content · Stakeholder Review',recovery:'Incident Coordination · QA/UAT · Client Communication · Platform Operations',cph:'Storytelling · Creative Direction · Scripting · Production'};
+const coverLabels={hino:'Hino LMS',kpmg:'KPMG',kia:'Kia Sales Enablement',edenred:'Edenred',teojama:'Teojama LMS',costco:'Costco',mazda:'Mazda',recovery:'Platform recovery'};
 $('#project-grid').innerHTML=galleryProjects.map((p,i)=>`<a class="project-card" data-case="${p.id}" href="${projectLink(p.id)}" aria-label="Explore ${esc(p.name)}: ${esc(p.summary)}"><div class="project-cover">${projectArtwork(p)}<span class="case-number" aria-hidden="true">${String(i+1).padStart(2,'0')} / 08</span><div class="case-cover-copy"><p class="project-type">${esc(p.type)}</p><h2><span class="case-name-full">${esc(p.name)}</span><span class="case-name-short">${esc(coverLabels[p.id]||p.name)}</span></h2><p class="cover-metric"><strong>${esc(p.metrics[0][0])}</strong><span>${esc(p.metrics[0][1])}</span></p><span class="card-link">EXPLORE THE PROJECT <b aria-hidden="true">↗</b></span></div><div class="project-ribbon" aria-label="${esc(projectSkills[p.id])}"><span>${esc(projectSkills[p.id])} · <span aria-hidden="true">${esc(projectSkills[p.id])} · </span></span></div></div></a>`).join('');
 
 function toast(text){$('#toast').textContent=text;$('#toast').hidden=false;setTimeout(()=>$('#toast').hidden=true,2600);}
@@ -492,9 +538,9 @@ function renderTestimonial(){
  const t=testimonials[testimonialIndex],approved=approvedTestimonials.length>0;
  $('#testimonial-company').textContent=t.company+(approved?' / COLLABORATOR VOICE':' / HOW I WORK');
  $('#testimonial-index').textContent=String(testimonialIndex+1).padStart(2,'0')+' / '+String(testimonials.length).padStart(2,'0');
- $('#testimonial-copy').textContent=t.focus;
+ $('#testimonial-copy').textContent=approved?'“'+t.focus+'”':t.focus;
  const route=t.case?projectLink(t.case):t.route;
- $('#testimonial-person').innerHTML=esc(t.name)+(route?`<small><a href="${route}">${esc(t.context)} ↗</a></small>`:t.role?`<small>${esc(t.role)}</small>`:'');
+ $('#testimonial-person').innerHTML=esc(t.name)+(approved?`<small>${esc(t.role)}</small><small class="quote-translation">Excerpt · translated from Spanish</small>`:route?`<small><a href="${route}">${esc(t.context)} ↗</a></small>`:t.role?`<small>${esc(t.role)}</small>`:'');
  $('#testimonial-prev').setAttribute('aria-label',approved?'Previous testimonial':'Previous working principle');
  $('#testimonial-next').setAttribute('aria-label',approved?'Next testimonial':'Next working principle');
 }
