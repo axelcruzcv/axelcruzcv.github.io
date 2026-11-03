@@ -5,7 +5,7 @@
   all:{color:'#8dbdc1',tint:'#dce8e3',value:'15+',label:'concurrent projects',text:'Teams of up to 25 specialists, connected across creative, digital and learning delivery.',link:'#team',cta:'Meet the teams'},
   creative:{color:'#b94a40',tint:'#f0d9cf',value:'Cross-functional.',label:'creative delivery',text:'Video, animation, content and learning production, connected through briefs, review cycles and stakeholder decisions.',link:'#cv/case/kpmg',cta:'See creative delivery'},
   platforms:{color:'#2e557c',tint:'#d8e5e8',value:'14 days.',label:'documented platform recovery',text:'Hino and Edenred: engineering, QA, access validation and client communication brought into one recovery path.',link:'#cv/case/recovery',cta:'Open the recovery case'},
-  client:{color:'#ad7d37',tint:'#f2e6bf',value:'~MXN 1.4M',label:'initial Hino LMS engagement',text:'From discovery and the commercial proposal to specialist delivery, continuing support and platform evolution.',link:'#cv/case/hino',cta:'Explore the engagement'},
+  client:{color:'#ad7d37',tint:'#f2e6bf',value:'Seven-figure.',label:'initial Hino LMS engagement · MXN',text:'From discovery and the commercial proposal to specialist delivery, continuing support and platform evolution.',link:'#cv/case/hino',cta:'Explore the engagement'},
   learning:{color:'#4f6c45',tint:'#e0e8d2',value:'38 dealers.',label:'Hino learning ecosystem',text:'Web, iOS and Android, certification workflows, reporting and 60+ WBT productions coordinated with specialists.',link:'#cv/case/hino',cta:'See the learning platform'}
  };
  function setLens(key){

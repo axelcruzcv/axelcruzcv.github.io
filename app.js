@@ -4,22 +4,273 @@ const $$ = s => [...document.querySelectorAll(s)];
 const esc = s => String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const tag = text => `<p class="eyebrow">${esc(text)}</p>`;
 const projects = [
- {id:'hino',name:'Hino LMS',type:'Digital platform · Learning',summary:'From an initial learning need to a platform serving a dealer network.',metrics:[['2,000+','platform users'],['38','dealers'],['60+','WBT productions coordinated']],context:'Adapt learning and certification processes for Hino’s dealer network in Mexico, then support the platform as its requirements evolved.',role:'Founder and digital delivery lead. Originated the approximately MXN 1.4M initial engagement and coordinated requirements, roadmap, specialist teams, QA and client communication.',team:'Backend, frontend, native mobile, instructional content and QA specialists, working with training, business and IT stakeholders.',delivery:'The documented roadmap evolved through core LMS functionality, certification matrices, reporting, UX/UI, a loyalty programme and ongoing support.',outcome:'A learning platform supporting 2,000+ users across 38 dealers. Recovery and ongoing quality work also form part of the Hino/Edenred operational story.',tags:['TEAM','CLIENT','DELIVERY','SYSTEMS'],note:'The platform was implemented with specialist developers. This case describes Axel’s delivery and product/operational coordination, not sole authorship of the code.'},
- {id:'kpmg',name:'KPMG communications',type:'Creative operations · Enterprise',summary:'Connect specialists, review cycles and stakeholders across recurring communication work.',metrics:[['ClickUp','hands-on delivery management'],['Multi-format','video, animation and communications']],context:'Coordinate recurring enterprise communication work, including newscasts, event materials and institutional content.',role:'Lead multidisciplinary delivery and quality coordination. KPMG-facing work is delivered under the Editech brand.',team:'Design, video editing, VFX, animation, programming, QA and copywriting, working with internal communications and business stakeholders.',delivery:'Translate the brief into assigned work, review cycles, approvals and coordinated delivery. Keep decisions and dependencies visible in ClickUp.',outcome:'Recurring corporate communications and creative deliverables coordinated through stakeholder review and quality control.',tags:['TEAM','CLIENT','DELIVERY'],note:'Volume, turnaround improvements and financial impact are not quantified here because verified measurements are not available.'},
- {id:'kia',name:'Kia MKT Ownership',type:'Content production · Quality',summary:'Take a multi-format content package through production and brand review.',metrics:[['2','base videos'],['5','video cuts'],['3 + 2','animated + static infographics']],context:'Coordinate the July 2026 MKT Ownership content package, combining video and infographic formats.',role:'Project and quality coordination across production, revisions and client/brand acceptance.',team:'Video, animation, design and QA specialists, in dialogue with the client and branding stakeholders.',delivery:'Keep related deliverables aligned through review, revisions, quality checks and approval.',outcome:'A coordinated package spanning base videos, cuts and animated/static infographics, with legal and branding acceptance in the documented work.',tags:['TEAM','CLIENT','DELIVERY'],note:'Figures describe this package’s scope, not the total volume of all Kia work.'},
- {id:'edenred',name:'Edenred Training',type:'Learning technology · Operations',summary:'Connect client priorities, specialist teams and continuity for a learning platform.',metrics:[['5,000+','platform users'],['Web + mobile','delivery environment']],context:'Support enterprise learning-platform operations and coordinate recovery, requests and continuing improvements.',role:'Platform delivery and operations coordination: prioritize issues, connect specialists, structure verification and keep stakeholders informed.',team:'Backend, frontend, native mobile and QA specialists, with client learning and technology stakeholders.',delivery:'Track requirements, access, reporting, support priorities, QA/UAT and releases. Historical work included Heroku Postgres and content delivery through S3/CloudFront.',outcome:'Operational support for a platform serving 5,000+ users. The combined Hino/Edenred recovery case involved restoring service and strengthening follow-up.',tags:['TEAM','CLIENT','DELIVERY','SYSTEMS'],note:'Architecture is a historical reconstruction. Heroku Postgres was retired in June 2026; the current replacement database is not claimed here.'},
- {id:'teojama',name:'Teojama LMS',type:'Deployment · Test readiness',summary:'Bring deployment, SCORM content and user workflows into a testable release.',metrics:[['SCORM','ZIP content workflow'],['Android','test APK'],['AWS','client-owned environment']],context:'Coordinate an LMS deployment on the client’s AWS environment and prepare functional validation.',role:'Requirements, technical coordination, deployment follow-up and acceptance-test readiness.',team:'Development and QA specialists, working with the client’s platform and training needs.',delivery:'Document login, user/group management, SCORM ZIP upload, progress and score tracking, and an organized test guide.',outcome:'Documented test workflows, backend availability and an Android test APK. Public production adoption and user volumes are not asserted.',tags:['TEAM','CLIENT','DELIVERY','SYSTEMS'],note:'This case demonstrates deployment and validation work; it is not represented as a quantified production rollout.'},
- {id:'costco',name:'Costco client delivery',type:'Client ownership · Creative delivery',summary:'An initial assignment grew into a broader relationship across location-related work.',metrics:[['12','location-related projects'],['1','initial renovation-proposal video']],context:'Support legal and real estate stakeholders with visual and communication materials for location-related needs.',role:'Client and creative delivery leadership across proposals, scope, pricing, negotiation, specialist coordination, QA and delivery.',team:'Creative and production specialists working with Costco’s legal/real estate stakeholders.',delivery:'Translate requests into viable work packages and manage reviews and commitments across audiovisual, interactive, presentation and print formats.',outcome:'The engagement expanded from one initial assignment to 12 location-related projects. The work demonstrates continuity of client ownership and delivery.',tags:['TEAM','CLIENT','DELIVERY'],note:'The project count is documented; a specific causal attribution or revenue figure is not invented.'},
- {id:'mazda',name:'Mazda technical learning',type:'Instructional production · Automotive',summary:'Connect technical material, instructional planning and specialist review.',metrics:[['5','courses in the programme scope'],['Technical','measurement and automotive content']],context:'Coordinate a technical training-content programme, including material for audiences without a technical specialization.',role:'Project coordination across instructional planning, source material, stakeholder follow-up and review.',team:'Instructional design, content and production specialists, with subject-matter and training stakeholders.',delivery:'Coordinate course planning and technical-script review, including measurement-related material that requires precise terminology and reliable references.',outcome:'Work spans proposal, instructional planning and technical-content execution. Completion of all five courses is not asserted.',tags:['TEAM','CLIENT','DELIVERY'],note:'The five-course figure describes programme scope, not a claim that all five were delivered.'},
- {id:'cph',name:'Cine Para Huevones',type:'Storytelling · Independent media',summary:'An authored film project built around a point of view, narrative and audience.',metrics:[['24','long-form episodes'],['Short-form','next editorial stage']],context:'Turn film analysis and cultural references into accessible, engaging media with a distinct editorial voice.',role:'Creator, producer and strategy: concept, scripting, narrative structure, creative direction and publishing.',team:'A personal creative practice connecting storytelling, audiovisual production and audience communication.',delivery:'Long-form episodes for YouTube/Spotify, followed by work on short videos for TikTok, Reels and Shorts.',outcome:'A first stage of 24 long-form episodes, with an evolving short-form editorial approach.',tags:['DELIVERY','STORYTELLING'],note:'This is an independent editorial project. It is separate from client work and is not given unverified audience or revenue metrics.'}
+ {
+  "id": "hino",
+  "name": "Hino LMS",
+  "type": "Digital platform · Learning",
+  "summary": "From an initial learning need to a platform serving a dealer network.",
+  "metrics": [
+   [
+    "2,000+",
+    "platform users"
+   ],
+   [
+    "38",
+    "dealers"
+   ],
+   [
+    "60+",
+    "WBT productions coordinated"
+   ]
+  ],
+  "context": "Adapt learning and certification processes for Hino’s dealer network in Mexico, then support the platform as its requirements evolved.",
+  "role": "Founder and digital delivery lead. Originated a seven-figure MXN LMS engagement and led requirements, roadmap, specialist teams, QA and client communication.",
+  "team": "Backend, frontend, native mobile, instructional content and QA specialists, working with training, business and IT stakeholders.",
+  "delivery": "The documented roadmap evolved through core LMS functionality, certification matrices, reporting, UX/UI, a loyalty program and ongoing support.",
+  "outcome": "A learning platform supporting 2,000+ users across 38 dealers. Recovery and ongoing quality work also form part of the Hino/Edenred operational story.",
+  "tags": [
+   "TEAM",
+   "CLIENT",
+   "DELIVERY",
+   "SYSTEMS"
+  ],
+  "note": "Delivery leadership across specialist development, quality assurance and continuing platform operations."
+ },
+ {
+  "id": "kpmg",
+  "name": "KPMG communications",
+  "type": "Creative operations · Enterprise",
+  "summary": "Connect specialists, review cycles and stakeholders across recurring communication work.",
+  "metrics": [
+   [
+    "ClickUp",
+    "hands-on delivery management"
+   ],
+   [
+    "Multi-format",
+    "video, animation and communications"
+   ]
+  ],
+  "context": "Coordinate recurring enterprise communication work, including newscasts, event materials and institutional content.",
+  "role": "Lead multidisciplinary delivery and quality coordination. KPMG-facing work is delivered under the Editech brand.",
+  "team": "Design, video editing, VFX, animation, programming, QA and copywriting, working with internal communications and business stakeholders.",
+  "delivery": "Translate the brief into assigned work, review cycles, approvals and coordinated delivery. Keep decisions and dependencies visible in ClickUp.",
+  "outcome": "Recurring corporate communications and creative deliverables coordinated through stakeholder review and quality control.",
+  "tags": [
+   "TEAM",
+   "CLIENT",
+   "DELIVERY"
+  ],
+  "note": "Client-facing work delivered under the Editech brand."
+ },
+ {
+  "id": "kia",
+  "name": "Kia MKT Ownership",
+  "type": "Content production · Quality",
+  "summary": "Take a multi-format content package through production and brand review.",
+  "metrics": [
+   [
+    "2",
+    "base videos"
+   ],
+   [
+    "5",
+    "video cuts"
+   ],
+   [
+    "3 + 2",
+    "animated + static infographics"
+   ]
+  ],
+  "context": "Coordinate the July 2026 MKT Ownership content package, combining video and infographic formats.",
+  "role": "Project and quality coordination across production, revisions and client/brand acceptance.",
+  "team": "Video, animation, design and QA specialists, in dialogue with the client and branding stakeholders.",
+  "delivery": "Keep related deliverables aligned through review, revisions, quality checks and approval.",
+  "outcome": "A coordinated package spanning base videos, cuts and animated/static infographics, with legal and branding acceptance in the documented work.",
+  "tags": [
+   "TEAM",
+   "CLIENT",
+   "DELIVERY"
+  ],
+  "note": "Figures describe the agreed Ownership content package."
+ },
+ {
+  "id": "edenred",
+  "name": "Edenred Training",
+  "type": "Learning technology · Operations",
+  "summary": "Connect client priorities, specialist teams and continuity for a learning platform.",
+  "metrics": [
+   [
+    "5,000+",
+    "platform users"
+   ],
+   [
+    "Web + mobile",
+    "delivery environment"
+   ]
+  ],
+  "context": "Support enterprise learning-platform operations and coordinate recovery, requests and continuing improvements.",
+  "role": "Platform delivery and operations coordination: prioritize issues, connect specialists, structure verification and keep stakeholders informed.",
+  "team": "Backend, frontend, native mobile and QA specialists, with client learning and technology stakeholders.",
+  "delivery": "Track requirements, access, reporting, support priorities, QA/UAT and releases. Historical work included Heroku Postgres and content delivery through S3/CloudFront.",
+  "outcome": "Operational support for a platform serving 5,000+ users. The combined Hino/Edenred recovery case involved restoring service and strengthening follow-up.",
+  "tags": [
+   "TEAM",
+   "CLIENT",
+   "DELIVERY",
+   "SYSTEMS"
+  ],
+  "note": "The architecture view reflects the project environment used during delivery."
+ },
+ {
+  "id": "teojama",
+  "name": "Teojama LMS",
+  "type": "Deployment · Test readiness",
+  "summary": "Bring deployment, SCORM content and user workflows into a testable release.",
+  "metrics": [
+   [
+    "SCORM",
+    "ZIP content workflow"
+   ],
+   [
+    "Android",
+    "test APK"
+   ],
+   [
+    "AWS",
+    "client-owned environment"
+   ]
+  ],
+  "context": "Coordinate an LMS deployment on the client’s AWS environment and prepare functional validation.",
+  "role": "Requirements, technical coordination, deployment follow-up and acceptance-test readiness.",
+  "team": "Development and QA specialists, working with the client’s platform and training needs.",
+  "delivery": "Document login, user/group management, SCORM ZIP upload, progress and score tracking, and an organized test guide.",
+  "outcome": "Prepared functional test workflows, verified backend availability and coordinated an Android test APK for client review.",
+  "tags": [
+   "TEAM",
+   "CLIENT",
+   "DELIVERY",
+   "SYSTEMS"
+  ],
+  "note": "Deployment coordination and acceptance-test readiness."
+ },
+ {
+  "id": "costco",
+  "name": "Costco client delivery",
+  "type": "Client ownership · Creative delivery",
+  "summary": "An initial assignment grew into a broader relationship across location-related work.",
+  "metrics": [
+   [
+    "12",
+    "location-related projects"
+   ],
+   [
+    "1",
+    "initial renovation-proposal video"
+   ]
+  ],
+  "context": "Support legal and real estate stakeholders with visual and communication materials for location-related needs.",
+  "role": "Client and creative delivery leadership across proposals, scope, pricing, negotiation, specialist coordination, QA and delivery.",
+  "team": "Creative and production specialists working with Costco’s legal/real estate stakeholders.",
+  "delivery": "Translate requests into viable work packages and manage reviews and commitments across audiovisual, interactive, presentation and print formats.",
+  "outcome": "The engagement expanded from one initial assignment to 12 location-related projects. The work demonstrates continuity of client ownership and delivery.",
+  "tags": [
+   "TEAM",
+   "CLIENT",
+   "DELIVERY"
+  ],
+  "note": "An account-development case covering 12 location-related projects."
+ },
+ {
+  "id": "mazda",
+  "name": "Mazda technical learning",
+  "type": "Instructional production · Automotive",
+  "summary": "Connect technical material, instructional planning and specialist review.",
+  "metrics": [
+   [
+    "10",
+    "courses in the program scope"
+   ],
+   [
+    "Technical",
+    "measurement and automotive content"
+   ]
+  ],
+  "context": "Coordinate a ten-course technical learning program, including material for audiences without a technical specialization.",
+  "role": "Project coordination across instructional planning, source material, stakeholder follow-up and review.",
+  "team": "Instructional design, content and production specialists, with subject-matter and training stakeholders.",
+  "delivery": "Coordinate course planning and technical-script review, including measurement-related material that requires precise terminology and reliable references.",
+  "outcome": "A program spanning proposal, instructional planning, technical-script review and production coordination across ten courses.",
+  "tags": [
+   "TEAM",
+   "CLIENT",
+   "DELIVERY"
+  ],
+  "note": "The course count describes the program scope."
+ },
+ {
+  "id": "cph",
+  "name": "Cine Para Huevones",
+  "type": "Storytelling · Independent media",
+  "summary": "An authored film project built around a point of view, narrative and audience.",
+  "metrics": [
+   [
+    "24",
+    "long-form episodes"
+   ],
+   [
+    "Short-form",
+    "next editorial stage"
+   ]
+  ],
+  "context": "Turn film analysis and cultural references into accessible, engaging media with a distinct editorial voice.",
+  "role": "Creator, producer and strategy: concept, scripting, narrative structure, creative direction and publishing.",
+  "team": "A personal creative practice connecting storytelling, audiovisual production and audience communication.",
+  "delivery": "Long-form episodes for YouTube/Spotify, followed by work on short videos for TikTok, Reels and Shorts.",
+  "outcome": "A first stage of 24 long-form episodes, with an evolving short-form editorial approach.",
+  "tags": [
+   "DELIVERY",
+   "STORYTELLING"
+  ],
+  "note": "Independent film analysis, storytelling and audiovisual production."
+ },
+ {
+  "id": "recovery",
+  "name": "Platform recovery",
+  "type": "Incident recovery · Client confidence",
+  "summary": "Restore two learning environments through coordinated engineering, QA and client decisions.",
+  "metrics": [
+   [
+    "14",
+    "days to restore service"
+   ],
+   [
+    "2",
+    "learning platforms"
+   ],
+   [
+    "2,000+ / 5,000+",
+    "Hino / Edenred platform users"
+   ]
+  ],
+  "context": "Restore Hino and Edenred learning operations and bring client communication, issue priorities and specialist work into one recovery path.",
+  "role": "Delivery and operational coordination: align priorities, organize specialist follow-through, structure verification and keep clients informed.",
+  "team": "Engineering, QA and client learning/IT stakeholders, connected through explicit owners and verification.",
+  "delivery": "Prioritize incidents, coordinate fixes and tests, validate access and learning workflows, and maintain follow-up after restoration.",
+  "outcome": "Service restoration within 14 days, followed by strengthened QA and operational follow-up. User figures describe the respective platform populations, not measured individuals affected by the incident.",
+  "tags": [
+   "TEAM",
+   "CLIENT",
+   "DELIVERY",
+   "SYSTEMS"
+  ],
+  "note": "One recovery initiative across the Hino and Edenred learning platforms."
+ }
 ];
-const recovery = {id:'recovery',name:'Platform recovery',type:'Incident recovery · Client confidence',summary:'Restore two learning environments through coordinated engineering, QA and client decisions.',metrics:[['14','days to restore service'],['2','learning platforms'],['2,000+ / 5,000+','Hino / Edenred platform users']],context:'Restore Hino and Edenred learning operations and bring client communication, issue priorities and specialist work into one recovery path.',role:'Delivery and operational coordination: align priorities, organize specialist follow-through, structure verification and keep clients informed.',team:'Engineering, QA and client learning/IT stakeholders, connected through explicit owners and verification.',delivery:'Prioritize incidents, coordinate fixes and tests, validate access and learning workflows, and maintain follow-up after restoration.',outcome:'Service restoration within 14 days, followed by strengthened QA and operational follow-up. User figures describe the respective platform populations, not measured individuals affected by the incident.',tags:['TEAM','CLIENT','DELIVERY','SYSTEMS'],note:'A documented operational intervention across Hino and Edenred, not an additional client or a claim of sole technical authorship.'};
-projects.push(recovery);
-const coverPath = p => 'assets/'+p.id+'-concept-v11.webp';
 const galleryProjects = projects.filter(p=>p.id!=='cph');
 
 const people = [
- ['Backend developers','Engineering','Connect functional needs, service behaviour, integration dependencies and acceptance.', 'hino'],
+ ['Backend developers','Engineering','Connect functional needs, service behavior, integration dependencies and acceptance.', 'hino'],
  ['Frontend developers','Engineering','Connect interface requirements, implementation, testing and release readiness.','hino'],
  ['UX/UI designers','Experience','Translate user and business needs into clear interfaces and actionable implementation work.','hino'],
  ['Content creators','Content','Connect the brief, source material, narrative, review and final use.','kpmg'],
@@ -38,17 +289,74 @@ const people = [
  ['Animation & VFX','Production','Connect visual intent, specialist work, technical requirements and review.','kpmg'],
  ['Enablement & training','Enablement / Training','Connect learning goals, curricula, practice, platform readiness and reporting with training and business stakeholders.','hino']
 ].map((x,i)=>({id:'specialty-'+i,name:x[0],area:x[1],detail:x[2],case:x[3]}));
-const testimonials = [
- {name:'Frida',company:'TOM',focus:'QA, clarity of priorities and collaboration with delivery.'},
- {name:'Jal',company:'TOM',focus:'A concrete example of working together and making a difficult delivery clearer.'},
- {name:'Ingrid',company:'TOM',focus:'Briefs, feedback and the conditions for good creative work.'},
- {name:'Jon',company:'TOM',focus:'Specialist coordination, creative judgement and review cycles.'},
- {name:'Esther',company:'TOM',focus:'Technical collaboration, requirements and decisions across teams.'},
- {name:'Alonso',company:'Fentec',focus:'Engineering partnership, dependencies and responsible commitments.'},
- {name:'Ander',company:'Fentec',focus:'A specific contribution to collaboration, clarity or quality.'},
- {name:'Necro',company:'Fentec',focus:'A specific example of shared work and follow-through.'},
- {name:'Edwin',company:'TOCA',focus:'People, onboarding, operational growth and team readiness.'}
+// Add collaborator quotes here only after the author approves the text and attribution.
+const approvedTestimonials = [];
+const teamApproach = [
+ {
+  "company": "Quality & delivery",
+  "name": "Give people a clear starting point.",
+  "focus": "I turn the brief into priorities, owners and acceptance criteria so specialists can focus on the work.",
+  "case": "recovery",
+  "context": "Platform recovery"
+ },
+ {
+  "company": "Creative operations",
+  "name": "Make feedback useful.",
+  "focus": "I connect creative intent with specific decisions, so reviews give designers and producers something they can act on.",
+  "case": "kpmg",
+  "context": "KPMG communications"
+ },
+ {
+  "company": "Engineering partnership",
+  "name": "Work through the trade-offs.",
+  "focus": "I involve specialists in estimates and dependencies, then make the options clear enough for a client decision.",
+  "case": "hino",
+  "context": "Hino LMS"
+ },
+ {
+  "company": "Client delivery",
+  "name": "Stay with the relationship.",
+  "focus": "I own the conversation from the first proposal through reviews and delivery, then look for the next useful opportunity.",
+  "case": "costco",
+  "context": "Costco client delivery"
+ },
+ {
+  "company": "Production",
+  "name": "Keep the versions connected.",
+  "focus": "I coordinate scripts, video, animation and design so related deliverables stay aligned through brand and client review.",
+  "case": "kia",
+  "context": "Kia Ownership"
+ },
+ {
+  "company": "Enablement & training",
+  "name": "Keep the learner in the plan.",
+  "focus": "I bring training stakeholders, instructional designers and platform specialists together around learning needs and release readiness.",
+  "case": "mazda",
+  "context": "Mazda technical learning"
+ },
+ {
+  "company": "People & talent",
+  "name": "Support the people doing the hiring.",
+  "focus": "I help HR evaluate specialist roles with project context, CV reviews, interviews and assessments.",
+  "route": "#team/hiring",
+  "context": "HR team support"
+ },
+ {
+  "company": "Platform operations",
+  "name": "Follow through after launch.",
+  "focus": "I keep support priorities, specialist fixes and client updates connected so the platform can continue serving its users.",
+  "case": "edenred",
+  "context": "Edenred Training"
+ },
+ {
+  "company": "Learning & collaboration",
+  "name": "Leave room for expertise.",
+  "focus": "I keep studying and ask the specialists around me to challenge the plan. Good coordination makes their contribution easier.",
+  "route": "#delivery/creative",
+  "context": "Creative practice"
+ }
 ];
+const testimonials = approvedTestimonials.length ? approvedTestimonials : teamApproach;
 const stakeholders = [
  {name:'Product & projects',title:'A decision others can work from.',question:'What are we trying to achieve, what has priority and what does acceptance mean?',contribution:'Connect product, program and project managers with requirements, dependencies, estimates and a delivery path.'},
  {name:'IT & CRM',title:'Make the integration understandable.',question:'What needs to connect, what inputs are required and who owns each dependency?',contribution:'Work with IT managers, CRM teams and specialists to clarify interfaces, access, validation and technical commitments.'},
@@ -72,15 +380,15 @@ const stages = [
 const systemData = {
  hino:{name:'Hino LMS',metric:'2,000+ USERS / 38 DEALERS',snapshot:'DOCUMENTED PROJECT VIEW / WEB, NATIVE MOBILE AND AWS',outcome:'A platform evolved from an initial LMS engagement into certification, reporting, UX improvements and continuing operations.',views:{
   user:[['Learners','Dealer network','Access training and certification workflows.'],['Web / mobile','User channels','Coordinate consistent platform requirements across web, iOS and Android.'],['Learning content','60+ WBT','Connect instructional production with access and progress requirements.'],['Certification','Matrices','Coordinate certification logic and stakeholder acceptance.'],['Reporting','Progress / decisions','Connect reporting requirements with business and training questions.'],['Support','Continuity','Track incidents, improvements and the next priorities.']],
-  architecture:[['Web interface','React','Frontend specialists implemented the web experience; Axel coordinated requirements and delivery.'],['Native apps','Swift / Java','iOS and Android specialists implemented the apps; coordination included dependencies, testing and releases.'],['Application / API','Python / Django','Backend specialists implemented the platform logic and REST services.'],['Infrastructure','AWS EC2 / RDS','Documented application/database environment. Detailed configuration and credentials are not shown.'],['Content storage','S3 / CloudFront','Documented content storage and distribution, including origin-access controls.'],['QA / operations','Acceptance / support','Coordination of verification, releases and operational follow-through.']],
+  architecture:[['Web interface','React','Frontend specialists implemented the web experience; Axel coordinated requirements and delivery.'],['Native apps','Swift / Java','iOS and Android specialists implemented the apps; coordination included dependencies, testing and releases.'],['Application / API','Python / Django','Backend specialists implemented the platform logic and REST services.'],['Infrastructure','AWS EC2 / RDS','Documented application/database environment. Specialist infrastructure work supported application and database availability.'],['Content storage','S3 / CloudFront','Documented content storage and distribution, including origin-access controls.'],['QA / operations','Acceptance / support','Coordination of verification, releases and operational follow-through.']],
   ownership:[['Client alignment','Business / training / IT','Clarify requirements, approvals and the intended result.'],['Roadmap','Evolution','Coordinate work from MVP and core LMS to certification, reporting, UX and support.'],['Specialist teams','Distributed delivery','Connect engineering, content and QA workstreams.'],['Change control','Scope / estimates','Document the request, impact, quotation, implementation date and execution.'],['Verification','QA / UAT','Coordinate tests, issue priorities and acceptance.'],['Continuity','After launch','Maintain client communication and operational follow-up.']]}},
- edenred:{name:'Edenred Training',metric:'5,000+ PLATFORM USERS',snapshot:'HISTORICAL PROJECT VIEW / HEROKU POSTGRES RETIRED JUNE 2026; CURRENT REPLACEMENT NOT ASSERTED',outcome:'Platform operations, incident prioritization and specialist coordination supporting a 5,000+ user learning environment.',views:{
+ edenred:{name:'Edenred Training',metric:'5,000+ PLATFORM USERS',snapshot:'PROJECT ARCHITECTURE / LEARNING PLATFORM OPERATIONS',outcome:'Platform operations, incident prioritization and specialist coordination supporting a 5,000+ user learning environment.',views:{
   user:[['Learners','Access','Connect users with the training platform.'],['Web / mobile','Channels','Coordinate requirements and issue follow-up across the supported environment.'],['Training content','Learning','Connect content needs with platform availability.'],['Progress','Reporting','Coordinate learning progress and reporting requests.'],['Requests','Client priorities','Make support and enhancement needs explicit.'],['Support / release','Continuity','Coordinate verification and operational follow-through.']],
-  architecture:[['Interfaces','React / native apps','Web, Swift/iOS and Java/Android are part of the documented delivery stack.'],['Application / API','Python / Django','Backend specialists implement application and REST-service behaviour.'],['Database','Historical Heroku Postgres','Documented historical service, retired in June 2026. The current replacement is not identified here.'],['Content storage','S3','Documented storage for training content.'],['Distribution','CloudFront / access','Documented content-delivery work included a five-minute access token; implementation details are not reconstructed beyond the evidence.'],['Verification','QA / support','Delivery coordination connects issue priorities, tests and releases.']],
-  ownership:[['Client requests','Prioritization','Translate business and learning requests into work and decisions.'],['Incident recovery','Coordination','Align engineering, QA and client communication around recovery.'],['Access / reporting','Requirements','Coordinate access and reporting needs without taking sole credit for implementation.'],['Specialist teams','Dependencies','Make blockers and ownership visible.'],['QA / UAT','Validation','Coordinate tests and acceptance follow-up.'],['Continuity','Operation','Maintain support and enhancement follow-through.']]}},
- teojama:{name:'Teojama LMS',metric:'AWS / SCORM / ANDROID TEST APK',snapshot:'DEPLOYMENT AND TEST-READINESS VIEW / PRODUCTION ADOPTION NOT QUANTIFIED',outcome:'Deployment tracking and functional test preparation across login, groups, SCORM, progress and score workflows.',views:{
-  user:[['Access','Login','Validate the entry workflow.'],['Users / groups','Administration','Prepare user and group-management tests.'],['Course upload','SCORM ZIP','Validate content-upload and course workflows.'],['Learning activity','Playback','Connect content behaviour with the platform tests.'],['Progress / score','Tracking','Validate progress and grading requirements.'],['Acceptance','Test guide','Give reviewers an organized functional test path.']],
-  architecture:[['Web access','Own domain','Documented client-domain work and entry workflow.'],['Android app','Test APK','A test build supports mobile validation.'],['Backend service','Service availability','Backend/service availability was part of deployment follow-up; exact infrastructure topology is not asserted.'],['Client environment','AWS','Deployment on the client’s own AWS environment.'],['Content delivery','CloudFront / OAC','Documented distribution and origin-access-control configuration work.'],['Content / tracking','SCORM / scores','User/group management, upload, progress and score workflows are part of the test scope.']],
+  architecture:[['Interfaces','React / native apps','Web, Swift/iOS and Java/Android are part of the documented delivery stack.'],['Application / API','Python / Django','Backend specialists implement application and REST-service behavior.'],['Database','Historical Heroku Postgres','PostgreSQL service used during the project. Heroku Postgres was retired in June 2026; this view records that historical environment.'],['Content storage','S3','Documented storage for training content.'],['Distribution','CloudFront / access','Coordinate protected training-content delivery through CloudFront, including timed access.'],['Verification','QA / support','Delivery coordination connects issue priorities, tests and releases.']],
+  ownership:[['Client requests','Prioritization','Translate business and learning requests into work and decisions.'],['Incident recovery','Coordination','Align engineering, QA and client communication around recovery.'],['Access / reporting','Requirements','Coordinate access and reporting requirements with the specialists implementing them.'],['Specialist teams','Dependencies','Make blockers and ownership visible.'],['QA / UAT','Validation','Coordinate tests and acceptance follow-up.'],['Continuity','Operation','Maintain support and enhancement follow-through.']]}},
+ teojama:{name:'Teojama LMS',metric:'AWS / SCORM / ANDROID TEST APK',snapshot:'DEPLOYMENT & CLIENT ACCEPTANCE TESTING / AWS, SCORM AND ANDROID',outcome:'Deployment tracking and functional test preparation across login, groups, SCORM, progress and score workflows.',views:{
+  user:[['Access','Login','Validate the entry workflow.'],['Users / groups','Administration','Prepare user and group-management tests.'],['Course upload','SCORM ZIP','Validate content-upload and course workflows.'],['Learning activity','Playback','Connect content behavior with the platform tests.'],['Progress / score','Tracking','Validate progress and grading requirements.'],['Acceptance','Test guide','Give reviewers an organized functional test path.']],
+  architecture:[['Web access','Own domain','Documented client-domain work and entry workflow.'],['Android app','Test APK','A test build supports mobile validation.'],['Backend service','Service availability','Coordinate backend availability, deployment dependencies and readiness for functional testing.'],['Client environment','AWS','Deployment on the client’s own AWS environment.'],['Content delivery','CloudFront / OAC','Documented distribution and origin-access-control configuration work.'],['Content / tracking','SCORM / scores','User/group management, upload, progress and score workflows are part of the test scope.']],
   ownership:[['Requirements','Test scope','Make functional requirements and acceptance work visible.'],['Deployment','Coordination','Track environment readiness with specialists.'],['Content','SCORM ZIP','Coordinate upload and content-validation follow-up.'],['Mobile','Android testing','Connect test-build availability to the validation plan.'],['Verification','Progress / score','Organize tests across the key workflows.'],['Readiness','Client test guide','Prepare a usable acceptance-test path.']]}}
 };
 
@@ -96,7 +404,7 @@ function setNavigationChapter(page){
  $('#route-label').textContent='PM / '+page.toUpperCase();
 }
 function motionIsReduced(){return document.documentElement.classList.contains('reduce-motion')||matchMedia('(prefers-reduced-motion: reduce)').matches;}
-const disclosureRoutes={'team/hiring':'hiring-detail','team/voices':'team-voices','client/stakeholders':'stakeholder-detail-fold','delivery/change':'change-detail','delivery/creative':'creative-detail','systems/analytics':'analytics-detail'};
+const disclosureRoutes={'team/hiring':'hiring-detail','team/voices':'team-voices','systems/contact':'next-step','client/stakeholders':'stakeholder-detail-fold','delivery/change':'change-detail','delivery/creative':'creative-detail','systems/analytics':'analytics-detail'};
 function scrollToChapter(page,behavior,detail){
  if(page==='home'){window.scrollTo({top:0,behavior});return;}
  if(page==='cv'){const target=detail?$('#cv-'+detail):$('#cv');(target||$('#cv')).scrollIntoView({block:'start',behavior});return;}
@@ -140,7 +448,7 @@ function route({intent='history',force=false,restoreCase=false}={}){
   }
  }
  setNavigationChapter(page);previousPage=nextKey;previousExperience=experience;
- window.dispatchEvent(new CustomEvent('command-route',{detail:{page,experience,projectId,project:!!project}}));
+ window.dispatchEvent(new CustomEvent('command-route',{detail:{page,experience,projectId,project:!!project,caseId:project?.id}}));
 }
 function closeProject(){history.replaceState(null,'','#'+caseReturnChapter);route({restoreCase:true});}
 $('#close-project').addEventListener('click',closeProject);
@@ -169,7 +477,7 @@ $('.skip').addEventListener('click',e=>{e.preventDefault();$('#main').focus({pre
 // End navigation.
 function projectLink(id){return '#client/'+id;}
 function renderProject(p){
- $('#project-detail').innerHTML=`<button type="button" class="back-link" data-close-case>← BACK TO THE EXPERIENCE</button><div class="project-detail-header"><div>${tag(p.type)}<h2 id="project-modal-title">${esc(p.name)}</h2><p>${esc(p.summary)}</p><div class="case-tags">${p.tags.map(x=>`<span>${esc(x)}</span>`).join('')}</div></div>${projectArtwork(p)}</div><div class="project-metrics">${p.metrics.map(x=>`<div><strong>${esc(x[0])}</strong><span>${esc(x[1])}</span></div>`).join('')}</div><div class="case-body"><article><h2>The need.</h2><p>${esc(p.context)}</p></article><article><h2>My responsibility.</h2><p>${esc(p.role)}</p></article><article><h2>The people.</h2><p>${esc(p.team)}</p></article><article><h2>The delivery.</h2><p>${esc(p.delivery)}</p></article><article><h2>The result.</h2><p>${esc(p.outcome)}</p></article></div><section class="case-gallery" aria-label="Illustrated project views">${[1,2,3].map((n)=>`<figure><img src="assets/${p.id}-view-${n}.svg" alt="${esc(p.name)}: ${n===1?'project relationships':n===2?'delivery progression':'documented evidence'}" width="640" height="420" loading="lazy"><figcaption>${n===1?'The connections':n===2?'The progression':'The evidence'}</figcaption></figure>`).join('')}</section><p class="project-note">${esc(p.note)}</p><div class="project-next"><a class="button primary" href="${systemData[p.id]?'#systems/'+p.id:'#delivery'}">${systemData[p.id]?'EXPLORE THE SYSTEM':'EXPLORE DELIVERY'} ↗</a><a class="button" href="#team">MEET THE TEAM CONNECTIONS ↗</a><button type="button" class="button" data-copy-case="${p.id}">COPY CASE LINK ↗</button></div>`;
+ $('#project-detail').innerHTML=`<button type="button" class="back-link" data-close-case>← BACK TO THE EXPERIENCE</button><div class="project-detail-header"><div>${tag(p.type)}<h2 id="project-modal-title">${esc(p.name)}</h2><p>${esc(p.summary)}</p><div class="case-tags">${p.tags.map(x=>`<span>${esc(x)}</span>`).join('')}</div></div>${projectArtwork(p)}</div><div class="project-metrics">${p.metrics.map(x=>`<div><strong>${esc(x[0])}</strong><span>${esc(x[1])}</span></div>`).join('')}</div><div class="case-body"><article><h2>The need.</h2><p>${esc(p.context)}</p></article><article><h2>My responsibility.</h2><p>${esc(p.role)}</p></article><article><h2>The people.</h2><p>${esc(p.team)}</p></article><article><h2>The delivery.</h2><p>${esc(p.delivery)}</p></article><article><h2>The result.</h2><p>${esc(p.outcome)}</p></article></div><section class="case-gallery" aria-label="Illustrated project views">${[1,2,3].map((n)=>`<figure><img src="assets/${p.id}-view-${n}.svg" alt="${esc(p.name)}: ${n===1?'project relationships':n===2?'delivery progression':'project scope'}" width="640" height="420" loading="lazy"><figcaption>${n===1?'The connections':n===2?'The progression':'The scope'}</figcaption></figure>`).join('')}</section><p class="project-note">${esc(p.note)}</p><div class="project-next"><a class="button primary" href="${systemData[p.id]?'#systems/'+p.id:'#delivery'}">${systemData[p.id]?'EXPLORE THE SYSTEM':'EXPLORE DELIVERY'} ↗</a><a class="button" href="#team">MEET THE TEAM CONNECTIONS ↗</a><button type="button" class="button" data-copy-case="${p.id}">COPY CASE LINK ↗</button></div>`;
 }
 const projectSkills={hino:'Enablement & Training · Digital Platforms · Product Roadmaps · Engineering Coordination · QA/UAT',kpmg:'Creative Operations · Cross-functional Teams · Content Production · Stakeholders',kia:'Video Production · Branding · Review Cycles · Quality',edenred:'Enablement & Training · Platform Operations · Incident Coordination · Learning Technology · Client Delivery',teojama:'Learning Implementation · Deployment · SCORM · Acceptance Testing · Technical Coordination',costco:'Client Ownership · Proposals · Scope · Negotiation · Creative Delivery',mazda:'Training Delivery · Instructional Design · Technical Content · Stakeholder Review',recovery:'Incident Coordination · QA/UAT · Client Communication · Platform Operations',cph:'Storytelling · Creative Direction · Scripting · Production'};
 const coverLabels={hino:'Hino LMS',kpmg:'KPMG',kia:'Kia MKT',edenred:'Edenred',teojama:'Teojama LMS',costco:'Costco',mazda:'Mazda',recovery:'Platform recovery'};
@@ -178,17 +486,27 @@ $('#project-grid').innerHTML=galleryProjects.map((p,i)=>`<a class="project-card"
 function toast(text){$('#toast').textContent=text;$('#toast').hidden=false;setTimeout(()=>$('#toast').hidden=true,2600);}
 document.addEventListener('click',async e=>{if(e.target.closest('[data-close-case]')){closeProject();return;}const b=e.target.closest('[data-copy-case]');if(!b)return;try{await navigator.clipboard.writeText(location.origin+location.pathname+projectLink(b.dataset.copyCase));toast('Case link copied.');}catch{toast('Copy the case URL from your address bar.');}});
 
-// Testimonials are requested evidence, not invented endorsements.
+// The public carousel uses first-person working principles until approved quotes are supplied.
 let testimonialIndex=0;
-function renderTestimonial(){const t=testimonials[testimonialIndex];$('#testimonial-company').textContent=t.company+' / COLLABORATOR VOICE';$('#testimonial-index').textContent=String(testimonialIndex+1).padStart(2,'0')+' / 09';$('#testimonial-copy').innerHTML=`<span class="pending">TESTIMONIAL PENDING / PRIVATE REVIEW SLOT</span>${esc(t.focus)}`;$('#testimonial-person').innerHTML=esc(t.name)+`<small>Role and publishable wording to be confirmed</small>`;}
-$('#testimonial-prev').addEventListener('click',()=>{testimonialIndex=(testimonialIndex+8)%9;renderTestimonial();});$('#testimonial-next').addEventListener('click',()=>{testimonialIndex=(testimonialIndex+1)%9;renderTestimonial();});
+function renderTestimonial(){
+ const t=testimonials[testimonialIndex],approved=approvedTestimonials.length>0;
+ $('#testimonial-company').textContent=t.company+(approved?' / COLLABORATOR VOICE':' / HOW I WORK');
+ $('#testimonial-index').textContent=String(testimonialIndex+1).padStart(2,'0')+' / '+String(testimonials.length).padStart(2,'0');
+ $('#testimonial-copy').textContent=t.focus;
+ const route=t.case?projectLink(t.case):t.route;
+ $('#testimonial-person').innerHTML=esc(t.name)+(route?`<small><a href="${route}">${esc(t.context)} ↗</a></small>`:t.role?`<small>${esc(t.role)}</small>`:'');
+ $('#testimonial-prev').setAttribute('aria-label',approved?'Previous testimonial':'Previous working principle');
+ $('#testimonial-next').setAttribute('aria-label',approved?'Next testimonial':'Next working principle');
+}
+$('#testimonial-prev').addEventListener('click',()=>{testimonialIndex=(testimonialIndex+testimonials.length-1)%testimonials.length;renderTestimonial();});
+$('#testimonial-next').addEventListener('click',()=>{testimonialIndex=(testimonialIndex+1)%testimonials.length;renderTestimonial();});
 
 // Visitor configurations are a temporary exploration, reset when TEAM is left.
 let counts={},selectedPerson=0;
 function renderNetwork(){
  const listOpen=$('#people-network .network-specialty-list')?.open;
  $('#people-network').innerHTML=teamMapSVG(people,counts,selectedPerson)+`<details class="network-specialty-list"${listOpen?' open':''}><summary>CHOOSE A SPECIALTY <span>+</span></summary><div class="network-mobile" role="group" aria-label="Specialties">${people.map((p,i)=>{const n=teamMapCount(counts[p.id]);return `<button type="button" data-person="${i}" aria-pressed="${i===selectedPerson}">${esc(p.name)}${n?`<span class="count">${n.toLocaleString('en')} configured collaborators</span>`:''}</button>`;}).join('')}</div></details>`;
- const p=people[selectedPerson];$('#network-detail').innerHTML=tag(p.area)+`<h3>${esc(p.name)}</h3><p>${esc(p.detail)}</p><a href="${p.id==='specialty-15'?'#team':projectLink(p.case)}">${p.id==='specialty-15'?'People, talent and team readiness':'See related work'} ↗</a>`;
+ const p=people[selectedPerson];$('#network-detail').innerHTML=tag(p.area)+`<h3>${esc(p.name)}</h3><p>${esc(p.detail)}</p><a href="${p.id==='specialty-15'?'#team/hiring':projectLink(p.case)}">${p.id==='specialty-15'?'People, talent and team readiness':'See related work'} ↗</a>`;
  window.dispatchEvent(new CustomEvent('command-team-map'));
 }
 function setTeamCount(id,value){

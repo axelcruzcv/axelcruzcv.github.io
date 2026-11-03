@@ -1,0 +1,8 @@
+/* Production content and a persistent motion preference. */
+.footer-context{display:flex;align-items:center;gap:14px!important;min-width:0}
+.footer-context #route-label{font:500 8px/1.3 var(--mono);letter-spacing:.06em;color:#91aaa7;white-space:nowrap}
+#site-motion{border:1px solid #8dbdc144;border-radius:2px;background:transparent;color:#c6d8d5;font:500 8px/1.3 var(--mono);padding:9px 10px;min-height:40px;white-space:nowrap;cursor:pointer}
+#site-motion:hover,#site-motion[aria-pressed=true]{background:#8dbdc1;color:#0b131b}
+#team #testimonial-person small a{color:#375d73;text-underline-offset:3px}
+#team #testimonial-copy{min-height:64px}
+@media(max-width:600px){.footer-context{gap:8px!important}.footer-context #route-label{font-size:7px}#site-motion{font-size:7px;padding-inline:7px;min-height:44px}#team #testimonial-copy{min-height:72px}}
